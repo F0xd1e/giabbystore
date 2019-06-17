@@ -17,7 +17,7 @@ import DAOPackage.UserDAO;
 /**
  * Servlet implementation class DoLogin
  */
-@WebServlet("/Login")
+@WebServlet("/DoLogin")
 public class DoLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
        

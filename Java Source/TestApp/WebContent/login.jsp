@@ -30,7 +30,7 @@
 <body>
     <header>
         <div class = "container" style = "width: 90%; padding: 5px;">
-            <h2 style = "text-align: center;"><strong>LOGIN<strong></h2>
+            <h2 style = "text-align: center;"><strong>LOGIN</strong></h2>
             <hr/>
         </div>
     </header>

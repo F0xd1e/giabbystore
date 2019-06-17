@@ -30,7 +30,7 @@
 <body>
     <header>
         <div class = "container" style = "width: 90%; padding: 5px;">
-            <h2 style = "text-align: center;"><strong>SIGN UP<strong></h2>
+            <h2 style = "text-align: center;"><strong>SIGN UP</strong></h2>
             <hr/>
         </div>
     </header>
@@ -170,7 +170,18 @@
                     $("#city").addClass("error");
                 } else $("#city").removeClass("error");
             });
-
+            $("#address").focusout(function(){
+                var myBool = checkAddress($("#address").val());
+                if (myBool == false){
+                    $("#address").addClass("error");
+                } else $("#address").removeClass("error");
+            });
+            $("#email").focusout(function(){
+                var myBool = checkEmail($("#email").val());
+                if (myBool == false){
+                    $("#email").addClass("error");
+                } else $("#email").removeClass("error");
+            });
         });
         function checkWord(myStr){
             var regex = /^[a-zA-Z]+$/;
@@ -188,12 +199,22 @@
             else return false;
         }
         function checkCAP(myStr){
-            var regex = /^[0-9].{5}/;
+            var regex = /^[0-9]{5}/;
             if (myStr.match(regex)!=null) return true;
             else return false;
         }
         function checkAddress(myStr){
             var regex = /^[A-Za-z0-9 ,]+$/;
+            if (myStr.match(regex)!=null) return true;
+            else return false;
+        }
+        function checkMail(myStr){
+            var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+            if (myStr.match(regex)!=null) return true;
+            else return false;
+        }
+        function checkPhone(myStr){
+            var regex = /^[0-9]/;
             if (myStr.match(regex)!=null) return true;
             else return false;
         }

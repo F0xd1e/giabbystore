@@ -40,7 +40,7 @@ public class UserDAO {
 
 	}
 	
-	//salva UserBean nel database: se esiste già, lo sovrascrive
+	//salva UserBean nel database: se esiste giï¿½, lo sovrascrive
 	public void doSaveOrUpdate(UserBean usr) throws SQLException {
 
 		DatabaseConnector connector = new DatabaseConnector();
@@ -69,10 +69,10 @@ public class UserDAO {
 			myState.setBoolean(12, usr.isCanAccess());
 			myState.executeUpdate();
 		} else {
-			//nel caso già esista va aggiornato
+			//nel caso giï¿½ esista va aggiornato
 			PreparedStatement updateQuery = connector.getJdbcConnection()
 					.prepareStatement("update Utente set username = ? AND password = ? AND nome = ? AND cognome = ? AND indirizzo = ?" +
-							" AND città = ? AND cap = ? AND nazione = ? AND cellulare = ? AND email = ? AND isAdmin = ? AND canAccess = ?" +
+							" AND cittï¿½ = ? AND cap = ? AND nazione = ? AND cellulare = ? AND email = ? AND isAdmin = ? AND canAccess = ?" +
 							"where username = ?");
 			updateQuery.setString(1, usr.getUsername());
 			updateQuery.setString(2, usr.getPassword());
@@ -120,7 +120,7 @@ public class UserDAO {
 			String nome = container.getString("nome");
 			String cognome = container.getString("cognome");
 			String indirizzo = container.getString("indirizzo");
-			String citta = container.getString("città");
+			String citta = container.getString("cittï¿½");
 			String cap = container.getString("cap");
 			String nazione = container.getString("nazione");
 			String cellulare = container.getString("cellulare");
@@ -153,5 +153,23 @@ public class UserDAO {
 		return allBeans;
 		
 	}
+
+	public String checkUserExistence(String username, String password) throws SQLException, ClassNotFoundException, InstantiationException {
+
+		DatabaseConnector conn = new DatabaseConnector();
+		conn.startConnection();
+		PreparedStatement state = conn.getJdbcConnection().prepareStatement("SELECT * FROM Utente WHERE username LIKE ? AND password LIKE ?");
+		state.setString(1, username);
+		state.setString(2, password);
+
+		ResultSet container = state.executeQuery();
+
+		if (container.next() == true)
+			return username;
+		else
+			return null;
+
+	}
+
 	
 }

@@ -182,6 +182,18 @@
                     $("#email").addClass("error");
                 } else $("#email").removeClass("error");
             });
+            $("#phone").focusout(function(){
+                var myBool = checkPhone($("#phone").val());
+                if (myBool == false){
+                    $("#phone").addClass("error");
+                } else $("#phone").removeClass("error");
+            });
+            $("#cap").focusout(function(){
+                var myBool = checkCAP($("#cap").val());
+                if (myBool == false){
+                    $("#cap").addClass("error");
+                } else $("#cap").removeClass("error");
+            });
         });
         function checkWord(myStr){
             var regex = /^[a-zA-Z]+$/;
@@ -208,7 +220,7 @@
             if (myStr.match(regex)!=null) return true;
             else return false;
         }
-        function checkMail(myStr){
+        function checkEmail(myStr){
             var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
             if (myStr.match(regex)!=null) return true;
             else return false;

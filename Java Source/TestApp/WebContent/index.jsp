@@ -16,6 +16,15 @@
             top:0;
             position:sticky;
         }
+        body{
+            background-color:#383838;
+        }
+        #nb-header{
+            padding-left:12px;
+        }
+        #nb-header:hover{
+            background-color: #d1761d;
+        }
     </style>
 
 </head>
@@ -24,7 +33,7 @@
     <!--Navbar-->
     <nav id = "stickyBar" class = "navbar navbar-inverse">
         <div class = "container-fluid">
-            <div class = "navbar-header">
+            <div class = "navbar-header" id = "nb-header">
                 <a class="navbar-brand" href="./index.jsp">Giabby's Store</a>
             </div>
             <!--CATEGORIES-->
@@ -51,7 +60,7 @@
                     userSession = (String)session.getAttribute("user");
                     if (userSession == null){
                 %>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="./signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="./login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <%
                     } else {
@@ -68,6 +77,37 @@
     </nav>
     <!--End of navbar-->
 
+    <!--Section with products-->
+    <section id = "productSection">
+        <div class="row">
+            <div class="col-sm-3">
+                
+            </div>
+            <div class="col-sm-3">
+                
+            </div>
+            <div class="col-sm-3">
+                
+            </div>
+            <div class="col-sm-3">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                
+            </div>
+            <div class="col-sm-3">
+                
+            </div>
+            <div class="col-sm-3">
+                
+            </div>
+            <div class="col-sm-3">
+                
+            </div>
+        </div>
+    </section>
 
     <!--Footer-->
     

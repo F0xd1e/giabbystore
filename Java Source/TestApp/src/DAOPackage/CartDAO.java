@@ -59,7 +59,7 @@ public class CartDAO {
 			cartToReturn.setUserCode(username);
 			cartToReturn.setProductCode(prodotto);
 			allBeans.add(cartToReturn);
-			
+
 		}
 			
 		if (allBeans.size()==0) {

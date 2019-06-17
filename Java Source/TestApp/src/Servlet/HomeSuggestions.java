@@ -3,6 +3,7 @@ package Servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import DAOPackage.ProductDAO;
 import JavaBeans.ProductBean;
@@ -37,7 +39,7 @@ public class HomeSuggestions extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		JSONArray arr=new JSONArray();
+		
 		ProductDAO prod=new ProductDAO();
 		ArrayList<ProductBean> all=null;
 		try {
@@ -46,7 +48,8 @@ public class HomeSuggestions extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String json=getJSONSuggestions(all);
+		response.getWriter().write(json);
 	}
 
 	/**
@@ -55,6 +58,29 @@ public class HomeSuggestions extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	private String getJSONSuggestions(ArrayList<ProductBean> prod) {
+		Random index=new Random();
+		JSONArray arr=new JSONArray();
+		while(prod.size()>8) {
+			prod.remove(index.nextInt(prod.size()-1));
+		}
+		
+		for(ProductBean b : prod) {
+			JSONObject obj=new JSONObject();
+			double price;
+			String title, imgPath;
+			price=b.getPrice();
+			title=b.getTitle();
+			imgPath=b.getImgPath();
+			obj.put("price", price);
+			obj.put("title", title);
+			obj.put("imgPath", imgPath);
+			arr.put(obj);
+		}
+		
+		return arr.toString();
 	}
 
 }

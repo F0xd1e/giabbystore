@@ -63,7 +63,7 @@ public class DoLogin extends HttpServlet {
         if (result == null) {
         	
         	request.getRequestDispatcher("login.jsp").forward(request, response);
-        	response.sendRedirect("/index.jsp");
+        	//response.sendRedirect("/index.jsp");
             
             
         
@@ -104,7 +104,7 @@ public class DoLogin extends HttpServlet {
         	
         	response.addIntHeader("Success", 888); //Debug purposes
             response.sendRedirect("/index.jsp");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            //request.getRequestDispatcher("index.jsp").forward(request, response);
         }
  
             

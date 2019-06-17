@@ -129,7 +129,6 @@
     </section>
 
     <script>
-        //MANNAGG A MARONN E PUMPEI
         $(document).ready(function(){
             $("#username").focusout(function(){
                 var myBool = checkUsername($("#username").val());

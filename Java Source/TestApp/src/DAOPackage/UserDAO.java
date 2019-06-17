@@ -160,8 +160,9 @@ public class UserDAO {
 		conn.startConnection();
 		PreparedStatement state = conn.getJdbcConnection().prepareStatement("SELECT * FROM Utente WHERE username LIKE ? AND password LIKE ?");
 		state.setString(1, username);
+		System.err.println("Username" + username);
 		state.setString(2, password);
-
+		System.err.println("pwd" + password);
 		ResultSet container = state.executeQuery();
 
 		if (container.next() == true)

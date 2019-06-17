@@ -13,11 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAOPackage.UserDAO;
- 
-/**
- * Servlet implementation class DoLogin
- */
+
 @WebServlet("/DoLogin")
+
 public class DoLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
        
@@ -64,8 +62,9 @@ public class DoLogin extends HttpServlet {
         
         if (result == null) {
         	
+        	request.getRequestDispatcher("login.jsp").forward(request, response);
         	response.sendRedirect("/index.jsp");
-            throw new ServletException("Username e/o password non validi.");
+            
             
         
             
@@ -104,8 +103,8 @@ public class DoLogin extends HttpServlet {
         	}
         	
         	response.addIntHeader("Success", 888); //Debug purposes
-        	request.getRequestDispatcher("/index.jsp").forward(request, response);
             response.sendRedirect("/index.jsp");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
  
             

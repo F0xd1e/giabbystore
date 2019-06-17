@@ -7,8 +7,8 @@ import java.util.TimeZone;
 
 public class DatabaseConnector {
 	
-	private static String usernameDB = "root";
-	private static String passwordDB = "fbhsolol";
+	private static String usernameDB = "test";
+	private static String passwordDB = "kekko";
 	private String nameDB = "dbgiabby";
 	private String pathDB = "jdbc:mysql://localhost:3306/"+ nameDB +"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=" + TimeZone.getDefault().getID();
 	private Connection jdbcConnection = null;

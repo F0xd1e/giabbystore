@@ -17,7 +17,7 @@ import DAOPackage.UserDAO;
 /**
  * Servlet implementation class DoLogin
  */
-@WebServlet("/Login")
+@WebServlet("/DoLogin")
 public class DoLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
        
@@ -105,7 +105,7 @@ public class DoLogin extends HttpServlet {
         	
         	response.addIntHeader("Success", 888); //Debug purposes
         	request.getRequestDispatcher("/index.jsp").forward(request, response);
-            response.sendRedirect("/index.jsp");
+            response.sendRedirect("index.jsp");
         }
  
             

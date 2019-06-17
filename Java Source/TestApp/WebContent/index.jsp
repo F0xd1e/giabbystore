@@ -18,7 +18,7 @@
 <body>
     
     <!--Navbar-->
-    <nav id = "stickyBar" class = "navbar navbar-inverse">
+    <nav id = "stickyBar" class = "navbar navbar-inverse navbar-fixed-top" style = "margin-bottom: 10px;">
         <div class = "container-fluid">
             <div class = "navbar-header" id = "nb-header">
                 <a class="navbar-brand" href="./index.jsp">Giabby's Store</a>
@@ -77,29 +77,21 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="la.jpg" alt="Los Angeles" style="width:100%;">
-                </div>
-          
-                <div class="item">
-                    <img src="chicago.jpg" alt="Chicago" style="width:100%;">
-                </div>
-              
-                <div class="item">
-                    <img src="ny.jpg" alt="New york" style="width:100%;">
+                    <img src="./images/toDelete.jpg" alt="My Lambo" style="width:100%;">
                 </div>
             </div>
           
-              <!-- Left and right controls -->
-              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
                 <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
+            </a>
+        </div>
+    </div>
 
     <!--Section with products-->
     <div id = "productSection" class = "container-fluid">

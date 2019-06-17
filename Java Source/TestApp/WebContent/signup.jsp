@@ -192,6 +192,11 @@
             if (myStr.match(regex)!=null) return true;
             else return false;
         }
+        function checkAddress(myStr){
+            var regex = /^[A-Za-z0-9 ,]+$/;
+            if (myStr.match(regex)!=null) return true;
+            else return false;
+        }
     </script>
 
 </body>

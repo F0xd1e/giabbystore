@@ -36,7 +36,7 @@
     </header>
     <section>
         <div id = "divLogin" class = "rounded">
-            <form action = "DoLogin" method = "POST">
+            <form action = "/DoLogin" method = "POST">
                 <div class = "form-group">
                     <label>Username</label>
                     <input type="text" class="form-control" id="username" name="username">

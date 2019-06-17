@@ -40,7 +40,7 @@ public class UserDAO {
 
 	}
 	
-	//salva UserBean nel database: se esiste giï¿½, lo sovrascrive
+	//salva UserBean nel database: se esiste già, lo sovrascrive
 	public void doSaveOrUpdate(UserBean usr) throws SQLException {
 
 		DatabaseConnector connector = new DatabaseConnector();
@@ -169,6 +169,29 @@ public class UserDAO {
 		else
 			return null;
 
+	}
+	
+	
+	public boolean checkUserSecuritytClearance(String username) throws SQLException {
+		
+		DatabaseConnector conn = new DatabaseConnector();
+		conn.startConnection();
+		PreparedStatement state = conn.getJdbcConnection().prepareStatement("SELECT isAdmin FROM Utente WHERE username LIKE ?");
+		state.setString(1, username);
+		
+		ResultSet container = state.executeQuery();
+		
+		if (container.next() == false)	{
+			
+				System.out.println("Warning: empty resultset in servlet checkUserSecurityClearance, contact technical support asap.");
+				System.exit(0);
+		
+										}
+		
+		boolean result = container.getBoolean("isAdmin");
+		return result;
+		
+		
 	}
 
 	

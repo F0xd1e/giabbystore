@@ -6,10 +6,12 @@ import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+import javax.servlet.http.HttpSession;
+
 import DAOPackage.UserDAO;
  
 /**
@@ -24,7 +26,7 @@ public class DoLogin extends HttpServlet {
      */
     public DoLogin() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
  
     /**
@@ -49,29 +51,61 @@ public class DoLogin extends HttpServlet {
         } catch (SQLException e) {
             
             e.printStackTrace();
+            
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
+           
             e.printStackTrace();
+            
         } catch (InstantiationException e) {
-            // TODO Auto-generated catch block
+           
             e.printStackTrace();
         }
         
         
         if (result == null) {
-        
+        	
+        	response.sendRedirect("/index.jsp");
             throw new ServletException("Username e/o password non validi.");
             
         
             
         }
+        
+        	HttpSession newsess = request.getSession();
+        	boolean permithandler=false;
+        	UserDAO checkinguser = new UserDAO();
+        				try {
+        						permithandler = checkinguser.checkUserSecuritytClearance(result);
+        									
+        									} catch (SQLException e) {
+				
+        					e.printStackTrace();
+        					}
             
-            request.getSession().setAttribute("user", result);
-            String dest = request.getHeader("referer");
-            if (dest == null || dest.contains("/Login") || dest.trim().isEmpty()) {
-                dest = ".";
-            }
-            response.sendRedirect(dest);
+        	if (permithandler == true) {
+        		
+        		newsess.setAttribute("admin", result);
+        		Cookie idCookie = new Cookie("name",result);  // Cookies if admin
+        		Cookie sessiontracking = new Cookie("sessid", newsess.getId());
+        		idCookie.setMaxAge(60*60*2);  //Admin has less cookie durability due to security operations
+        		sessiontracking.setMaxAge(60*60*2); // As ^ 
+            	response.addCookie(idCookie);
+            	response.addCookie(sessiontracking);
+        		
+        	} else {
+        		
+        		newsess.setAttribute("user", result);
+        		Cookie idCookie = new Cookie("name",result);  // Cookies if regular user
+        		Cookie sessiontracking = new Cookie("sessid", newsess.getId());
+        		idCookie.setMaxAge(60*60*48);
+        		sessiontracking.setMaxAge(60*60*48);
+            	response.addCookie(idCookie);
+            	response.addCookie(sessiontracking);
+        	}
+        	
+        	response.addIntHeader("Success", 888); //Debug purposes
+        	request.getRequestDispatcher("/index.jsp").forward(request, response);
+            response.sendRedirect("/index.jsp");
         }
  
             

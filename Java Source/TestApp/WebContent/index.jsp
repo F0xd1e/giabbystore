@@ -52,14 +52,14 @@
                     }
                     if (userSession == null) {
                 %>
-                    <li><a href="./signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="./login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li class = "changeColor"><a href="./signup.jsp"><span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Sign Up</a></li>
+                    <li class = "changeColor"><a href="./login.jsp"><span class="glyphicon glyphicon-log-in" style = "margin-right: 5px;"></span> Login</a></li>
                 <%
                     } else {
                 %>
-                	<li><a href="#"> <span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=userSession%></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-                    <li><a href="#" id="spanLogOut"><span class="glyphicon glyphicon-log-out" style = "margin-right: 3px;"></span></a></li>
+                	<li class = "changeColor"><a href="#"> <span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=userSession%></a></li>
+                    <li class = "changeColor"><a href="#"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize"></span> <span class = "hide-resize">Cart</span></a></li>
+                    <li class = "changeColor"><a href="#" id="spanLogOut"><span class="glyphicon glyphicon-log-out" class = "gl-resize" style = "margin-right: 3px;"></span> <span class = "hide-resize-d">Logout</span></a></li>
                 <%
                     }
                 %>
@@ -215,6 +215,7 @@
         $(document).ready(function(){
             $("#spanLogOut").click(function(){
                 $.get("DoLogout",function(data, status){
+                    window.location.reload(false);
                     return;
                 });
             });

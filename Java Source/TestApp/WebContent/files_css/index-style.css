@@ -8,7 +8,7 @@ body{
 #nb-header{
     padding-left:12px;
 }
-#nb-header:hover{
+.changeColor:hover{
     background-color: #d1761d;
 }
 .item-container{

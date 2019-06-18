@@ -42,10 +42,15 @@
                 -->
                 <%!
                     String userSession = null;
+                    String adminSession = null;
                 %>
                 <%
                     userSession = (String)session.getAttribute("user");
-                    if (userSession == null){
+                    adminSession = (String)session.getAttribute("admin");
+                    if (adminSession != null) {
+                        userSession = adminSession;
+                    }
+                    if (userSession == null) {
                 %>
                     <li><a href="./signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="./login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

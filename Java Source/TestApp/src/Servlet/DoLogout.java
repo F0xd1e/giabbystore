@@ -89,6 +89,8 @@ public class DoLogout extends HttpServlet {
 	    			dest = ".";
 	    		}
 	    		
+	    		response.sendRedirect(dest);
+	    		
 	    		
 	    	
 			
@@ -102,7 +104,7 @@ public class DoLogout extends HttpServlet {
     		if (dest == null || dest.contains("/DoLogout") || dest.trim().isEmpty()) {
     			dest = ".";
     		}
-    		//response.sendRedirect(dest);
+    		response.sendRedirect(dest);
     		return;
     	}
 			

@@ -1,0 +1,50 @@
+#divLogin{
+    margin-right:20%;
+    margin-left:20%;
+}
+#divSignUp{
+    margin-right:15%;
+    margin-left:15%;
+}
+#btnSubmit{
+    margin-left:70%;
+    margin-bottom:20px;
+}
+#btnReset{
+    margin-right:70%;
+    margin-bottom:20px;
+}
+#productSection{
+    margin-right:1%;
+    margin-left:1%;
+}
+@media screen and (max-width: 1000px) and (min-width: 600px){
+    #divLogin{
+        margin-right:15%;
+        margin-left:15%;
+    }
+    #divSignUp{
+        margin-right:12%;
+        margin-left:12%;
+    }
+}
+@media screen and (max-width: 599px){
+    #divLogin{
+        margin-right:10%;
+        margin-left:10%;
+    }
+    #divSignUp{
+        margin-right:8%;
+        margin-left:8%;
+    }
+}
+@media screen and (max-width: 767px){
+    #btnSubmit{
+        margin-left:0%;
+        margin-bottom:10px;
+    }
+    #btnReset{
+        margin-right:0%;
+        margin-bottom:10px;
+    }
+}

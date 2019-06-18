@@ -1,0 +1,35 @@
+#stickyBar{
+    top:0;
+    position:sticky;
+}
+body{
+    background-color:#383838;
+}
+#nb-header{
+    padding-left:12px;
+}
+#nb-header:hover{
+    background-color: #d1761d;
+}
+.item-container{
+    margin-bottom: 5px;
+    margin-right: 0px;
+    padding: 0px;
+    background-color: #d1761d;
+    color: #222222;
+    border: solid 2px #222222;
+}
+.item-header{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 3px 8px 3px 8px;
+    border-bottom: solid 1px #222222;
+}
+.item-footer{
+    font-size: 12px;
+    padding: 3px 8px 3px 8px;
+    border-top: solid 1px #222222;
+}
+.item-img-field{
+    background-color: white;
+}

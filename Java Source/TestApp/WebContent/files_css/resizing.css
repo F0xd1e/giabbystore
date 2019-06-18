@@ -20,6 +20,15 @@
     margin-top: 15px;
     margin-bottom: 20px;
 }
+.hide-resize{
+    display: none;
+}
+.hide-resize-d{
+    display: none;
+}
+.gl-resize{
+    margin-right: 0px;
+}
 @media screen and (max-width: 1000px) and (min-width: 600px){
     #divLogin{
         margin-right:15%;
@@ -40,6 +49,7 @@
         margin-left:8%;
     }
 }
+/*RESIZE DELL'INTERA PAGINA*/
 @media screen and (max-width: 767px){
     #btnSubmit{
         margin-left:0%;
@@ -48,5 +58,13 @@
     #btnReset{
         margin-right:0%;
         margin-bottom:10px;
+    }
+    .hide-resize{
+        display: inline;
+        margin-left:8px;
+    }
+    .hide-resize-d{
+        display: inline;
+        margin-left:6px;
     }
 }

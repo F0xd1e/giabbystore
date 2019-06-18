@@ -45,10 +45,14 @@ public class DoLogout extends HttpServlet {
 			
 			String allog="You are not logged in.";
 			request.setAttribute("alreadylog", allog);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-			return;
+    		String dest = "index.jsp";
+    		if (dest == null || dest.contains("/DoLogout") || dest.trim().isEmpty()) {
+    			dest = ".";
+    		}
+    		response.sendRedirect(dest);
+    	}
 			
-		}
+	
 		
 		
 		
@@ -62,9 +66,12 @@ public class DoLogout extends HttpServlet {
 				response.addCookie(sessiontracking);
 				request.getSession().invalidate();
 				request.setAttribute("logoutmessage", logmessage);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-				return;
-			
+	    		String dest = "index.jsp";
+	    		if (dest == null || dest.contains("/DoLogout") || dest.trim().isEmpty()) {
+	    			dest = ".";
+	    		}
+	    		response.sendRedirect(dest);
+	    		return;
 			
 		} else if ( request.getSession().getAttribute("user")== null)  { //Admin session
 			
@@ -77,9 +84,13 @@ public class DoLogout extends HttpServlet {
 				response.addCookie(sessiontracking);
 				request.getSession().invalidate();
 				request.setAttribute("logadminmessage", logmessage);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-				return;
-			
+	    		String dest = "index.jsp";
+	    		if (dest == null || dest.contains("/DoLogout") || dest.trim().isEmpty()) {
+	    			dest = ".";
+	    		}
+	    		
+	    		
+	    	
 			
 			
 		} else { // Admin flag== true AND User flag == true, should never occur
@@ -87,8 +98,14 @@ public class DoLogout extends HttpServlet {
 			
 			System.out.println("This is some fucked up shit. You can't be both admin and user at the same time. Call DevOps ASAP.");
 			request.setAttribute("fatalerr", logmessage);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-			return;
+    		String dest = "index.jsp";
+    		if (dest == null || dest.contains("/DoLogout") || dest.trim().isEmpty()) {
+    			dest = ".";
+    		}
+    		//response.sendRedirect(dest);
+    		return;
+    	}
+			
 			
 		}
 	    
@@ -98,6 +115,5 @@ public class DoLogout extends HttpServlet {
 		
 	}
 	
-}
 
 

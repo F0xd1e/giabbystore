@@ -110,10 +110,13 @@ public class DoLogin extends HttpServlet {
         	}
         	
         	response.addIntHeader("Success", 888); //Debug purposes
-        	request.getRequestDispatcher("/index.jsp").forward(request, response);
+    		String dest = "index.jsp";
+    		if (dest == null || dest.contains("/DoLogin") || dest.trim().isEmpty()) {
+    			dest = ".";
+    		}
+    		response.sendRedirect(dest);
+    		return;
+    	}
             
         }
  
-            
- 
-    }

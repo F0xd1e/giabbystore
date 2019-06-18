@@ -104,13 +104,13 @@
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
                 <div class = "container-fluid rounded item-container">
                     <div class = "item-header">
-                        TITLE
+                        Nintendo 3DS
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive" src = "./images/product_3ds.png" alt = "image to set">
                     </div>
                     <div class = "item-footer">
-                        PRICE
+                        $80,00
                     </div>
                 </div>
             </div>

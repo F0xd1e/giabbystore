@@ -24,6 +24,9 @@
         .notDisplayed{
             display: none;
         }
+        .errorText{
+            color: red;
+        }
     </style>
 
 </head>
@@ -48,6 +51,15 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            <p class = "errorText" style = "margin-top:20px;">
+            	<%
+            		if (request.getAttribute("errms") != null){
+            	%>
+            	<%=request.getAttribute("errms") %>
+            	<%
+            		}
+            	%>
+            </p>
         </div>
     </section>
 

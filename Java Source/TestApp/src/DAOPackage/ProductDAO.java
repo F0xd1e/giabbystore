@@ -36,7 +36,7 @@ public class ProductDAO {
 
 	}
 	
-	//salva ProductBean nel database: se esiste già, lo sovrascrive
+	//salva ProductBean nel database: se esiste giï¿½, lo sovrascrive
 	public void doSaveOrUpdate(ProductBean prod) throws SQLException {
 
 		DatabaseConnector connector = new DatabaseConnector();
@@ -62,10 +62,10 @@ public class ProductDAO {
 			myState.setString(8, prod.getImgPath());
 			myState.executeUpdate();
 		} else {
-			//nel caso già esista va aggiornato
+			//nel caso giï¿½ esista va aggiornato
 			PreparedStatement myState = connector.getJdbcConnection()
 					.prepareStatement("update Prodotto set codiceProdotto = ? AND titolo = ? AND descrizione = ? AND tipologia = ? AND " +
-							"prezzo = ? AND disponibilità = ? AND spedizione = ? AND imgPath = ?" +
+							"prezzo = ? AND disponibilitï¿½ = ? AND spedizione = ? AND imgPath = ?" +
 							"where codiceProdotto = ?");
 			myState.setString(1, prod.getProductCode());
 			myState.setString(2, prod.getTitle());
@@ -109,7 +109,7 @@ public class ProductDAO {
 			String descrizione = container.getString("descrizione");
 			String tipologia = container.getString("tipologia");
 			double prezzo = container.getDouble("prezzo");
-			int disp = container.getInt("disponibilità");
+			int disp = container.getInt("disponibilitï¿½");
 			int spedizione = container.getInt("spedizione");
 			String imgPath = container.getString("imgPath");
 			ProductBean prod = new ProductBean();
@@ -133,6 +133,32 @@ public class ProductDAO {
 		connector.closeConnection();
 		return allBeans;
 		
+	}
+	
+	public ProductBean doRetrieveProductByID(String id) throws SQLException {
+		ProductBean prod=null;
+		DatabaseConnector conn=new DatabaseConnector();
+		conn.startConnection();
+		PreparedStatement stateAll = conn.getJdbcConnection()
+				.prepareStatement("SELECT * FROM Prodotto WHERE codiceProdotto = ?");
+		stateAll.setString(1, id);
+		ResultSet container = stateAll.executeQuery();
+		if(container.next()!=false) {
+			String productCode=container.getString("codiceProdotto"), title=container.getString("titolo"), description=container.getString("descrizione"), tipology=container.getString("tipologia"), imgPath=container.getString("imgPath");
+			double price=container.getDouble("prezzo");
+			int availability=container.getInt("disponibilitÃ "), shipment=container.getInt("spedizione");
+			prod=new ProductBean();
+			prod.setProductCode(productCode);
+			prod.setTitle(title);
+			prod.setDescription(description);
+			prod.setTipology(tipology);
+			prod.setImgPath(imgPath);
+			prod.setPrice(price);
+			prod.setAvailability(availability);
+			prod.setShipment(shipment);
+		}
+			
+		return prod;
 	}
 	
 }

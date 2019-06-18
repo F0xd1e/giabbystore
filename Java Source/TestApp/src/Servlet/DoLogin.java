@@ -86,6 +86,7 @@ public class DoLogin extends HttpServlet {
         	if (permithandler == true) {
         		
         		newsess.setAttribute("admin", result);
+        		newsess.setAttribute("user", null);
         		Cookie idCookie = new Cookie("name",result);  // Cookies if admin
         		Cookie sessiontracking = new Cookie("sessid", newsess.getId());
         		idCookie.setMaxAge(60*60*2);  //Admin has less cookie durability due to security operations
@@ -94,7 +95,7 @@ public class DoLogin extends HttpServlet {
             	response.addCookie(sessiontracking);
         		
         	} else {
-        		
+        		newsess.setAttribute("admin", null);
         		newsess.setAttribute("user", result);
         		Cookie idCookie = new Cookie("name",result);  // Cookies if regular user
         		Cookie sessiontracking = new Cookie("sessid", newsess.getId());

@@ -215,6 +215,7 @@
         $(document).ready(function(){
             $("#spanLogOut").click(function(){
                 $.get("DoLogout",function(data, status){
+                	
                     return;
                 });
             });

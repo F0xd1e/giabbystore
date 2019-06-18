@@ -62,14 +62,13 @@ public class DoLogin extends HttpServlet {
         }
         
         
-        if (result == null) {
+        if (result == null) {   // Login failed
         	
-        	throw new ServletException();
-        	//response.sendRedirect("/index.jsp");
-            
-            
-        
-            
+        	
+        	String errmessage="Username and/or password are incorrect. Please retry. ";
+        	request.setAttribute("errms", errmessage);
+        	request.getRequestDispatcher("login.jsp").forward(request, response);
+      
         }
         
         	HttpSession newsess = request.getSession();

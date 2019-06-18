@@ -183,8 +183,8 @@ public class UserDAO {
 		
 		if (container.next() == false)	{
 			
-				System.out.println("Warning: empty resultset in servlet checkUserSecurityClearance, contact technical support asap.");
-				System.exit(0);
+				System.out.println("FATAL ERROR: empty resultset in servlet checkUserSecurityClearance, contact technical support asap.");
+				System.exit(-1);
 		
 										}
 		

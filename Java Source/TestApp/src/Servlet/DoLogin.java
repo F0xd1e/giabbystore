@@ -68,6 +68,7 @@ public class DoLogin extends HttpServlet {
         	String errmessage="Username and/or password are incorrect. Please retry. ";
         	request.setAttribute("errms", errmessage);
         	request.getRequestDispatcher("login.jsp").forward(request, response);
+        	return;
       
         }
         

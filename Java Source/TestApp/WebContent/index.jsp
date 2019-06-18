@@ -18,14 +18,14 @@
 <body>
     
     <!--Navbar-->
-    <nav id = "stickyBar" class = "navbar navbar-inverse navbar-fixed-top" style = "margin-bottom: 10px;">
+    <nav id = "stickyBar" class = "navbar navbar-inverse navbar-fixed-top" style = "margin-bottom: 15px;">
         <div class = "container-fluid">
-            <div class = "navbar-header" id = "nb-header">
+            <div class = "navbar-header changeColor" id = "nb-header">
                 <a class="navbar-brand" href="./index.jsp">Giabby's Store</a>
             </div>
             <!--CATEGORIES-->
             <ul class="nav navbar-nav">
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
+                <li class="dropdown changeColor"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret" style = "margin-left:6px;"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Hard Disk</a></li>
                         <li><a href="#">Processors</a></li>
@@ -57,9 +57,9 @@
                 <%
                     } else {
                 %>
-                	<li> Welcome, <%=userSession%></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                	<li><a href="#"> <span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=userSession%></a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="#" id="spanLogOut"><span class="glyphicon glyphicon-log-out" style = "margin-right: 3px;"></span></a></li>
                 <%
                     }
                 %>
@@ -210,8 +210,16 @@
         </div>
     </div>
 
-    <!--Footer-->
-    
+    <!--Script-->
+    <script>
+        $(document).ready(function(){
+            $("#spanLogOut").click(function(){
+                $.get("DoLogout",function(data, status){
+                    return;
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>

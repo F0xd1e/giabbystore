@@ -64,8 +64,9 @@ public class DoLogin extends HttpServlet {
         
         if (result == null) {
         	
+        	throw new ServletException();
         	//response.sendRedirect("/index.jsp");
-            throw new ServletException("Username e/o password not valid.");
+            
             
         
             

@@ -44,7 +44,7 @@
                 <div class = "form-group">
                     <label>Password</label>
                     <input type="password" class="form-control" id="password" name="password">
-                    <p id = "errMsg" class = "notDisplayed" style = "margin-top:12px;">Password must contain at least a lowercase letter, an uppercase letter and a number</p>
+                    <p id = "errMsg" class = "notDisplayed" style = "margin-top:12px;">Password must contain at least a lowercase letter, an uppercase letter, a number and at least 8 keys.</p>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>

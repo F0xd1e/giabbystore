@@ -36,7 +36,7 @@ CREATE TABLE Prodotto (
     descrizione varchar(500) not null,
     tipologia varchar(30) not null,
     prezzo decimal(7,2) not null, /*ESEMPIO PREZZO: XXXXX,YY*/
-    disponibilità decimal(3) not null, /*RANGE DISPONIBILITÀ: 0 to 999*/
+    disponibilita decimal(3) not null, /*RANGE DISPONIBILITÀ: 0 to 999*/
     spedizione decimal(2) not null, /*RANGE GIORNI SPEDIZIONE: 1 to 99*/
     imgPath varchar(100) not null
 );

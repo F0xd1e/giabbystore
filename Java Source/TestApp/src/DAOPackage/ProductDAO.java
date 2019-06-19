@@ -65,7 +65,7 @@ public class ProductDAO {
 			//nel caso gi� esista va aggiornato
 			PreparedStatement myState = connector.getJdbcConnection()
 					.prepareStatement("update Prodotto set codiceProdotto = ? AND titolo = ? AND descrizione = ? AND tipologia = ? AND " +
-							"prezzo = ? AND disponibilit� = ? AND spedizione = ? AND imgPath = ?" +
+							"prezzo = ? AND disponibilita = ? AND spedizione = ? AND imgPath = ?" +
 							"where codiceProdotto = ?");
 			myState.setString(1, prod.getProductCode());
 			myState.setString(2, prod.getTitle());
@@ -109,7 +109,7 @@ public class ProductDAO {
 			String descrizione = container.getString("descrizione");
 			String tipologia = container.getString("tipologia");
 			double prezzo = container.getDouble("prezzo");
-			int disp = container.getInt("disponibilit�");
+			int disp = container.getInt("disponibilita");
 			int spedizione = container.getInt("spedizione");
 			String imgPath = container.getString("imgPath");
 			ProductBean prod = new ProductBean();
@@ -146,7 +146,7 @@ public class ProductDAO {
 		if(container.next()!=false) {
 			String productCode=container.getString("codiceProdotto"), title=container.getString("titolo"), description=container.getString("descrizione"), tipology=container.getString("tipologia"), imgPath=container.getString("imgPath");
 			double price=container.getDouble("prezzo");
-			int availability=container.getInt("disponibilità"), shipment=container.getInt("spedizione");
+			int availability=container.getInt("disponibilita"), shipment=container.getInt("spedizione");
 			prod=new ProductBean();
 			prod.setProductCode(productCode);
 			prod.setTitle(title);

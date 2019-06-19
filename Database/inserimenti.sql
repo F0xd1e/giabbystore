@@ -18,10 +18,10 @@ insert into Prodotto values ("PRD0000003", "Nintendo Switch", "Portable console"
 insert into Prodotto values ("PRD0000004", "Huawei Honor", "Huauwei smartphone", "Smartphone", 400.99, 74, 10, "./images/product_honor.png");
 insert into Prodotto values ("PRD0000005", "IPhone X 64GB", "IPhone smartphone", "Smartphone", 999.0, 147, 10, "./images/product_iphone.png");
 insert into Prodotto values ("PRD0000006", "OnePlus 7 64GB", "OnePlus smartphone", "Smartphone", 700.0, 86, 6, "./images/product_oneplus.png");
-insert into Prodotto values ("PRD0000004", "Televisore LG043256", "LG television for all kind of uses", "Television",2000.0, 74, 10, "./images/product_tvlg.png");
-insert into Prodotto values ("PRD0000005", "Televisore Samsung L408393", "Samsung panel with crisp visuals", "Television", 2100.00, 147, 10, "./images/product_tvsamsung.png");
-insert into Prodotto values ("PRD0000006", "Televisore Philips R405548", "Philips television with OLED technology", "Television", 3045.90, 86, 6, "./images/product_tvphilips.png");
-insert into Prodotto values ("PRD0000004", "Hitachi Wand", "Handheld massager for all kind of uses", "Miscellaneous", 250.50, 74, 10, "./images/product_hitachi.png");
+insert into Prodotto values ("PRD0000007", "Televisore LG043256", "LG television for all kind of uses", "Television",2000.0, 74, 10, "./images/product_tvlg.png");
+insert into Prodotto values ("PRD0000008", "Televisore Samsung L408393", "Samsung panel with crisp visuals", "Television", 2100.00, 147, 10, "./images/product_tvsamsung.png");
+insert into Prodotto values ("PRD0000009", "Televisore Philips R405548", "Philips television with OLED technology", "Television", 3045.90, 86, 6, "./images/product_tvphilips.png");
+insert into Prodotto values ("PRD0000010", "Hitachi Wand", "Handheld massager for all kind of uses", "Miscellaneous", 250.50, 74, 10, "./images/product_hitachi.png");
 
 /*
 	INSERIMENTO DEI CARRELLI

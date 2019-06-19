@@ -99,28 +99,21 @@
     </div>
 
     <!--Section with products-->
+    <!--
+        div -> target
+        title -> item-header
+        img -> target-img
+        price -> item-footer
+    -->
     <div id = "productSection" class = "container-fluid">
         <div class="row">
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
-                    <div class = "item-header">
-                        Nintendo 3DS
-                    </div>
-                    <div class = "item-img-field">
-                        <img class = "img-responsive" src = "./images/product_3ds.png" alt = "image to set">
-                    </div>
-                    <div class = "item-footer">
-                        $80,00
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
+                <div class = "container-fluid rounded item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -128,12 +121,12 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
+                <div class = "container-fluid rounded item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -141,12 +134,25 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
+                <div class = "container-fluid rounded item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                    </div>
+                    <div class = "item-footer">
+                        PRICE
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <div class = "container-fluid rounded item-container target">
+                    <div class = "item-header">
+                        TITLE
+                    </div>
+                    <div class = "item-img-field">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -156,12 +162,12 @@
         </div>
         <div class="row">
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
+                <div class = "container-fluid rounded item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -169,12 +175,12 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
+                <div class = "container-fluid rounded item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -182,12 +188,12 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
+                <div class = "container-fluid rounded item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -195,12 +201,12 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container">
+                <div class = "container-fluid rounded item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -210,11 +216,29 @@
         </div>
     </div>
 
+    <!--
+        div -> target
+        title -> item-header
+        img -> target-img
+        price -> item-footer
+    -->
     <!--Script-->
     <script>
         $(document).ready(function(){
+            $.get("HomeSuggestions",function(data, status){
+                var suggestions = JSON.parse(data);
+                var index = 0;
+                $(".target").each(function(){
+                    var title = suggestions[index].title, path = suggestions[index].imgPath, price = suggestions[index].price;
+                    $(this).find("div[class=item-header]").html(title);
+                    $(this).find("img[class=target-img]").attr("src", path);
+                    $(this).find("div[class=item-footer]").html(price.toString());
+                    index++;
+                });
+            });
             $("#spanLogOut").click(function(){
                 $.get("DoLogout",function(data, status){
+                    alert(status);
                     window.location.reload(false);
                     return;
                 });

@@ -36,7 +36,7 @@
     </header>
     <section>
         <div id = "divSignUp" class = "rounded">
-            <form id="formcheck" action = "http://www.google.com" method = "POST">
+            <form id="formcheck" action = "DoSignUp" method = "POST">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class = "form-group">

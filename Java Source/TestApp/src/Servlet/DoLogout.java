@@ -83,7 +83,7 @@ public class DoLogout extends HttpServlet {
 				response.addCookie(idCookie);
 				response.addCookie(sessiontracking);
 				request.getSession().invalidate();
-				request.setAttribute("logadminmessage", logmessage);
+				request.setAttribute("logadminmessage", logadminmessage);
 	    		String dest = "index.jsp";
 	    		if (dest == null || dest.contains("/DoLogout") || dest.trim().isEmpty()) {
 	    			dest = ".";
@@ -99,7 +99,7 @@ public class DoLogout extends HttpServlet {
 			
 			
 			System.out.println("This is some fucked up shit. You can't be both admin and user at the same time. Call DevOps ASAP.");
-			request.setAttribute("fatalerr", logmessage);
+			request.setAttribute("fatalerr", fatalerr);
     		String dest = "index.jsp";
     		if (dest == null || dest.contains("/DoLogout") || dest.trim().isEmpty()) {
     			dest = ".";

@@ -19,7 +19,7 @@ CREATE TABLE Utente (
     nome varchar(20) not null,
     cognome varchar(20) not null,
     indirizzo varchar(40) not null,
-    città varchar(30) not null,
+    citta varchar(30) not null,
     cap char(5) not null,
     nazione varchar(20) not null,
     cellulare varchar(20) not null,

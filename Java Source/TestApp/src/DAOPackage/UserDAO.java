@@ -72,7 +72,7 @@ public class UserDAO {
 			//nel caso gi� esista va aggiornato
 			PreparedStatement updateQuery = connector.getJdbcConnection()
 					.prepareStatement("update Utente set username = ? AND password = ? AND nome = ? AND cognome = ? AND indirizzo = ?" +
-							" AND citt� = ? AND cap = ? AND nazione = ? AND cellulare = ? AND email = ? AND isAdmin = ? AND canAccess = ?" +
+							" AND citta = ? AND cap = ? AND nazione = ? AND cellulare = ? AND email = ? AND isAdmin = ? AND canAccess = ?" +
 							"where username = ?");
 			updateQuery.setString(1, usr.getUsername());
 			updateQuery.setString(2, usr.getPassword());
@@ -120,7 +120,7 @@ public class UserDAO {
 			String nome = container.getString("nome");
 			String cognome = container.getString("cognome");
 			String indirizzo = container.getString("indirizzo");
-			String citta = container.getString("citt�");
+			String citta = container.getString("citta");
 			String cap = container.getString("cap");
 			String nazione = container.getString("nazione");
 			String cellulare = container.getString("cellulare");

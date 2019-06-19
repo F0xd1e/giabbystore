@@ -23,28 +23,13 @@
     <%
         userSession = (String)session.getAttribute("user");
         adminSession = (String)session.getAttribute("admin");
-        if (userSession == null && adminSession == null) {
+        if (userSession != null && adminSession == null) {
     %>
-        <header>
-            <div class = "container" style = "width: 90%; padding: 5px;">
-                <h2 style = "text-align: center; color: white;"><strong>YOU HAVE TO LOGIN TO GAIN ACCESS TO THIS PAGE</strong></h2>
-                <hr/>
-            </div>
-        </header>
-        <section>
-            <div id = "div-buttons-redirect" class = "container">
-                <span style = "border: solid 2px red;" class = "btnSpan">
-                    <!--<button type="button" class="btn btn-default myBtn" id="btn-home"><p class = "btn-innerText">Home</p></button>-->
-                </span>
-                <span style = "border: solid 2px blue;" class = "btnSpan">
-                    <!--<button type="button" class="btn btn-default myBtn" id="btn-login"><p class = "btn-innerText">Login</p></button>-->
-                </span>
-            </div>
-        </section>
+        <!-- USER PANEL -->
     <%
         } else {
     %>
-        
+        <!-- ADMIN PANEL -->
     <%
         }
     %>

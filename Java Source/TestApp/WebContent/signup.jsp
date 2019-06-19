@@ -28,8 +28,16 @@
 
 </head>
 <body>
+    <!--NAV WITH BUTTON TO RETURN TO INDEX-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a style = "padding-left:10px;" class="navbar-brand" href="./index.jsp">Return to index</a>
+            </div>
+        </div>
+    </nav>
     <header>
-        <div class = "container" style = "width: 90%; padding: 5px;">
+        <div class = "container" style = "width: 90%; padding: 5px; margin-top:50px;">
             <h2 style = "text-align: center;"><strong>SIGN UP</strong></h2>
             <hr/>
         </div>

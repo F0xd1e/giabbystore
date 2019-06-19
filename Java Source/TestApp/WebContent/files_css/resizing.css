@@ -29,6 +29,7 @@
 .gl-resize{
     margin-right: 0px;
 }
+
 @media screen and (max-width: 1000px) and (min-width: 600px){
     #divLogin{
         margin-right:15%;

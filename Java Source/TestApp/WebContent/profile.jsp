@@ -15,6 +15,15 @@
 
 </head>
 <body>
+
+    <!--NAV WITH BUTTON TO RETURN TO INDEX-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a style = "padding-left:10px;" class="navbar-brand" href="./index.jsp">Return to index</a>
+            </div>
+        </div>
+    </nav>
     
     <%!
         String userSession = null;

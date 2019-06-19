@@ -26,6 +26,14 @@
         if (userSession != null && adminSession == null) {
     %>
         <!-- USER PANEL -->
+        <div class = "container" style = "width: 90%; padding: 5px;">
+            <h2 style = "text-align: center;"><strong>WELCOME, <%=userSession%></strong></h2>
+            <hr/>
+            <h4>Display your orders</h4>
+            <h4>Display your cart</h4>
+            <h4>Display your details</h4>
+            <h4>Display your payment methods</h4>
+        </div>
     <%
         } else {
     %>

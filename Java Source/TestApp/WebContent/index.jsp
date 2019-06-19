@@ -77,13 +77,48 @@
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
             </ol>
           
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="./images/toDelete.jpg" alt="My Lambo" style="width:100%;">
+            <div id = "myCarousel-body" class="carousel-inner">
+                
+                <div class="item active myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
                 </div>
+
+                <div class="item myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
+                </div>
+
+                <div class="item myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
+                </div>
+
+                <div class="item myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
+                </div>
+
+                <div class="item myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
+                </div>
+
+                <div class="item myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
+                </div>
+
+                <div class="item myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
+                </div>
+
+                <div class="item myCarousel-item">
+                    <img src="./images/#" style="width:100%;">
+                </div>
+
             </div>
           
             <!-- Left and right controls -->
@@ -230,11 +265,21 @@
                 var index = 0;
                 $(".target").each(function(){
                     var title = suggestions[index].title, path = suggestions[index].imgPath, price = suggestions[index].price;
+                    
+                    //CARDS
                     $(this).find("div[class=item-header]").html(title);
-                    $(this).find("div[class=item-img-field]").children().eq(0).attr("src",path);
-                    console.log($(this).find("div[class=item-img-field]").attr("class"));
-                    //$(this).find("img[class=target-img]").attr("src",path)
+                    $(this).find("div[class=item-img-field]").children().eq(0).attr("src", path);
                     $(this).find("div[class=item-footer]").html(price.toString());
+
+                    index++;
+                });
+                index = 0;
+                $(".myCarousel-item").each(function(){
+                    var path = suggestions[index].imgPath;
+
+                    //CAROUSEL
+                    $(this).children().eq(0).attr("src", path);
+
                     index++;
                 });
             });

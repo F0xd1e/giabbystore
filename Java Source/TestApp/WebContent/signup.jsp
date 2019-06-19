@@ -161,7 +161,7 @@
                     }
                 })
                 if(res==false){
-                    alert("you must fill all the field.");
+                    alert("you must fill all the fields.");
                 }
                 return res;
             })

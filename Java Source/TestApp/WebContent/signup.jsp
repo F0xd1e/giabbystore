@@ -249,7 +249,7 @@
             else return false;
         }
         function checkPassword(myStr){
-            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,20}$/g;
+            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,20}$/;
             if (myStr.match(regex)!=null) return true;
             else return false;
         }

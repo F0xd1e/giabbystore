@@ -275,7 +275,6 @@
             });
             $("#spanLogOut").click(function(){
                 $.get("DoLogout",function(data, status){
-                    alert(status);
                     window.location.reload(false);
                     return;
                 });

@@ -15,7 +15,7 @@ import JavaBeans.UserBean;
 /**
  * Servlet implementation class DoSignUp
  */
-@WebServlet("DoSignUp")
+@WebServlet("/DoSignUp")
 public class DoSignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

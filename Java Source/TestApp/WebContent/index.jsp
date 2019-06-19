@@ -72,17 +72,6 @@
     <!--Slideshow-->
     <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
-                <li data-target="#myCarousel" data-slide-to="7"></li>
-            </ol>
           
             <!-- Wrapper for slides -->
             <div id = "myCarousel-body" class="carousel-inner">
@@ -143,7 +132,7 @@
     <div id = "productSection" class = "container-fluid">
         <div class="row">
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
@@ -156,7 +145,7 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
@@ -169,7 +158,7 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
@@ -182,7 +171,7 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
@@ -197,7 +186,7 @@
         </div>
         <div class="row">
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
@@ -210,7 +199,7 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
@@ -223,7 +212,7 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
@@ -236,7 +225,7 @@
                 </div>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid rounded item-container target">
+                <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>

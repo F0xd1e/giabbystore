@@ -67,7 +67,7 @@ public class DoSignUp extends HttpServlet {
 		boolean chsignname = signname.matches("^[a-zA-Z]+$");
 		boolean chsignsurname = signsurname.matches("^[a-zA-Z]+$");
 		boolean chsignnation = signnation.matches("^[a-zA-Z]+$");
-		boolean chsigncity = signcity.matches("^[a-zA-Z]+$");
+		boolean chsigncity = signcity.matches("^[a-zA-Z ]+$");
 		boolean chsigncap = signcap.matches("^[0-9]{5}+$");
 		boolean chsignaddr = signaddr.matches("^[A-Za-z0-9 ,]+$");
 		boolean chsignemail = signemail.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");

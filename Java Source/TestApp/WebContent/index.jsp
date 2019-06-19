@@ -231,7 +231,8 @@
                 $(".target").each(function(){
                     var title = suggestions[index].title, path = suggestions[index].imgPath, price = suggestions[index].price;
                     $(this).find("div[class=item-header]").html(title);
-                    $(this).find("img[class=target-img]").attr("src", path);
+                    $(this).find("div[class=item-img-field]").children().eq(0).attr("src",path);
+                    console.log($(this).find("div[class=item-img-field]"));
                     $(this).find("div[class=item-footer]").html(price.toString());
                     index++;
                 });

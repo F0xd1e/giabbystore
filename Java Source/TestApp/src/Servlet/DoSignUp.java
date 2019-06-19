@@ -37,30 +37,44 @@ public class DoSignUp extends HttpServlet {
 		UserDAO signupSetup =  new UserDAO();
 		UserBean newUser = new UserBean();
 		
-		String signuser     =  (String) request.getAttribute("username");
-		String signpassword =  (String) request.getAttribute("password");
-		String signname     =  (String) request.getAttribute("name");
-		String signsurname  =  (String) request.getAttribute("surname");
-		String signnation   =  (String) request.getAttribute("nation");
-		String signcity     =  (String) request.getAttribute("city");
-		String signcap      =  (String) request.getAttribute("cap");
-		String signaddr     =  (String) request.getAttribute("address");
-		String signemail    =  (String) request.getAttribute("email");
-		String signphone    =  (String) request.getAttribute("phone");
 		
-		boolean chuser= signuser.matches("/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/");
-		boolean chpassword = signpassword.matches("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,20}$/g");
-		boolean chsignname = signname.matches("/^[a-zA-Z]+$/");
-		boolean chsignsurname = signsurname.matches("/^[a-zA-Z]+$/");
-		boolean chsignnation = signnation.matches("/^[a-zA-Z]+$/");
-		boolean chsigncity = signcity.matches("/^[a-zA-Z]+$/");
-		boolean chsigncap = signcap.matches("/^[0-9]{5}/;");
-		boolean chsignaddr = signaddr.matches("/^[A-Za-z0-9 ,]+$/");
-		boolean chsignemail = signemail.matches("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/");
-		boolean chsignphone = signphone.matches("/^[0-9]/");
+		String signuser     =  "default";
+		String signpassword =  "default";
+		String signname     =  "default";
+		String signsurname  =  "default";
+		String signnation   =  "default";
+		String signcity     =  "default";
+		String signcap      =  "default";
+		String signaddr     =  "default";
+		String signemail    =  "default";
+		String signphone    =  "default";
+		
+		 signuser     =  (String) request.getParameter("username");
+		 signpassword =  (String) request.getParameter("password");
+		 signname     =  (String) request.getParameter("name");
+		 signsurname  =  (String) request.getParameter("surname");
+		 signnation   =  (String) request.getParameter("nation");
+		 signcity     =  (String) request.getParameter("city");
+		 signcap      =  (String) request.getParameter("cap");
+		 signaddr     =  (String) request.getParameter("address");
+		 signemail    =  (String) request.getParameter("email");
+		 signphone    =  (String) request.getParameter("phone");
+		
+		
+		
+		boolean chuser= signuser.matches("^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$");
+		boolean chpassword = signpassword.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,20}$");
+		boolean chsignname = signname.matches("^[a-zA-Z]+$");
+		boolean chsignsurname = signsurname.matches("^[a-zA-Z]+$");
+		boolean chsignnation = signnation.matches("^[a-zA-Z]+$");
+		boolean chsigncity = signcity.matches("^[a-zA-Z]+$");
+		boolean chsigncap = signcap.matches("^[0-9]{5}+$");
+		boolean chsignaddr = signaddr.matches("^[A-Za-z0-9 ,]+$");
+		boolean chsignemail = signemail.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+		boolean chsignphone = signphone.matches("^[0-9]+$");
 
-		if (chuser == true || chpassword == true || chsignname == true || chsignsurname == true || chsignnation == true || chsigncity == true || chsigncap == true
-			|| chsignaddr == true || chsignemail == true || chsignphone == true	) {
+		if (chuser == true && chpassword == true && chsignname == true && chsignsurname == true && chsignnation == true && chsigncity == true && chsigncap == true
+			&& chsignaddr == true && chsignemail == true && chsignphone == true	) {
 			
 			// Signup data is valid
 			
@@ -86,6 +100,7 @@ public class DoSignUp extends HttpServlet {
 			
 			request.setAttribute("greet", "Thank you for signing up, you can now login!");
 			request.getRequestDispatcher("signup.jsp").forward(request, response);
+			// response.sendRedirect("index.jsp");
 			
 
 			
@@ -95,6 +110,7 @@ public class DoSignUp extends HttpServlet {
 			
 			// Signup data is not valid
 			
+		System.out.println("Error! Value of flags: "+chuser+chpassword+chsignname+chsignsurname+chsignnation+chsigncity+chsigncap+chsignaddr+chsignemail+chsignphone+"  END");
 			response.sendRedirect("signup.jsp");
 			
 		}

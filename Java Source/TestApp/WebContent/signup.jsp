@@ -36,7 +36,7 @@
     </header>
     <section>
         <div id = "divSignUp" class = "rounded">
-            <form action = "/DoSignUp" method = "POST">
+            <form action = "DoSignUp" method = "POST">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class = "form-group">
@@ -230,7 +230,7 @@
             else return false;
         }
         function checkCAP(myStr){
-            var regex = /^[0-9]{5}/;
+            var regex = /^[0-9]{5}+$/;
             if (myStr.match(regex)!=null) return true;
             else return false;
         }
@@ -245,7 +245,7 @@
             else return false;
         }
         function checkPhone(myStr){
-            var regex = /^[0-9]/;
+            var regex = /^[0-9]+$/;
             if (myStr.match(regex)!=null) return true;
             else return false;
         }

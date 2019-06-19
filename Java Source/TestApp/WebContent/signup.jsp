@@ -36,7 +36,7 @@
     </header>
     <section>
         <div id = "divSignUp" class = "rounded">
-            <form action = "/DoSignUp" method = "POST">
+            <form id="formcheck" action = "http://www.google.com" method = "POST">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class = "form-group">
@@ -143,7 +143,27 @@
     </p>
 
     <script>
+    
         $(document).ready(function(){
+            $("#formcheck").submit(function(){
+                var res=true;
+                $("#formcheck").find('input[type!=submit]').each(function(){
+                    if($(this).attr("type")!='reset'){
+                        if($(this).val()==null || $(this).val()==""){
+                            $(this).addClass("error");
+                            res=false;
+                        }
+                        else{
+                            $(this).removeClass("error");    
+                        }
+                    }
+                })
+                if(res==false){
+                    alert("you must fill all the field.");
+                }
+                return res;
+            })
+
             $("#username").focusout(function(){
                 var myBool = checkUsername($("#username").val());
                 if (myBool == false){
@@ -179,13 +199,15 @@
                 } else $("#nation").removeClass("error");
             });
             $("#city").focusout(function(){
-                var myBool = checkAddress($("#city").val());
+                var myBool = checkCity($("#city").val());
+                
                 if (myBool == false){
                     $("#city").addClass("error");
                 } else $("#city").removeClass("error");
             });
             $("#address").focusout(function(){
                 var myBool = checkAddress($("#address").val());
+                
                 if (myBool == false){
                     $("#address").addClass("error");
                 } else $("#address").removeClass("error");
@@ -230,7 +252,7 @@
             else return false;
         }
         function checkCAP(myStr){
-            var regex = /^[0-9]{5}/;
+            var regex = /^[0-9]{5}$/;
             if (myStr.match(regex)!=null) return true;
             else return false;
         }

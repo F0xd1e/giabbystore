@@ -2,10 +2,6 @@
     top:0;
     position:sticky;
 }
-body{
-    background-color:#383838;
-    font-family: 'Helvetica Neue';
-}
 #nb-header{
     padding-left:12px;
 }

@@ -1,6 +1,8 @@
 package Servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAOPackage.UserDAO;
+import JavaBeans.UserBean;
 
 /**
  * Servlet implementation class DoSignUp
@@ -32,6 +35,7 @@ public class DoSignUp extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		UserDAO signupSetup =  new UserDAO();
+		UserBean newUser = new UserBean();
 		
 		String signuser     =  (String) request.getAttribute("username");
 		String signpassword =  (String) request.getAttribute("password");
@@ -55,8 +59,46 @@ public class DoSignUp extends HttpServlet {
 		boolean chsignemail = signemail.matches("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/");
 		boolean chsignphone = signphone.matches("/^[0-9]/");
 
+		if (chuser == true || chpassword == true || chsignname == true || chsignsurname == true || chsignnation == true || chsigncity == true || chsigncap == true
+			|| chsignaddr == true || chsignemail == true || chsignphone == true	) {
+			
+			// Signup data is valid
+			
+			newUser.setUsername(signuser);
+			newUser.setPassword(signpassword);
+			newUser.setName(signname);
+			newUser.setSurname(signsurname);
+			newUser.setNation(signnation);
+			newUser.setCity(signcity);
+			newUser.setCap(signcap);
+			newUser.setAddress(signaddr);
+			newUser.setEmail(signemail);
+			newUser.setPhone(signphone);
+			newUser.setAdmin(false);
+			newUser.setCanAccess(true);
+			
+			try {
+				signupSetup.doSave(newUser);
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+			
+			request.setAttribute("greet", "Thank you for signing up, you can now login!");
+			request.getRequestDispatcher("signup.jsp").forward(request, response);
+			
+
+			
+			
+			
+		} else {
+			
+			// Signup data is not valid
+			
+			response.sendRedirect("signup.jsp");
+			
+		}
 		
-		// INCOMPLETE
 		
 		
 	}

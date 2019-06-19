@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
     <link rel="stylesheet" type="text/css" href="./files_css/profile-style.css">
+    <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
 
 </head>
 <body>
@@ -31,8 +32,13 @@
             </div>
         </header>
         <section>
-            <div class = "container">
-                <button type="button" class="btn btn-default"><p style = "margin-bottom: 0px; margin-right: 20px; margin-left: 20px;">Home</p></button>
+            <div id = "div-buttons-redirect" class = "container">
+                <span style = "border: solid 2px red;" class = "btnSpan">
+                    <!--<button type="button" class="btn btn-default myBtn" id="btn-home"><p class = "btn-innerText">Home</p></button>-->
+                </span>
+                <span style = "border: solid 2px blue;" class = "btnSpan">
+                    <!--<button type="button" class="btn btn-default myBtn" id="btn-login"><p class = "btn-innerText">Login</p></button>-->
+                </span>
             </div>
         </section>
     <%

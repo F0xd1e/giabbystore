@@ -29,6 +29,18 @@
 .gl-resize{
     margin-right: 0px;
 }
+#btn-home{
+    margin-right:10px;
+}
+#btn-login{
+    margin-left:10px;
+}
+#div-buttons-redirect{
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
 @media screen and (max-width: 1000px) and (min-width: 600px){
     #divLogin{
         margin-right:15%;

@@ -3,6 +3,12 @@
 }
 .btn-innerText{
     margin-bottom: 0px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.btnSpan{
+    text-align: center;
+}
+.myBtn{
+    position: absolute;
 }

@@ -63,10 +63,10 @@ public class HomeSuggestions extends HttpServlet {
 		Random index=new Random();
 		JSONArray arr=new JSONArray();
 		while(prod.size()>8) {
-			prod.remove(index.nextInt(prod.size()-1));
+			prod.remove(index.nextInt(prod.size()));
 		}
-		
-		for(ProductBean b : prod) {
+		ProductBean[] vec=shuffle(prod);
+		for(ProductBean b : vec) {
 			JSONObject obj=new JSONObject();
 			double price;
 			String title, imgPath;
@@ -80,6 +80,22 @@ public class HomeSuggestions extends HttpServlet {
 		}
 		
 		return arr.toString();
+	}
+	
+	private ProductBean[] shuffle(ArrayList<ProductBean> prod) {
+		Random index=new Random();
+		int len=prod.size();
+		ProductBean[] arr=(ProductBean[]) prod.toArray(new ProductBean[prod.size()]);
+		for(int i=0;i<len;i++) {
+			int j=index.nextInt(len);
+			while(i==j) {
+				j=index.nextInt(len);
+			}
+			ProductBean temp=arr[i];
+			arr[i]=arr[j];
+			arr[j]=temp;
+		}
+		return arr;
 	}
 
 }

@@ -128,6 +128,20 @@
         </div>
     </section>
 
+    <p>
+        <%!
+            String message = null;
+        %>
+        <%
+            message = (String)request.getAttribute("greet");
+            if (message != null) {
+        %>
+            <%=message%>
+        <%
+            }
+        %>
+    </p>
+
     <script>
         $(document).ready(function(){
             $("#username").focusout(function(){
@@ -165,7 +179,7 @@
                 } else $("#nation").removeClass("error");
             });
             $("#city").focusout(function(){
-                var myBool = checkWord($("#city").val());
+                var myBool = checkAddress($("#city").val());
                 if (myBool == false){
                     $("#city").addClass("error");
                 } else $("#city").removeClass("error");
@@ -197,6 +211,11 @@
         });
         function checkWord(myStr){
             var regex = /^[a-zA-Z]+$/;
+            if (myStr.match(regex)!=null) return true;
+            else return false;
+        }
+        function checkCity(myStr){
+            var regex = /^[a-zA-Z ]+$/;
             if (myStr.match(regex)!=null) return true;
             else return false;
         }

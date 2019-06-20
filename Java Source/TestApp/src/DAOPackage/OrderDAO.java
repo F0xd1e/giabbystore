@@ -22,7 +22,7 @@ public class OrderDAO {
 		PreparedStatement state = null;
 		state = connector.getJdbcConnection()
 				.prepareStatement("insert into Ordine values (?, ?, ?, ?, ?, ?, ?)");
-		state.setString(1, order.getOrderCode());
+		state.setInt(1, order.getOrderCode());
 		state.setDate(2, order.getOrderDate());
 		state.setDate(3, order.getShipmentDate());
 		state.setDouble(4, order.getShipmentPrice());
@@ -41,7 +41,7 @@ public class OrderDAO {
 		PreparedStatement deleteRecord = connector.getJdbcConnection()
 				.prepareStatement("delete from Ordine where codiceOrdine = ?");
 		
-		deleteRecord.setString(1, order.getOrderCode());
+		deleteRecord.setInt(1, order.getOrderCode());
 		deleteRecord.executeUpdate();
 		connector.closeConnection();
 	}
@@ -58,7 +58,7 @@ public class OrderDAO {
 		while(container.next()==true) {
 			
 			//get datas from ArrayList
-			String orderCode = container.getString("codiceOrdine");
+			int orderCode = container.getInt("codiceOrdine");
 			Date orderDate = container.getDate("dataOrdine");
 			Date shipmentDate = container.getDate("dataArrivo");
 			double shipmentPrice = container.getDouble("prezzoSpedizione");

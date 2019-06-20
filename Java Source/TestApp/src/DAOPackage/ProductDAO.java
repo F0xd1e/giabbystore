@@ -23,7 +23,7 @@ public class ProductDAO {
 		state = connector.getJdbcConnection()
 				.prepareStatement("insert into Prodotto values (?, ?, ?, ?, ?, ?, ?, ?)");
 
-		state.setString(1, prod.getProductCode());
+		state.setInt(1, prod.getProductCode());
 		state.setString(2, prod.getTitle());
 		state.setString(3, prod.getDescription());
 		state.setString(4, prod.getTipology());
@@ -44,7 +44,7 @@ public class ProductDAO {
 		PreparedStatement state = null;
 		state = connector.getJdbcConnection()
 				.prepareStatement("SELECT codiceProdotto FROM Prodotto WHERE codiceProdotto LIKE ?");
-		state.setString(1, prod.getProductCode());
+		state.setInt(1, prod.getProductCode());
 		ResultSet result = state.executeQuery();
 		if (result.next()==false) {
 			//nel caso non esista il record
@@ -52,7 +52,7 @@ public class ProductDAO {
 			myState = connector.getJdbcConnection()
 					.prepareStatement("insert into Prodotto values (?, ?, ?, ?, ?, ?, ?, ?)");
 
-			myState.setString(1, prod.getProductCode());
+			myState.setInt(1, prod.getProductCode());
 			myState.setString(2, prod.getTitle());
 			myState.setString(3, prod.getDescription());
 			myState.setString(4, prod.getTipology());
@@ -67,7 +67,7 @@ public class ProductDAO {
 					.prepareStatement("update Prodotto set codiceProdotto = ? AND titolo = ? AND descrizione = ? AND tipologia = ? AND " +
 							"prezzo = ? AND disponibilita = ? AND spedizione = ? AND imgPath = ?" +
 							"where codiceProdotto = ?");
-			myState.setString(1, prod.getProductCode());
+			myState.setInt(1, prod.getProductCode());
 			myState.setString(2, prod.getTitle());
 			myState.setString(3, prod.getDescription());
 			myState.setString(4, prod.getTipology());
@@ -75,7 +75,7 @@ public class ProductDAO {
 			myState.setInt(6, prod.getAvailability());
 			myState.setInt(7, prod.getShipment());
 			myState.setString(8, prod.getImgPath());
-			myState.setString(9, prod.getProductCode());
+			myState.setInt(9, prod.getProductCode());
 			myState.executeUpdate();
 		}
 		connector.closeConnection();
@@ -88,7 +88,7 @@ public class ProductDAO {
 		PreparedStatement deleteRecord = connector.getJdbcConnection()
 				.prepareStatement("delete from Prodotto where codiceProdotto = ?");
 		
-		deleteRecord.setString(1, prod.getProductCode());
+		deleteRecord.setInt(1, prod.getProductCode());
 		deleteRecord.executeUpdate();
 		connector.closeConnection();
 	}
@@ -104,7 +104,7 @@ public class ProductDAO {
 		
 		while(container.next()==true) {
 			
-			String codiceProdotto = container.getString("codiceProdotto");
+			int codiceProdotto = container.getInt("codiceProdotto");
 			String titolo = container.getString("titolo");
 			String descrizione = container.getString("descrizione");
 			String tipologia = container.getString("tipologia");
@@ -135,16 +135,17 @@ public class ProductDAO {
 		
 	}
 	
-	public ProductBean doRetrieveProductByID(String id) throws SQLException {
+	public ProductBean doRetrieveProductByID(int i) throws SQLException {
 		ProductBean prod=null;
 		DatabaseConnector conn=new DatabaseConnector();
 		conn.startConnection();
 		PreparedStatement stateAll = conn.getJdbcConnection()
 				.prepareStatement("SELECT * FROM Prodotto WHERE codiceProdotto = ?");
-		stateAll.setString(1, id);
+		stateAll.setInt(1, i);
 		ResultSet container = stateAll.executeQuery();
 		if(container.next()!=false) {
-			String productCode=container.getString("codiceProdotto"), title=container.getString("titolo"), description=container.getString("descrizione"), tipology=container.getString("tipologia"), imgPath=container.getString("imgPath");
+			int productCode=container.getInt("codiceProdotto");
+			String title=container.getString("titolo"), description=container.getString("descrizione"), tipology=container.getString("tipologia"), imgPath=container.getString("imgPath");
 			double price=container.getDouble("prezzo");
 			int availability=container.getInt("disponibilita"), shipment=container.getInt("spedizione");
 			prod=new ProductBean();

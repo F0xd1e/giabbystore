@@ -19,8 +19,8 @@ public class ReferenceDAO {
 		PreparedStatement state = null;
 		state = connector.getJdbcConnection()
 				.prepareStatement("insert into Riferimento values (?, ?)");
-		state.setString(1,reference.getOrderCode());
-		state.setString(2,reference.getProductCode());
+		state.setInt(1,reference.getOrderCode());
+		state.setInt(2,reference.getProductCode());
 		state.executeUpdate();
 		connector.closeConnection();
 		
@@ -31,8 +31,8 @@ public class ReferenceDAO {
 		connector.startConnection();
 		PreparedStatement deleteRecord = connector.getJdbcConnection()
 				.prepareStatement("delete from Riferimento where codice = ? AND prodotto = ?");
-		deleteRecord.setString(1,reference.getOrderCode());
-		deleteRecord.setString(2,reference.getProductCode());
+		deleteRecord.setInt(1,reference.getOrderCode());
+		deleteRecord.setInt(2,reference.getProductCode());
 		deleteRecord.executeUpdate();
 		
 		connector.closeConnection();
@@ -49,15 +49,15 @@ public class ReferenceDAO {
 		if(all.next()==false) {
 			state = connector.getJdbcConnection()
 					.prepareStatement("insert into Riferimento values (?, ?)");
-			state.setString(1,reference.getOrderCode());
-			state.setString(2,reference.getProductCode());
+			state.setInt(1,reference.getOrderCode());
+			state.setInt(2,reference.getProductCode());
 			state.executeUpdate();
 		}
 		else {
 			state=connector.getJdbcConnection()
 					.prepareStatement("update Prodotto set codice = ? AND prodotto = ?");
-			state.setString(1,reference.getOrderCode());
-			state.setString(2,reference.getProductCode());
+			state.setInt(1,reference.getOrderCode());
+			state.setInt(2,reference.getProductCode());
 			state.executeUpdate();
 		}
 		connector.closeConnection();
@@ -71,10 +71,11 @@ public class ReferenceDAO {
 		ResultSet container = stateAll.executeQuery();
 		ArrayList<ReferenceBean> allBeans = new ArrayList<ReferenceBean>();
 		while(container.next()==true) {
-			String orderCode, productCode;
+			int orderCode;
+			int productCode;
 			
-			orderCode=container.getString("codice");
-			productCode=container.getString("product");
+			orderCode=container.getInt("codice");
+			productCode=container.getInt("product");
 			
 			ReferenceBean ref=new ReferenceBean();
 			ref.setOrderCode(orderCode);

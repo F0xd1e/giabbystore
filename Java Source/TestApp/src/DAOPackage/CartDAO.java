@@ -21,7 +21,7 @@ public class CartDAO {
 				.prepareStatement("insert into Carrello values (?, ?)");
 
 		state.setString(1, cart.getUserCode());
-		state.setString(2, cart.getProductCode());
+		state.setInt(2, cart.getProductCode());
 		
 		state.executeUpdate();
 		connector.closeConnection();
@@ -36,7 +36,7 @@ public class CartDAO {
 				.prepareStatement("delete from Prodotto where utente = ? AND prodotto = ?");
 		
 		deleteRecord.setString(1, cart.getUserCode());
-		deleteRecord.setString(2, cart.getProductCode());
+		deleteRecord.setInt(2, cart.getProductCode());
 		deleteRecord.executeUpdate();
 		connector.closeConnection();
 	}
@@ -54,7 +54,7 @@ public class CartDAO {
 		while(container.next()==true) {
 			
 			String username = container.getString("utente");
-			String prodotto = container.getString("prodotto");
+			int prodotto = container.getInt("prodotto");
 			CartBean cartToReturn = new CartBean();
 			cartToReturn.setUserCode(username);
 			cartToReturn.setProductCode(prodotto);

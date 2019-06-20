@@ -35,14 +35,11 @@ public class DoGetCategories extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		ProductDAO pDao=new ProductDAO();
 		ArrayList<ProductBean> prods=null;
 		try {
-			prods=pDao.doRetrieveAll();
+			prods=pDao.doRetrieveAll(); //getting all products
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String json=toJSONCategories(prods);
@@ -60,10 +57,10 @@ public class DoGetCategories extends HttpServlet {
 	}
 	
 	private String toJSONCategories(ArrayList<ProductBean> prods) {
-		HashSet<String> categories=new HashSet<String>();
+		HashSet<String> categories=new HashSet<String>(); //it will contains all categories
 		for(ProductBean p : prods) {
 			String category=p.getTipology();
-			categories.add(category);
+			categories.add(category); //adding all categories
 		}
 		
 		JSONArray arr=new JSONArray();

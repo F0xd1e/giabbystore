@@ -6,9 +6,10 @@ public class OrderBean {
 
 	public OrderBean(){}
 	
-	private String orderCode, paymentCode, username;
+	private String paymentCode, username;
 	private Date shipmentDate, orderDate;
 	private double shipmentPrice, totalPrice;
+	private int orderCode;
 	
 	
 	public String getUsername() {
@@ -17,10 +18,10 @@ public class OrderBean {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getOrderCode() {
+	public int getOrderCode() {
 		return orderCode;
 	}
-	public void setOrderCode(String orderCode) {
+	public void setOrderCode(int orderCode) {
 		this.orderCode = orderCode;
 	}
 	public String getPaymentCode() {

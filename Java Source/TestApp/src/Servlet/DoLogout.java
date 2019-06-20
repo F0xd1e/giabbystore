@@ -1,7 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +8,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.mysql.cj.Session;
 
 
 @WebServlet("/DoLogout")
@@ -58,12 +54,12 @@ public class DoLogout extends HttpServlet {
 		
 		if (request.getSession().getAttribute("admin") == null) { //User session
 			
-				Cookie idCookie = new Cookie("name", "0");
+				/*Cookie idCookie = new Cookie("name", "0");
 				Cookie sessiontracking = new Cookie ("sessid", "0");
 				idCookie.setMaxAge(0);
 				sessiontracking.setMaxAge(0);
 				response.addCookie(idCookie);
-				response.addCookie(sessiontracking);
+				response.addCookie(sessiontracking);*/
 				request.getSession().invalidate();
 				request.setAttribute("logoutmessage", logmessage);
 	    		String dest = "index.jsp";
@@ -76,12 +72,12 @@ public class DoLogout extends HttpServlet {
 		} else if ( request.getSession().getAttribute("user")== null)  { //Admin session
 			
 			 
-				Cookie idCookie = new Cookie("name", "0");
+				/*Cookie idCookie = new Cookie("name", "0");
 				Cookie sessiontracking = new Cookie ("sessid", "0");
 				idCookie.setMaxAge(0);
 				sessiontracking.setMaxAge(0);
 				response.addCookie(idCookie);
-				response.addCookie(sessiontracking);
+				response.addCookie(sessiontracking);*/
 				request.getSession().invalidate();
 				request.setAttribute("logadminmessage", logadminmessage);
 	    		String dest = "index.jsp";

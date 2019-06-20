@@ -36,7 +36,7 @@ public class DoRemoveFromCart extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession sess=request.getSession();
 		String usrId=(String) sess.getAttribute("user");
-		String prodId=(String) request.getParameter("prodId");
+		int prodId=Integer.parseInt(request.getParameter("prodId"));
 		
 		CartBean prod=new CartBean();
 		prod.setProductCode(prodId);

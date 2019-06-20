@@ -35,7 +35,7 @@ public class DoAddToCart extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession sess=request.getSession();
 		String usrId=(String) sess.getAttribute("user");
-		String prodId=(String) request.getParameter("prodId");
+		int prodId=Integer.parseInt(request.getParameter("prodId"));
 		
 		CartBean prod=new CartBean();
 		prod.setProductCode(prodId);

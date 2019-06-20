@@ -4,21 +4,21 @@ public class ReferenceBean {
 
 	public ReferenceBean(){}
 	
-	private String orderCode, productCode;
+	private int orderCode, productCode;
 
-	public String getOrderCode() {
+	public int getOrderCode() {
 		return orderCode;
 	}
 
-	public void setOrderCode(String orderCode) {
+	public void setOrderCode(int orderCode) {
 		this.orderCode = orderCode;
 	}
 
-	public String getProductCode() {
+	public int getProductCode() {
 		return productCode;
 	}
 
-	public void setProductCode(String productCode) {
+	public void setProductCode(int productCode) {
 		this.productCode = productCode;
 	}
 	

@@ -4,15 +4,12 @@ public class ProductBean {
 
 	public ProductBean() {}
 	
-	private String productCode, title, description, tipology, imgPath;
+	private String title, description, tipology, imgPath;
 	private double price;
-	private int availability, shipment;
+	private int productCode, availability, shipment;
 	
-	public String getProductCode() {
+	public int getProductCode() {
 		return productCode;
-	}
-	public void setProductCode(String productCode) {
-		this.productCode = productCode;
 	}
 	public String getTitle() {
 		return title;
@@ -55,6 +52,11 @@ public class ProductBean {
 	}
 	public void setShipment(int shipment) {
 		this.shipment = shipment;
+	}
+	
+	/*ATTENZIONE: IMPOSTARE IL PRODUCT CODE POTREBBE CREARE PROBLEMI SICCOME È PRESENTE L'AUTO_INCREMENT*/
+	public void setProductCode(int productCode) {
+		this.productCode = productCode;
 	}
 	
 }

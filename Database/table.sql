@@ -13,6 +13,7 @@
 
 USE dbgiabby;
 
+/*PRIMARY KEY OF UTENTE -> username*/
 CREATE TABLE Utente (
 	username varchar(20) primary key,
     password varchar(20) not null,
@@ -30,8 +31,10 @@ CREATE TABLE Utente (
     /*se canAccess è posto a false significa che l'utente X è stato eliminato dalla piattaforma*/
 ); 
 
+/*PRIMARY KEY OF PRODOTTO -> codiceProdotto //AUTO_INCREMENT*/
 CREATE TABLE Prodotto (
-	codiceProdotto char(10) primary key,
+	codiceProdotto int AUTO_INCREMENT,
+    PRIMARY KEY (codiceProdotto),
     titolo varchar(30) not null,
     descrizione varchar(500) not null,
     tipologia varchar(30) not null,
@@ -42,9 +45,10 @@ CREATE TABLE Prodotto (
 );
 
 /*Il carrello per poter esistere dovrà poter contenere un utente (chi acquista) ed un oggetto*/
+/*PRIMARY KEY OF CARRELLO -> PRIMARY KEY OF UTENTE*/
 CREATE TABLE Carrello (
 	utente varchar(20),
-    prodotto char(10),
+    prodotto int,
     foreign key (utente) references Utente(username)
 		on update cascade
         on delete cascade,
@@ -54,19 +58,10 @@ CREATE TABLE Carrello (
 	primary key(utente, prodotto)
 );
 
-CREATE TABLE Pagamento (
-	codiceCarta char(16) primary key,
-    dataScadenza date not null,
-    nome varchar(20) not null,
-    cognome varchar(20) not null,
-    utente varchar(20) not null,
-    foreign key (utente) references Utente(username)
-		on update cascade
-        on delete cascade
-);
-
+/*PRIMARY KEY OF ORDINE -> codiceOrdine //AUTO_INCREMENT*/
 CREATE TABLE Ordine (
-	codiceOrdine char(10) primary key,
+	codiceOrdine int AUTO_INCREMENT,
+    PRIMARY KEY (codiceOrdine),
     dataOrdine date not null,
     dataArrivo date not null, /*La data di arrivo viene ricavata in base ai giorni della spedizione massima tra i prodotti scelti*/
     prezzoSpedizione decimal(4,2) not null, /*La spedizione costerà 0 se il prezzo totale è > 50 euro*/
@@ -80,8 +75,8 @@ CREATE TABLE Ordine (
 
 /*Riferimento è una tabella che collega l'ordine con i prodotti acquistati e viceversa*/
 CREATE TABLE Riferimento (
-	codice char(10), /*Codice dell'ordine*/
-    prodotto char(10), /*Codice del prodotto*/
+	codice int, /*Codice dell'ordine*/
+    prodotto int, /*Codice del prodotto*/
     foreign key (codice) references Ordine(codiceOrdine)
 		on update cascade
         on delete cascade,

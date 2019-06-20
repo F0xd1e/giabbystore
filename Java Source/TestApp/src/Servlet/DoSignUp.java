@@ -102,23 +102,13 @@ public class DoSignUp extends HttpServlet {
 			request.getRequestDispatcher("signup.jsp").forward(request, response);
 			// response.sendRedirect("index.jsp");
 			
-
-			
-			
-			
 		} else {
 			
 			// Signup data is not valid
 			
 		System.out.println("Error! Value of flags: "+chuser+chpassword+chsignname+chsignsurname+chsignnation+chsigncity+chsigncap+chsignaddr+chsignemail+chsignphone+"  END");
-			response.sendRedirect("signup.jsp");
+		response.sendRedirect("signup.jsp");
 			
 		}
-		
-		
-		
 	}
-	
-
-
 }

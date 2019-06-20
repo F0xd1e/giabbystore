@@ -4,7 +4,8 @@ public class CartBean {
 
 	public CartBean() {}
 	
-	private String userCode, productCode;
+	private String userCode;
+	private int productCode;
 
 	public String getUserCode() {
 		return userCode;
@@ -14,11 +15,11 @@ public class CartBean {
 		this.userCode = userCode;
 	}
 
-	public String getProductCode() {
+	public int getProductCode() {
 		return productCode;
 	}
 
-	public void setProductCode(String productCode) {
+	public void setProductCode(int productCode) {
 		this.productCode = productCode;
 	}
 	

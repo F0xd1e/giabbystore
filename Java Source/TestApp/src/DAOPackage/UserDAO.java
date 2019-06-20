@@ -69,7 +69,7 @@ public class UserDAO {
 			myState.setBoolean(12, usr.isCanAccess());
 			myState.executeUpdate();
 		} else {
-			//nel caso giï¿½ esista va aggiornato
+			//nel caso già esista va aggiornato
 			PreparedStatement updateQuery = connector.getJdbcConnection()
 					.prepareStatement("update Utente set username = ? AND password = ? AND nome = ? AND cognome = ? AND indirizzo = ?" +
 							" AND citta = ? AND cap = ? AND nazione = ? AND cellulare = ? AND email = ? AND isAdmin = ? AND canAccess = ?" +
@@ -172,7 +172,7 @@ public class UserDAO {
 	}
 	
 	
-	public boolean checkUserSecuritytClearance(String username) throws SQLException {
+	public boolean checkUserSecurityClearance(String username) throws SQLException {
 		
 		DatabaseConnector conn = new DatabaseConnector();
 		conn.startConnection();
@@ -182,15 +182,12 @@ public class UserDAO {
 		ResultSet container = state.executeQuery();
 		
 		if (container.next() == false)	{
-			
-				System.out.println("FATAL ERROR: empty resultset in servlet checkUserSecurityClearance, contact technical support asap.");
-				System.exit(-1);
-		
-										}
+			System.out.println("FATAL ERROR: empty resultset in servlet checkUserSecurityClearance, contact technical support asap.");
+			System.exit(-1);
+		}
 		
 		boolean result = container.getBoolean("isAdmin");
 		return result;
-		
 		
 	}
 

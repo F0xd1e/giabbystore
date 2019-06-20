@@ -19,7 +19,7 @@
 <body>
     
     <!--Navbar-->
-    <nav id = "stickyBar" class = "navbar navbar-inverse navbar-fixed-top" style = "margin-bottom: 15px;">
+    <nav id = "stickyBar" class = "navbar navbar-inverse navbar-fixed-top" style = "margin-bottom: 40px;">
         <div class = "container-fluid">
             <div class = "navbar-header changeColor" id = "nb-header">
                 <a class="navbar-brand" href="./index.jsp">Giabby's Store</a>
@@ -28,16 +28,16 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown changeColor"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret" style = "margin-left:6px;"></span></a>
                     <ul id="dropcateg"class="dropdown-menu">
-                        <!--
-                        <li><a href="#">Hard Disk</a></li>
-                        <li><a href="#">Processors</a></li>
-                        <li><a href="#">Video Cards</a></li>
-                        <li><a href="#">Power Supplies</a></li>
-                        -->
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <!--<div id = "search-item">
+                    <form action="DoSearch">
+                        <input type="text" placeholder="Search a product" name="searchBar">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>-->
 
                 <!--
                     Attributi sessione:
@@ -50,19 +50,47 @@
                 <%
                     userSession = (String)session.getAttribute("user");
                     adminSession = (String)session.getAttribute("admin");
-                    if (adminSession != null) {
-                        userSession = adminSession;
-                    }
-                    if (userSession == null) {
+                    //syserr command for debug
+                    System.err.println("USER: " + userSession + " | ADMIN: " + adminSession);
+                    if ((userSession == null) && (adminSession == null)) {
                 %>
+                    
+                    <!--NO USER IS LOGGED-->
                     <li class = "changeColor"><a href="./signup.jsp"><span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Sign Up</a></li>
                     <li class = "changeColor"><a href="./login.jsp"><span class="glyphicon glyphicon-log-in" style = "margin-right: 5px;"></span> Login</a></li>
+                
+                <%
+                    } else if ((userSession != null) && (adminSession == null)) {
+                %>
+
+                    <!--NORMAL USER SECTION-->    
+                    <li class="dropdown changeColor">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=userSession%><span class="caret" style = "margin-left:6px;"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Go to your orders</a></li>
+                            <li><a href="#">Go to your account</a></li>
+                        </ul>
+                    </li>
+                    <li class = "changeColor"><a href="#"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize"></span> <span class = "hide-resize">Cart</span></a></li>
+                    <li class = "changeColor"><a href="" id="spanLogOut"><span class="glyphicon glyphicon-log-out" class = "gl-resize" style = "margin-right: 3px;"></span> <span class = "hide-resize-d">Logout</span></a></li>
+
                 <%
                     } else {
                 %>
-                	<li class = "changeColor"><a href="./profile.jsp"> <span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=userSession%></a></li>
-                    <li class = "changeColor"><a href="#"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize"></span> <span class = "hide-resize">Cart</span></a></li>
+                
+                    <!--ADMIN USER SECTION-->
+                    <li class="dropdown changeColor">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=adminSession%><span class="caret" style = "margin-left:6px;"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Display an user</a></li>
+                            <li><a href="#">Ban/Unban an user</a></li>
+                            <li><a href="#">Add a new product</a></li>
+                            <li><a href="#">Remove a product</a></li>
+                            <li><a href="#">Go to your account</a></li>
+                        </ul>
+                    </li>
                     <li class = "changeColor"><a href="" id="spanLogOut"><span class="glyphicon glyphicon-log-out" class = "gl-resize" style = "margin-right: 3px;"></span> <span class = "hide-resize-d">Logout</span></a></li>
+                    
                 <%
                     }
                 %>
@@ -126,6 +154,15 @@
     </div>
 
     <!--Section with products-->
+
+    <section>
+        <div class = "container" style = "width: 90%; padding: 5px; margin-top:20px;">
+            <hr/>
+            <h2 style = "text-align: center; color: white;"><strong>SUGGESTED PRODUCTS</strong></h2>
+            <hr/>
+        </div>
+    </section>
+
     <!--
         div -> target
         title -> item-header

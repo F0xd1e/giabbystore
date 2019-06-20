@@ -3,16 +3,17 @@ h4{
 }
 .profile-link{
     text-decoration: none;
-    color: white;
+    color: black;
+}
+.profile-link:visited{
+    text-decoration: none;
+    color: black;
 }
 .profile-link:hover{
     text-decoration: none;
     color: #d1761d;
 }
-.profile-link:visited{
-    text-decoration: none;
-    color: white;
-}
+
 h2{
 	 text-align: center;
 }

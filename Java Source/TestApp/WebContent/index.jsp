@@ -250,6 +250,11 @@
     <!--Script-->
     <script>
         $(document).ready(function(){
+            /*
+            $.get("DoGetCategories",function(data,status){
+                //alert(data);
+            })
+            */
             $.get("HomeSuggestions",function(data, status){
                 var suggestions = JSON.parse(data);
                 var index = 0;

@@ -275,7 +275,7 @@
                     //CARDS
                     $(this).find("div[class=item-header]").html(title);
                     $(this).find("div[class=item-img-field]").children().eq(0).attr("src", path);
-                    $(this).find("div[class=item-footer]").html(price.toString());
+                    $(this).find("div[class=item-footer]").html(price.toString()+" $");
 
                     index++;
                 });

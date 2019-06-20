@@ -1,0 +1,18 @@
+h4{
+    text-align: center;
+}
+.profile-link{
+    text-decoration: none;
+    color: white;
+}
+.profile-link:hover{
+    text-decoration: none;
+    color: #d1761d;
+}
+.profile-link:visited{
+    text-decoration: none;
+    color: white;
+}
+h2{
+	 text-align: center;
+}

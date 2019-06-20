@@ -27,11 +27,13 @@
             <!--CATEGORIES-->
             <ul class="nav navbar-nav">
                 <li class="dropdown changeColor"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret" style = "margin-left:6px;"></span></a>
-                    <ul class="dropdown-menu">
+                    <ul id="dropcateg"class="dropdown-menu">
+                        <!--
                         <li><a href="#">Hard Disk</a></li>
                         <li><a href="#">Processors</a></li>
                         <li><a href="#">Video Cards</a></li>
                         <li><a href="#">Power Supplies</a></li>
+                        -->
                     </ul>
                 </li>
             </ul>
@@ -250,6 +252,20 @@
     <!--Script-->
     <script>
         $(document).ready(function(){
+            
+            $.get("DoGetCategories",function(data,status){
+                //alert(data);
+                var dropD=$('#dropcateg');
+                var catVec=JSON.parse(data);
+                for(let cat of catVec){
+                    var element=$('<li>');
+                    var link=$('<a>');
+                    link.html(cat);
+                    element.append(link);
+                    dropD.append(element);
+                }
+            })
+            
             $.get("HomeSuggestions",function(data, status){
                 var suggestions = JSON.parse(data);
                 var index = 0;
@@ -259,7 +275,7 @@
                     //CARDS
                     $(this).find("div[class=item-header]").html(title);
                     $(this).find("div[class=item-img-field]").children().eq(0).attr("src", path);
-                    $(this).find("div[class=item-footer]").html(price.toString());
+                    $(this).find("div[class=item-footer]").html(price.toString()+" $");
 
                     index++;
                 });

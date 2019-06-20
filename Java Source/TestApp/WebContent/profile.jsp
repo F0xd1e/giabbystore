@@ -41,12 +41,20 @@
             <h4><a href = "#" class = "profile-link">Display your orders</a></h4>
             <h4><a href = "#" class = "profile-link">Display your cart</a></h4>
             <h4><a href = "#" class = "profile-link">Display your details</a></h4>
-            <h4><a href = "#" class = "profile-link">Display your payment methods</a></h4>
         </div>
     <%
         } else {
     %>
         <!-- ADMIN PANEL -->
+        <div class = "container" style = "width: 90%; padding: 5px; margin-top:50px; color: white;">
+            <h2><strong>WELCOME, <%=adminSession%></strong></h2>
+            <hr/>
+            <h4><a href = "#" class = "profile-link">Display user informations</a></h4>
+            <h4><a href = "#" class = "profile-link">Ban a user</a></h4>
+            <h4><a href = "#" class = "profile-link">Add a new product</a></h4>
+            <h4><a href = "#" class = "profile-link">Remove a product</a></h4>
+            <h4><a href = "#" class = "profile-link">Display your details</a></h4>
+        </div>
     <%
         }
     %>

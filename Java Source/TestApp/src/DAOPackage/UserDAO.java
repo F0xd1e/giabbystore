@@ -15,6 +15,45 @@ public class UserDAO {
 	 * */
 	
 	//salva UserBean nel database
+	public UserBean doRetrieveByUsername(String userName) throws SQLException {
+
+		UserBean uBean=new UserBean();
+		DatabaseConnector connector = new DatabaseConnector();
+		connector.startConnection();
+		PreparedStatement state = null;
+		state = connector.getJdbcConnection()
+				//.prepareStatement("insert into Utente values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				.prepareStatement("select * from Utente WHERE username = ?");
+		
+		state.setString(1, userName);
+		
+		ResultSet container =state.executeQuery();
+		
+		if(container.next()==false) {
+			uBean= null;
+		}
+		else {
+			String username=container.getString("username"), password=container.getString("password"), name=container.getString("nome"), surname=container.getString("cognome"), address=container.getString("indirizzo"), city=container.getString("citta"), cap=container.getString("cap"), nation=container.getString("nazione"), phone=container.getString("cellulare"), email=container.getString("email");
+			boolean isAdmin=container.getBoolean("isAdmin"), canAccess=container.getBoolean("canAccess");
+			uBean.setUsername(username);
+			uBean.setAddress(address);
+			uBean.setAdmin(isAdmin);
+			uBean.setCanAccess(canAccess);
+			uBean.setCap(cap);
+			uBean.setCity(city);
+			uBean.setEmail(email);
+			uBean.setName(name);
+			uBean.setNation(nation);
+			uBean.setPassword(password);
+			uBean.setPhone(phone);
+			uBean.setSurname(surname);
+			
+		}
+		
+		connector.closeConnection();
+		return uBean;
+	}
+	
 	public void doSave(UserBean usr) throws SQLException {
 
 		DatabaseConnector connector = new DatabaseConnector();
@@ -40,7 +79,7 @@ public class UserDAO {
 
 	}
 	
-	//salva UserBean nel database: se esiste già, lo sovrascrive
+	//salva UserBean nel database: se esiste giï¿½, lo sovrascrive
 	public void doSaveOrUpdate(UserBean usr) throws SQLException {
 
 		DatabaseConnector connector = new DatabaseConnector();
@@ -69,7 +108,7 @@ public class UserDAO {
 			myState.setBoolean(12, usr.isCanAccess());
 			myState.executeUpdate();
 		} else {
-			//nel caso già esista va aggiornato
+			//nel caso giï¿½ esista va aggiornato
 			PreparedStatement updateQuery = connector.getJdbcConnection()
 					.prepareStatement("update Utente set username = ? AND password = ? AND nome = ? AND cognome = ? AND indirizzo = ?" +
 							" AND citta = ? AND cap = ? AND nazione = ? AND cellulare = ? AND email = ? AND isAdmin = ? AND canAccess = ?" +

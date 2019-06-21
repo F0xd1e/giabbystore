@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,9 +47,6 @@ public class DoLogout extends HttpServlet {
     		}
     		response.sendRedirect(dest);
     	}
-			
-	
-		
 		
 		
 		if (request.getSession().getAttribute("admin") == null) { //User session
@@ -87,9 +84,6 @@ public class DoLogout extends HttpServlet {
 	    		
 	    		response.sendRedirect(dest);
 	    		
-	    		
-	    	
-			
 			
 		} else { // Admin flag== true AND User flag == true, should never occur
 			
@@ -105,13 +99,9 @@ public class DoLogout extends HttpServlet {
     	}
 			
 			
-		}
-	    
-	    
-		
-		
-		
 	}
+	    	
+}
 	
 
 

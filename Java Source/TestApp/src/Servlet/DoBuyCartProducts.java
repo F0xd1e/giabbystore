@@ -1,9 +1,9 @@
 package Servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -58,11 +58,13 @@ public class DoBuyCartProducts extends HttpServlet {
 			e.printStackTrace();
 		}
 		/* WORK IN PROGRESS --> ADD ORDER TO DB
+		 
+		 
 		int shipment=getLatestShipment(cart);
 		OrderDAO cDao=new OrderDAO();
 	    OrderBean oBean=new OrderBean();
-		oBean.setOrderDate( (java.sql.Date) new Date());
-		oBean.setShipmentDate((java.sql.Date)new Date());
+		oBean.setOrderDate( new Date());
+		oBean.setShipmentDate(new Date());
 		oBean.setPaymentCode("Porco DIOOOO");
 		oBean.setShipmentPrice(shipment);
 		oBean.setTotalPrice(totPrice);
@@ -75,8 +77,8 @@ public class DoBuyCartProducts extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		*/
 		
+		*/
 		for( CartBean c : cart) {
 			try {
 				cartDao.doDelete(c);

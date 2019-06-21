@@ -1,9 +1,35 @@
-.section-img{
-    width:100%;
+.panel-desc{
+	border-color: #d1761d;	
 }
-.target-img{
-    width:50%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+
+.panel-desc > .panel-heading {
+    background-image: none;
+    background-color: #d1761d;
+    color: #222222;
+    border-color: #d1761d;
+}
+
+.panel-desc > .panel-body {
+    background-image: none;
+    background-color: #383838;
+    color: white;
+    border-color: #d1761d;
+}
+
+.panel-other{
+	border-color: #d1761d;	
+}
+
+.panel-other > .panel-heading {
+    background-image: none;
+    background-color: #d1761d;
+    color: #222222;
+    border-color: #d1761d;
+}
+
+.panel-other > .panel-body {
+    background-image: none;
+    background-color: #383838;
+    color: white;
+    border-color: #d1761d;
 }

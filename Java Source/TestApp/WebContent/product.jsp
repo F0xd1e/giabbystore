@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
     <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
     <link rel="stylesheet" type="text/css" href="./files_css/product-style.css">
 
@@ -48,6 +49,45 @@
         </section>
         <!--SECTION OF THE DETAILS-->
         <section class = "section-details center-block" style = "text-align: center;">
+            <br/>
+            <!--PANEL FOR OTHER DETAILS OF THE PRODUCT-->
+            <div class="panel panel-default panel-other">
+                <div class="panel-heading">
+                    Details
+                </div>
+                <!--YOU MUST CHANGE THE OTHER DETAILS OF THE PRODUCT BY
+                    EDITING THE CLASS target-other-content-->
+                <div class="panel-body target-other-content">
+                    <!--YOU MUST EDIT span-NAME-->
+                    <span>Category: </span>
+                    <span class = "span-category"> <!--LIKE HERE lol-->
+                        Category to change
+                    </span>
+                    <span><br/>Price: </span>
+                    <span class = "span-price">
+                            $150,00
+                    </span>
+                    <span><br/>Availability: </span>
+                    <span class = "span-availability">
+                            125
+                    </span>
+                    <span><br/>Shipment: </span>
+                    <span class = "span-shipment">
+                            4 days
+                    </span>
+                </div>
+            </div>
+            <!--PANEL FOR THE DESCRIPTION OF THE PRODUCT-->
+            <div class="panel panel-default panel-desc">
+                <div class="panel-heading">
+                    Description
+                </div>
+                <!--YOU MUST CHANGE THE DESCRIPTION OF THE PRODUCT BY
+                    EDITING THE CLASS target-description-content-->
+                <div class="panel-body target-description-content">
+                    Portable console very useful veri much veri tenk iu veri much i'm such a doggo i love myself
+                </div>
+            </div>
             
         </section>
     </section>

@@ -45,6 +45,18 @@
 .userDiv{
     width:30%;
 }
+.section-img{
+    width:100%;
+}
+.target-img{
+    width:60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.section-details{
+    width:60%;
+}
 @media screen and (max-width: 1000px) and (min-width: 600px){
     #divLogin{
         margin-right:15%;
@@ -109,7 +121,16 @@
     }
     .userDiv{
     	width:50%;
+    }
+    .target-img{
+    	width:70%;
+    	margin-left: auto;
+    	margin-right: auto;
+    	display: block;
 	}
+    .section-details{
+        width:70%;
+    }
 }
 @media screen and (max-width: 480px){
 	#search-field{
@@ -124,8 +145,18 @@
     	margin-right: 0px;
     }
     .userDiv{
-    	width:70%;
+    	width:80%;
 	}
+	.target-img{
+    	width:80%;
+    	margin-left: auto;
+    	margin-right: auto;
+    	display: block;
+	}
+    .section-details{
+        width:80%;
+    }
+    
 }
 @media screen and (max-width: 276px){
 	#search-field{
@@ -139,7 +170,4 @@
     	margin-left: 8px;
     	margin-right: 0px;
     }
-    .userDiv{
-    	width:80%;
-	}
 }

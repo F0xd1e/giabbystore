@@ -34,13 +34,14 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <!--<div id = "search-item">
-                    <form action="DoSearch">
-                        <input type="text" placeholder="Search a product" name="searchBar">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                <li>
+                    <form class="form-inline" action="DoSearch" method="GET"> 
+                        <div class="form-group">
+                        	<input type="text" class="form-control" placeholder="Search a product" name="searchBar" id = "search-field">
+                            <button type="submit" class="btn btn-default" id = "search-button"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
                     </form>
-                </div>-->
-
+                </li>
                 <!--
                     Attributi sessione:
                     "user" -> contiene l'username dell'utente
@@ -110,35 +111,35 @@
             <div id = "myCarousel-body" class="carousel-inner">
                 
                 <div class="item active myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
                 <div class="item myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
                 <div class="item myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
                 <div class="item myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
                 <div class="item myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
                 <div class="item myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
                 <div class="item myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
                 <div class="item myCarousel-item">
-                    <img src="./images/#" style="width:100%;">
+                    <img src="" style="width:100%;">
                 </div>
 
             </div>
@@ -179,7 +180,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -192,7 +193,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -205,7 +206,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -218,7 +219,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -233,7 +234,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -246,7 +247,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -259,7 +260,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
@@ -272,7 +273,7 @@
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "./images/#" alt = "image to set">
+                        <img class = "img-responsive target-img" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE

@@ -44,9 +44,12 @@ public class DoLogin extends HttpServlet {
         String password= request.getParameter("password");
         UserDAO userquery = new UserDAO();
         String result = null;
+        Boolean canAccess = false;
+        
         try {
         	//result will contain the nickname of the user
             result= userquery.checkUserExistence(user, password);
+            canAccess= userquery.checkUserSecurityClearance(result);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -60,6 +63,14 @@ public class DoLogin extends HttpServlet {
         	request.setAttribute("errms", errmessage);
         	request.getRequestDispatcher("login.jsp").forward(request, response);
         	return;
+        	
+        } else if (canAccess == false) {
+        	
+        	String banmessage="You are banned from the site.";
+        	request.setAttribute("banmsg", banmessage);
+        	request.getRequestDispatcher("login.jsp").forward(request, response);
+        	return;
+        	
         }
         //success login case
         HttpSession newsess = request.getSession();
@@ -74,22 +85,12 @@ public class DoLogin extends HttpServlet {
         	//set of session attributes - admin user
         	newsess.setAttribute("admin", result);
         	newsess.setAttribute("user", null);
-        	/*Cookie idCookie = new Cookie("name",result);  // Cookies if admin
-        	Cookie sessiontracking = new Cookie("sessid", newsess.getId());
-        	idCookie.setMaxAge(60*60*2);  //Admin has less cookie durability due to security operations
-        	sessiontracking.setMaxAge(60*60*2); // As ^ 
-            response.addCookie(idCookie);
-            response.addCookie(sessiontracking);*/
+
         } else {
-        	//set of session attributes - normal user
+        	
         	newsess.setAttribute("admin", null);
         	newsess.setAttribute("user", result);
-        	/*Cookie idCookie = new Cookie("name",result);  // Cookies if regular user
-        	Cookie sessiontracking = new Cookie("sessid", newsess.getId());
-        	idCookie.setMaxAge(60*60*48);
-        	sessiontracking.setMaxAge(60*60*48);
-            response.addCookie(idCookie);
-            response.addCookie(sessiontracking);*/
+
         }
         response.addIntHeader("Success", 888); //Debug purposes
     	String dest = "index.jsp";

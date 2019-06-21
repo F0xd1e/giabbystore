@@ -3,7 +3,9 @@ package Servlet;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,19 +56,23 @@ public class DoBuyCartProducts extends HttpServlet {
 		try {
 			cart=cartDao.doRetrieveAll_byUser(usr);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch bloc
 			e.printStackTrace();
 		}
-		/* WORK IN PROGRESS --> ADD ORDER TO DB
-		 
-		 
+		
+		
+		
+		
 		int shipment=getLatestShipment(cart);
+		String paymentCode=generatePaymentCode();
+		Date plusDays=getShipmentDate(shipment);
+		
 		OrderDAO cDao=new OrderDAO();
 	    OrderBean oBean=new OrderBean();
-		oBean.setOrderDate( new Date());
-		oBean.setShipmentDate(new Date());
-		oBean.setPaymentCode("Porco DIOOOO");
-		oBean.setShipmentPrice(shipment);
+		oBean.setOrderDate( new Date(new java.util.Date().getTime()));
+		oBean.setShipmentDate(plusDays);
+		oBean.setPaymentCode(paymentCode);
+		oBean.setShipmentPrice(5);
 		oBean.setTotalPrice(totPrice);
 		oBean.setUsername(userId);
 		
@@ -78,7 +84,7 @@ public class DoBuyCartProducts extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		*/
+		
 		for( CartBean c : cart) {
 			try {
 				cartDao.doDelete(c);
@@ -109,6 +115,28 @@ public class DoBuyCartProducts extends HttpServlet {
 		}
 		return max;
 	}
+	
+	private String generatePaymentCode() {
+		char[] characters= {'a','b','c','d','e','f','g','h','i','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
+				,'A','B','C','D','E','F','G','H','I','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+				'0','1','2','3','4','5','6','7','8','9'};
+		char[] paymentCode=new char[16];
+		Random rng=new Random(characters.length);
+		for(int i=0;i<paymentCode.length;i++) {
+			paymentCode[i]=characters[rng.nextInt()];
+		}
+		
+		return paymentCode.toString();
+		
+	}
+	
+	private Date getShipmentDate(int shipment) {
+		Date shipmentDate=new Date(new java.util.Date().getTime());
+		LocalDate ld=shipmentDate.toLocalDate();
+		LocalDate plusDays=ld.plusDays(shipment);
+		return Date.valueOf(plusDays);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

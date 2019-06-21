@@ -70,6 +70,15 @@
             	<%
             		}
             	%>
+            	
+            	<% 
+            		if (request.getAttribute("banmsg") != null) {
+            	%>
+            	<%=request.getAttribute("banmsg") %>
+            	<%
+            		}
+            	%>
+            	
             </p>
         </div>
     </section>

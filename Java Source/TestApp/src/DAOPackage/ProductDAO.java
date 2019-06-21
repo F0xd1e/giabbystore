@@ -199,4 +199,41 @@ public class ProductDAO {
 		
 	}
 	
+	
+	
+	public ArrayList<ProductBean> retrieveProductByStringName(String input) throws SQLException {
+		
+		ArrayList<ProductBean> res = new ArrayList<ProductBean> ();
+		ProductBean prod = null;
+		DatabaseConnector conn=new DatabaseConnector();
+		conn.startConnection();
+		PreparedStatement stateAll = conn.getJdbcConnection().prepareStatement("SELECT * FROM prodotto WHERE titolo LIKE '"+input+"%' ");
+		stateAll.setString(1, input);
+		ResultSet container = stateAll.executeQuery();
+		System.err.println(container);
+		
+		 if(container.next() != false) {
+			
+			int productCode=container.getInt("codiceProdotto");
+			String title=container.getString("titolo"), description=container.getString("descrizione"), tipology=container.getString("tipologia"), imgPath=container.getString("imgPath");
+			double price=container.getDouble("prezzo");
+			int availability=container.getInt("disponibilita"), shipment=container.getInt("spedizione");
+			prod=new ProductBean();
+			prod.setProductCode(productCode);
+			prod.setTitle(title);
+			prod.setDescription(description);
+			prod.setTipology(tipology);
+			prod.setImgPath(imgPath);
+			prod.setPrice(price);
+			prod.setAvailability(availability);
+			prod.setShipment(shipment);
+			
+			res.add(prod);
+			
+		}
+		
+		return res;
+		 
+	}
+	
 }

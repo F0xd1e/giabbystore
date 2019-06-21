@@ -35,7 +35,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <form class="form-inline" action="DoSearch" method="GET"> 
+                    <form class="form-inline" action="DoSearch" method="POST"> 
                         <div class="form-group">
                         	<input type="text" class="form-control" placeholder="Search a product" name="searchBar" id = "search-field">
                             <button type="submit" class="btn btn-default" id = "search-button"><span class="glyphicon glyphicon-search"></span></button>

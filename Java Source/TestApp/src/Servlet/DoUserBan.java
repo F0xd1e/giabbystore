@@ -45,13 +45,13 @@ public class DoUserBan extends HttpServlet {
 		
 		if(usr==null) {
 			request.setAttribute("error","No such user in the database.");
-			request.getRequestDispatcher("userHandler.jsp").forward(request, response);
+			request.getRequestDispatcher("banpanel.jsp").forward(request, response);
 			return;
 		}
 		
 		if(usr.isCanAccess()==false) {
 			request.setAttribute("error","The user is already banned.");
-			request.getRequestDispatcher("userHandler.jsp").forward(request, response);
+			request.getRequestDispatcher("banpanel.jsp").forward(request, response);
 			return;
 		}
 		
@@ -65,7 +65,7 @@ public class DoUserBan extends HttpServlet {
 		}
 		
 		request.setAttribute("success","User banned with success!");
-		request.getRequestDispatcher("userHandler.jsp").forward(request, response);
+		request.getRequestDispatcher("banpanel.jsp").forward(request, response);
 		return;
 	}
 

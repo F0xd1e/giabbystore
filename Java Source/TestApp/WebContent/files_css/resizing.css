@@ -36,7 +36,15 @@
     margin-top:8px;
     margin-right: 15px;
 }
-
+#ban-bar{
+    width:85%;
+}
+#cblock{
+    width:50%;
+}
+.userDiv{
+    width:30%;
+}
 @media screen and (max-width: 1000px) and (min-width: 600px){
     #divLogin{
         margin-right:15%;
@@ -85,6 +93,22 @@
     	margin-top: 8px;
     	margin-left: 8px;
     	margin-right: 0px;
+    }
+    #cblock{
+        width:70%;
+    }
+    #ban-bar{
+        width:100%;
+    }
+    #banform{
+        display: flex;
+        justify-content: center;
+    }
+    #last-hr{
+        margin-top:5px;
+    }
+    .userDiv{
+    	width:50%;
 	}
 }
 @media screen and (max-width: 480px){
@@ -98,6 +122,9 @@
     	margin-top: 8px;
     	margin-left: 8px;
     	margin-right: 0px;
+    }
+    .userDiv{
+    	width:70%;
 	}
 }
 @media screen and (max-width: 276px){
@@ -111,5 +138,8 @@
     	margin-top: 8px;
     	margin-left: 8px;
     	margin-right: 0px;
+    }
+    .userDiv{
+    	width:80%;
 	}
 }

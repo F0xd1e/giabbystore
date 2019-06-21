@@ -86,9 +86,9 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=adminSession%><span class="caret" style = "margin-left:6px;"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Display an user</a></li>
-                            <li><a href="#">Ban/Unban an user</a></li>
-                            <li><a href="#">Add a new product</a></li>
-                            <li><a href="#">Remove a product</a></li>
+                            <li><a href="./banpanel.jsp">Ban/Unban an user</a></li>
+                            <li><a href="#">Add/Remove an admin</a></li>
+                            <li><a href="#">Add/Remove a new product</a></li>
                             <li><a href="#">Go to your account</a></li>
                         </ul>
                     </li>

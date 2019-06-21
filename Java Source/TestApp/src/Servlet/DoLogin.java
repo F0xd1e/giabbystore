@@ -44,9 +44,12 @@ public class DoLogin extends HttpServlet {
         String password= request.getParameter("password");
         UserDAO userquery = new UserDAO();
         String result = null;
+        Boolean isBanned = false;
+        
         try {
         	//result will contain the nickname of the user
             result= userquery.checkUserExistence(user, password);
+            isBanned= userquery.checkUserSecurityClearance(result);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -60,6 +63,14 @@ public class DoLogin extends HttpServlet {
         	request.setAttribute("errms", errmessage);
         	request.getRequestDispatcher("login.jsp").forward(request, response);
         	return;
+        	
+        } else if (isBanned == true) {
+        	
+        	String banmessage="You are banned from the site.";
+        	request.setAttribute("banmsg", banmessage);
+        	request.getRequestDispatcher("login.jsp").forward(request, response);
+        	return;
+        	
         }
         //success login case
         HttpSession newsess = request.getSession();

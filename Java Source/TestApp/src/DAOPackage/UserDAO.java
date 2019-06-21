@@ -190,6 +190,26 @@ public class UserDAO {
 		return result;
 		
 	}
+	
+	
+	public boolean checkUserAccessPermit(String username) throws SQLException {
+		
+		
+		DatabaseConnector conn = new DatabaseConnector();
+		conn.startConnection();
+		PreparedStatement state = conn.getJdbcConnection().prepareStatement("SELECT canAccess FROM Utente WHERE username LIKE ?");
+		state.setString(1, username);
+		ResultSet container = state.executeQuery();
+		if (container.next() == false)	{
+			System.out.println("FATAL ERROR: empty resultset in servlet checkUserAccessPermit, contact technical support asap.");
+			System.exit(-1);
+		}
+		
+		
+		boolean result = container.getBoolean("canAccess");
+		return result;
+		
+	}
 
 	
 }

@@ -62,7 +62,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		
 		
 		
-		/* 
+		
 		int shipment=getLatestShipment(cart);
 		String paymentCode=generatePaymentCode();
 		Date plusDays=getShipmentDate(shipment);
@@ -72,7 +72,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		oBean.setOrderDate( new Date(new java.util.Date().getTime()));
 		oBean.setShipmentDate(plusDays);
 		oBean.setPaymentCode(paymentCode);
-		oBean.setShipmentPrice(shipment);
+		oBean.setShipmentPrice(5);
 		oBean.setTotalPrice(totPrice);
 		oBean.setUsername(userId);
 		
@@ -84,7 +84,7 @@ public class DoBuyCartProducts extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		*/
+		
 		for( CartBean c : cart) {
 			try {
 				cartDao.doDelete(c);
@@ -136,6 +136,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		LocalDate plusDays=ld.plusDays(shipment);
 		return Date.valueOf(plusDays);
 	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

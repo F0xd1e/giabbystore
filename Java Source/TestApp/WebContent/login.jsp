@@ -11,13 +11,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
+    <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
 
     <script src = "./files_js/js-login.js"></script>
 
     <style>
         body{
-            background-color: rgb(43, 43, 43);
-            color:rgb(229, 229, 229);
             text-align: center;
         }
         .error{

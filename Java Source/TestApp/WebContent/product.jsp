@@ -12,6 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
+    <link rel="stylesheet" type="text/css" href="./files_css/product-style.css">
 
 </head>
 <body>
@@ -30,13 +31,27 @@
         <!--THIS DIV CONTAINS THE TITLE OF THE PRODUCT-->
         <div class = "container container-title" style = "width: 90%; padding: 5px; margin-top:50px;">
             <!--YOU MUST CHANGE HERE!-->
-            <h2 style = "text-align: center;"><strong>TEMPLATE PRODUCT TITLE</strong></h2>
+            <h2 style = "text-align: center;"><strong>Nintendo 3DS</strong></h2>
             <hr/>
         </div>
     </header>
     <!--END OF THE HEADER-->
 
     <!--SECTION - THERE ARE ALL DETAILS OF THE PRODUCT-->
+    <section class = "section-product center-block">
+        <!--SECTION OF THE IMAGE-->
+        <section class = "section-img center-block">
+            <!--YOU MUST CHANGE THE SRC OF THE IMAGE WITH THE REAL IMAGE PATH OF THE PRODUCT-->
+                <!--BY TEST, WE'LL INSERT THE IMAGE OF A 3DS-->
+            <!--YOU HAVE TO CHANGE THE IMAGE BY THE CLASS target-img-->
+            <img src = "./images/product_3ds.png" class = "img-responsive img-rounded target-img" alt = "Product image">
+        </section>
+        <!--SECTION OF THE DETAILS-->
+        <section class = "section-details center-block" style = "text-align: center;">
+            
+        </section>
+    </section>
+    
 
 </body>
 </html>

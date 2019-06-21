@@ -44,12 +44,13 @@ public class DoLogin extends HttpServlet {
         String password= request.getParameter("password");
         UserDAO userquery = new UserDAO();
         String result = null;
-        Boolean canAccess = false;
+        Boolean canAccess=false;
         
         try {
         	//result will contain the nickname of the user
             result= userquery.checkUserExistence(user, password);
-            canAccess= userquery.checkUserSecurityClearance(result);
+            canAccess= userquery.checkUserAccessPermit(result);
+            System.err.println(canAccess);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

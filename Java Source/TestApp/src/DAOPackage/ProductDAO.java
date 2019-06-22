@@ -208,7 +208,6 @@ public class ProductDAO {
 		DatabaseConnector conn=new DatabaseConnector();
 		conn.startConnection();
 		PreparedStatement stateAll = conn.getJdbcConnection().prepareStatement("SELECT * FROM prodotto WHERE titolo LIKE '"+input+"%' ");
-		stateAll.setString(1, input);
 		ResultSet container = stateAll.executeQuery();
 		System.err.println(container);
 		

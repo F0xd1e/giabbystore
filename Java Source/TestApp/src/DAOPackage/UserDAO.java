@@ -108,7 +108,7 @@ public class UserDAO {
 			myState.setBoolean(12, usr.isCanAccess());
 			myState.executeUpdate();
 		} else {
-			//nel caso giï¿½ esista va aggiornato
+			//nel caso già esista va aggiornato
 			PreparedStatement updateQuery = connector.getJdbcConnection()
 					.prepareStatement("update Utente set username = ? , nome = ? , cognome = ? , indirizzo = ? , citta = ? , cap = ? , nazione = ? , cellulare = ? , email = ? , isAdmin = ? , canAccess = ? where username = ?");
 			updateQuery.setString(1, usr.getUsername());

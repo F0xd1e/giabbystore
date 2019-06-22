@@ -73,9 +73,11 @@ public class HomeSuggestions extends HttpServlet {
 			price=b.getPrice();
 			title=b.getTitle();
 			imgPath=b.getImgPath();
+			int productCode=b.getProductCode();
 			obj.put("price", price);
 			obj.put("title", title);
 			obj.put("imgPath", imgPath);
+			obj.put("productCode", productCode);
 			arr.put(obj);
 		}
 		

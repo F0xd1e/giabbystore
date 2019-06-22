@@ -110,22 +110,20 @@ public class UserDAO {
 		} else {
 			//nel caso gi� esista va aggiornato
 			PreparedStatement updateQuery = connector.getJdbcConnection()
-					.prepareStatement("update Utente set username = ? AND password = ? AND nome = ? AND cognome = ? AND indirizzo = ?" +
-							" AND citta = ? AND cap = ? AND nazione = ? AND cellulare = ? AND email = ? AND isAdmin = ? AND canAccess = ?" +
-							"where username = ?");
+					.prepareStatement("update Utente set username = ? , nome = ? , cognome = ? , indirizzo = ? , citta = ? , cap = ? , nazione = ? , cellulare = ? , email = ? , isAdmin = ? , canAccess = ? where username = ?");
 			updateQuery.setString(1, usr.getUsername());
-			updateQuery.setString(2, usr.getPassword());
-			updateQuery.setString(3, usr.getName());
-			updateQuery.setString(4, usr.getSurname());
-			updateQuery.setString(5, usr.getAddress());
-			updateQuery.setString(6, usr.getCity());
-			updateQuery.setString(7, usr.getCap());
-			updateQuery.setString(8, usr.getNation());
-			updateQuery.setString(9, usr.getPhone());
-			updateQuery.setString(10, usr.getEmail());
-			updateQuery.setBoolean(11, usr.isAdmin());
-			updateQuery.setBoolean(12, usr.isCanAccess());
-			updateQuery.setString(13, usr.getUsername());
+		
+			updateQuery.setString(2, usr.getName());
+			updateQuery.setString(3, usr.getSurname());
+			updateQuery.setString(4, usr.getAddress());
+			updateQuery.setString(5, usr.getCity());
+			updateQuery.setString(6, usr.getCap());
+			updateQuery.setString(7, usr.getNation());
+			updateQuery.setString(8, usr.getPhone());
+			updateQuery.setString(9, usr.getEmail());
+			updateQuery.setBoolean(10, usr.isAdmin());
+			updateQuery.setBoolean(11, usr.isCanAccess());
+			updateQuery.setString(12, usr.getUsername());
 			updateQuery.executeUpdate();
 		}
 		connector.closeConnection();

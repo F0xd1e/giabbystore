@@ -154,12 +154,20 @@
                         $("body").append(generateUserCard());
                     }
                     */
+                    var index=0;
+                    $('.username-text').each(function(){
+                        $(this).html(bannedUsers[index]);
+                        index++;
+                    })
+
                     $(".targbtn").click(function(e){
                         e.preventDefault();
                         var btn=$(e.target);
                         if(btn.is('p')){
                             btn=btn.parent();
                         }
+                        
+                        var userName=btn.parent().prev().children().eq(0).html();
                         
                         $.get("UndoUserBan?username="+userName+"",function(data,status){
                             alert(data);

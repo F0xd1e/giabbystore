@@ -170,7 +170,7 @@
                         var userName=btn.parent().prev().children().eq(0).html();
                         
                         $.get("UndoUserBan?username="+userName+"",function(data,status){
-                            alert(data);
+                            //alert(data);
                             location.reload(false);
                         })
                         

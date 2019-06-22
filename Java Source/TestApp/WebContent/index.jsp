@@ -174,111 +174,129 @@
     -->
     <div id = "productSection" class = "container-fluid">
         <div class="row">
+            <!--Una card comincia qui??-->
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <a>
                 <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
                     </div>
                 </div>
+                </a>
+            </div>
+            <!--Una card finisce qui??-->
+            <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <a>
+                <div class = "container-fluid item-container target">
+                    <div class = "item-header">
+                        TITLE
+                    </div>
+                    <div class = "item-img-field">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
+                    </div>
+                    <div class = "item-footer">
+                        PRICE
+                    </div>
+                </div>
+                </a>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid item-container target">
+                <a>
+                <div class = "container-fluid item-container target ">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
                     </div>
                 </div>
+                </a>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <a>
                 <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
-                <div class = "container-fluid item-container target">
-                    <div class = "item-header">
-                        TITLE
-                    </div>
-                    <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
-                    </div>
-                    <div class = "item-footer">
-                        PRICE
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <a>
                 <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
                     </div>
                 </div>
+                </a>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <a>
                 <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
                     </div>
                 </div>
+                </a>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <a>
                 <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
                     </div>
                 </div>
+                </a>
             </div>
             <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+                <a>
                 <div class = "container-fluid item-container target">
                     <div class = "item-header">
                         TITLE
                     </div>
                     <div class = "item-img-field">
-                        <img class = "img-responsive target-img" src = "" alt = "image to set">
+                        <img class = "img-responsive target-img imageselector" src = "" alt = "image to set">
                     </div>
                     <div class = "item-footer">
                         PRICE
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>

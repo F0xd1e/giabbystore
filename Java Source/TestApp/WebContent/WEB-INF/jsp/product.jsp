@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<%@ page import="JavaBeans.ProductBean" %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,7 +17,12 @@
 
 </head>
 <body>
-
+	<%
+		ProductBean bean=(ProductBean)request.getAttribute("product");
+		String description=bean.getDescription(),typology=bean.getTipology(),imgPath=bean.getImgPath(),title=bean.getTitle();
+		double price=bean.getPrice();
+		int availability=bean.getAvailability(),shipment=bean.getShipment();
+	%>
     <!--NAV WITH BUTTON TO RETURN TO INDEX-->
     <nav class="navbar navbar-inverse navbar-fixed-top" >
         <div class="container-fluid">
@@ -32,7 +37,7 @@
         <!--THIS DIV CONTAINS THE TITLE OF THE PRODUCT-->
         <div class = "container container-title" style = "width: 90%; padding: 5px; margin-top:50px;">
             <!--YOU MUST CHANGE HERE!-->
-            <h2 style = "text-align: center;"><strong>Nintendo 3DS</strong></h2>
+            <h2 style = "text-align: center;"><strong><%= title%></strong></h2>
             <hr/>
         </div>
     </header>
@@ -45,7 +50,7 @@
             <!--YOU MUST CHANGE THE SRC OF THE IMAGE WITH THE REAL IMAGE PATH OF THE PRODUCT-->
                 <!--BY TEST, WE'LL INSERT THE IMAGE OF A 3DS-->
             <!--YOU HAVE TO CHANGE THE IMAGE BY THE CLASS target-img-->
-            <img src = "./images/product_3ds.png" class = "img-responsive img-rounded target-img" alt = "Product image">
+            <img src = "<%= imgPath%>" class = "img-responsive img-rounded target-img" alt = "Product image">
         </section>
         <!--SECTION OF THE DETAILS-->
         <section class = "section-details center-block" style = "text-align: center;">
@@ -61,19 +66,19 @@
                     <!--YOU MUST EDIT span-NAME-->
                     <span>Category: </span>
                     <span class = "span-category"> <!--LIKE HERE lol-->
-                        Category to change
+                       <%=typology %>
                     </span>
                     <span><br/>Price: </span>
                     <span class = "span-price">
-                            $150,00
+                            <%=price %>
                     </span>
                     <span><br/>Availability: </span>
                     <span class = "span-availability">
-                            125
+                            <%= availability%>
                     </span>
                     <span><br/>Shipment: </span>
                     <span class = "span-shipment">
-                            4 days
+                            <%= shipment%>
                     </span>
                 </div>
             </div>
@@ -85,7 +90,7 @@
                 <!--YOU MUST CHANGE THE DESCRIPTION OF THE PRODUCT BY
                     EDITING THE CLASS target-description-content-->
                 <div class="panel-body target-description-content">
-                    Portable console very useful veri much veri tenk iu veri much i'm such a doggo i love myself
+                    <%= description%>
                 </div>
             </div>
             

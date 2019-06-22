@@ -16,7 +16,7 @@ import JavaBeans.ProductBean;
 /**
  * Servlet implementation class DoRetrieveJSONProduct
  */
-@WebServlet("/DoRetrieveJSONProduct")
+@WebServlet("/DoRetrieveProductBean")
 public class DoRetrieveProductBean extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,9 +34,11 @@ public class DoRetrieveProductBean extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println(request.getParameter("productId"));
 		int productId=Integer.parseInt(request.getParameter("productId"));
 		ProductDAO pDao=new ProductDAO();
 		ProductBean prod=null;
+		
 		try {
 			prod=pDao.doRetrieveProductByID(productId);
 		} catch (SQLException e) {
@@ -45,7 +47,8 @@ public class DoRetrieveProductBean extends HttpServlet {
 		}
 		
 		request.setAttribute("product", prod);
-		request.getRequestDispatcher("product.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/product.jsp").forward(request, response);
+		return;
 	}
 
 	/**

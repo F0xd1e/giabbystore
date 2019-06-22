@@ -31,3 +31,7 @@
 .item-img-field{
     background-color: white;
 }
+
+.imageselector:hover{
+    cursor: pointer;
+}

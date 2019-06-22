@@ -8,23 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import DAOPackage.ProductDAO;
-import JavaBeans.ProductBean;
+import DAOPackage.UserDAO;
+import JavaBeans.UserBean;
 
 /**
- * Servlet implementation class DoDeleteProduct
+ * Servlet implementation class DoSetAdmin
  */
-@WebServlet("/DoDeleteProduct")
-public class DoDeleteProduct extends HttpServlet {
+@WebServlet("/DoSetAdminPrivilege")
+public class DoSetAdminPrivilege extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DoDeleteProduct() {
+    public DoSetAdminPrivilege() {
         super();
-        
         // TODO Auto-generated constructor stub
     }
 
@@ -32,36 +32,44 @@ public class DoDeleteProduct extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		int productCode=Integer.parseInt(request.getParameter("productCode"));
-		ProductDAO pDao=new ProductDAO();
-		ProductBean prod=null;
-		
+		String toAdmin=request.getParameter("username");
+		UserDAO uDao=new UserDAO();
+		UserBean usr=null;
+		HttpSession sess = request.getSession();
 		try {
-			prod=pDao.doRetrieveProductByID(productCode);
+			usr=uDao.doRetrieveByUsername(toAdmin);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if(prod==null) {
-			request.setAttribute("response","No such element in the database");
-			request.getRequestDispatcher("productHandler.jsp").forward(request, response);
+		if(usr==null) {
+			sess.setAttribute("msgConfirm","No such user in the database.");
+			String dest = "adminpanel.jsp";
+			response.sendRedirect(dest);
 			return;
 		}
 		
+		if(usr.isAdmin()==true) {
+			sess.setAttribute("msgConfirm","The user is already admin.");
+			String dest = "adminpanel.jsp";
+			response.sendRedirect(dest);
+			return;
+		}
+		
+		usr.setAdmin(true);
+		
 		try {
-			pDao.doDelete(prod);
+			uDao.doSaveOrUpdate(usr);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("response","Element successfully deleted!");
-		request.getRequestDispatcher("productHandler.jsp").forward(request, response);
-		
+		sess.setAttribute("msgConfirm","User is now an admin!");
+		String dest = "adminpanel.jsp";
+		response.sendRedirect(dest);
+		return;
 	}
 
 	/**

@@ -45,7 +45,7 @@ public class DoLogin extends HttpServlet {
         UserDAO userquery = new UserDAO();
         String result = null;
         Boolean canAccess=false;
-        
+        /*
         try {
         	//result will contain the nickname of the user
             result= userquery.checkUserExistence(user, password);
@@ -58,15 +58,32 @@ public class DoLogin extends HttpServlet {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
+        */
+        
+        try {
+			result= userquery.checkUserExistence(user, password);
+		} catch (ClassNotFoundException | InstantiationException | SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+        
         //login failed case
         if (result == null) {
         	String errmessage="Username and/or password are incorrect. Please retry.";
         	request.setAttribute("errms", errmessage);
         	request.getRequestDispatcher("login.jsp").forward(request, response);
         	return;
-        	
-        } else if (canAccess == false) {
-        	
+        }
+        
+        try {
+    		canAccess= userquery.checkUserAccessPermit(result);
+    	} catch (SQLException e1) {
+    		// TODO Auto-generated catch block
+    		e1.printStackTrace();
+    	}
+        
+        if (canAccess == false) {
+        
         	String banmessage="You are banned from the site.";
         	request.setAttribute("banmsg", banmessage);
         	request.getRequestDispatcher("login.jsp").forward(request, response);

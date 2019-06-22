@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAOPackage.UserDAO;
 import JavaBeans.UserBean;
@@ -36,6 +37,7 @@ public class DoUserBan extends HttpServlet {
 		String toBan=request.getParameter("username");
 		UserDAO uDao=new UserDAO();
 		UserBean usr=null;
+		HttpSession sess = request.getSession();
 		try {
 			usr=uDao.doRetrieveByUsername(toBan);
 		} catch (SQLException e) {
@@ -44,14 +46,16 @@ public class DoUserBan extends HttpServlet {
 		}
 		
 		if(usr==null) {
-			request.setAttribute("msgConfirm","No such user in the database.");
-			request.getRequestDispatcher("banpanel.jsp").forward(request, response);
+			sess.setAttribute("msgConfirm","No such user in the database.");
+			String dest = "banpanel.jsp";
+			response.sendRedirect(dest);
 			return;
 		}
 		
 		if(usr.isCanAccess()==false) {
-			request.setAttribute("msgConfirm","The user is already banned.");
-			request.getRequestDispatcher("banpanel.jsp").forward(request, response);
+			sess.setAttribute("msgConfirm","The user is already banned.");
+			String dest = "banpanel.jsp";
+			response.sendRedirect(dest);
 			return;
 		}
 		
@@ -64,7 +68,7 @@ public class DoUserBan extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("msgConfirm","User banned with success!");
+		sess.setAttribute("msgConfirm","User banned with success!");
 		String dest = "banpanel.jsp";
 		response.sendRedirect(dest);
 		return;

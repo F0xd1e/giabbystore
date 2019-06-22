@@ -1,0 +1,9 @@
+.error{
+	border: solid red 2px;
+}
+.notDisplayed{
+	display: none;
+}
+.errorText{
+	color: red;
+}

@@ -13,29 +13,9 @@
 
         <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
         <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
-        
-        <style>
-            .button-unban {
-                margin: 3px -8px 3px 6px;
-                background-color: white;
-                color: black;
-                border: 2px solid #555555;
-                border-radius: 4px;
-            }
-
-            .button-unban:hover {
-                background-color: #d1761d;
-                color: white;
-                border-radius: 4px;
-            }
-            .button-unban-text {
-                padding: 2px 4px 2px 4px;
-                margin-bottom: 0px;
-            }
-            .username-text {
-                margin-bottom: 0px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="./files_css/error-things.css">
+        <link rel="stylesheet" type="text/css" href="./files_css/banpanel.css">
+        <script src = "./files_js/js-banpanel.js"></script>
 
     </head>
     <body>
@@ -64,6 +44,21 @@
                     </div>
                 </form>
             </div>
+            <%!
+            	String sessionMsg = null;
+            %>
+            <%
+            	sessionMsg = (String)session.getAttribute("msgConfirm");
+            	if (sessionMsg != null) {
+            %>
+                <p class = "errorText" style = "margin-top:20px; margin-bottom: -5px; text-align:center;">
+                    <%=sessionMsg%>
+                </p>
+            <%
+            		session.removeAttribute("msgConfirm");
+                }
+            %>
+            <p id = "errMsg" class = "notDisplayed errorText" style = "margin-top:20px; margin-bottom: -5px; text-align:center;">The field must not be empty.</p>
             <div class = "container" style = "width: 90%; padding: 5px;">
                 <hr id="last-hr">
             </div>
@@ -105,82 +100,6 @@
             <!-- END OF THE PRESET -->
 
         </section>
-        <script>
-            
-            $(document).ready(function(){
-
-                function generateUserCard(){
-
-                    var outerDiv=$('<div>').attr("class","row").attr("style","margin-bottom: 15px;");
-                    var medianDiv=$('<div>').attr("class","col-sm-12 center-block").attr("style","padding-left:4px;padding-right:4px;");
-                    var innerDiv=$('<div>').attr("class","container-fluid userDiv").attr("style","border: solid 2px #d1761d;");
-                    var nameContainer=$('<div>').attr("class","userPreset-spanUsername").attr("style","width: 65%; margin: 0px 0px 0px 0px; float: left;");
-                    var nameWrapper=$('<p>').attr("class","username-text").attr("style","margin-top:7px;").html("trial");
-                    var buttonContainer=$('<span>').attr("class","userPreset-spanButton").attr("style","float:right;");
-                    var button=$('<button>').attr("class","button-unban targbtn");
-                    var buttonName=$('<p>').attr("class","button-unban-text").html("Unban");
-
-                    button.append(buttonName);
-                    buttonContainer.append(button);
-                    nameContainer.append(nameWrapper);
-                    innerDiv.append(nameContainer);
-                    innerDiv.append(buttonContainer);
-                    medianDiv.append(innerDiv);
-                    outerDiv.append(medianDiv);
-
-                    return outerDiv;
-                }
-
-                $('#banhammer').submit(function(){
-                    var res=true;
-                    var usr=$('#ban-bar').val();
-                    //alert(usr);
-                    if(usr==null ||usr=='' ){
-                        alert("The field must not be empty.")
-                        res=false;
-                    }
-                    return res;
-                })
-                
-                $.get("DoGetBannedUsers",function(data,status){
-                    var bannedUsers=JSON.parse(data);
-                    //alert(bannedUsers);
-                    for(let user of bannedUsers){
-                        $("body").append(generateUserCard());
-                    }
-                    
-                    /*
-                    for(let n of [1,2,3]){
-                        $("body").append(generateUserCard());
-                    }
-                    */
-                    var index=0;
-                    $('.username-text').each(function(){
-                        $(this).html(bannedUsers[index]);
-                        index++;
-                    })
-
-                    $(".targbtn").click(function(e){
-                        e.preventDefault();
-                        var btn=$(e.target);
-                        if(btn.is('p')){
-                            btn=btn.parent();
-                        }
-                        
-                        var userName=btn.parent().prev().children().eq(0).html();
-                        
-                        $.get("UndoUserBan?username="+userName+"",function(data,status){
-                            //alert(data);
-                            location.reload(false);
-                        })
-                        
-                    })
-                })
-                
-               
-            })
-    
-        </script>
 
     </body>
 </html>

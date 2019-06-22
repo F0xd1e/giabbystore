@@ -1,0 +1,20 @@
+.button-unban {
+	margin: 3px -8px 3px 6px;
+	background-color: white;
+	color: black;
+	border: 2px solid #555555;
+	border-radius: 4px;
+}
+
+.button-unban:hover {
+	background-color: #d1761d;
+	color: white;
+	border-radius: 4px;
+}
+.button-unban-text {
+	padding: 2px 4px 2px 4px;
+	margin-bottom: 0px;
+}
+.username-text {
+	margin-bottom: 0px;
+}

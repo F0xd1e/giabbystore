@@ -37,7 +37,7 @@ public class DoDisplayUserProfileHandler extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		UserDAO handler = new UserDAO();
-		String recinput = request.getParameter("input");
+		String recinput = request.getParameter("username");
 		UserBean ret = null;
 		
 		try {
@@ -49,6 +49,7 @@ public class DoDisplayUserProfileHandler extends HttpServlet {
 		
 		request.getSession().setAttribute("userbeanbysearch", ret);
 		response.sendRedirect("profile.jsp");
+		return;
 		
 	}
 

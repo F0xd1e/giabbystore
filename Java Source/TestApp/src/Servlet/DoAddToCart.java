@@ -62,19 +62,34 @@ public class DoAddToCart extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		CartBean prod=new CartBean();
-		prod.setProductCode(prodId);
-		prod.setUserCode(usrId);
-		prod.setQuantity(number);
 		
 		CartDAO cart=new CartDAO();
+		CartBean prod=null;
 		try {
-			cart.doSave(prod);
+			prod = cart.retrievebyId(usrId,prodId);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		if(prod!=null) {
+			prod.setQuantity(prod.getQuantity()+number);
+		}
+		else {
+			prod=new CartBean();
+			prod.setProductCode(prodId);
+			prod.setUserCode(usrId);
+			prod.setQuantity(number);
+		}
+			
+		
+		try {
+			cart.doSaveOrUpdate(prod);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		response.sendRedirect("index.jsp");
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

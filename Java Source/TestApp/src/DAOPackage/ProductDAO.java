@@ -64,9 +64,7 @@ public class ProductDAO {
 		} else {
 			//nel caso gi� esista va aggiornato
 			PreparedStatement myState = connector.getJdbcConnection()
-					.prepareStatement("update Prodotto set codiceProdotto = ? AND titolo = ? AND descrizione = ? AND tipologia = ? AND " +
-							"prezzo = ? AND disponibilita = ? AND spedizione = ? AND imgPath = ?" +
-							"where codiceProdotto = ?");
+					.prepareStatement("update Prodotto set codiceProdotto = ? , titolo = ? , descrizione = ? , tipologia = ? , prezzo = ? , disponibilita = ? , spedizione = ? , imgPath = ? where codiceProdotto = ?");
 			myState.setInt(1, prod.getProductCode());
 			myState.setString(2, prod.getTitle());
 			myState.setString(3, prod.getDescription());

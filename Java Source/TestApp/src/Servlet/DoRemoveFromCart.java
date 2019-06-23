@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAOPackage.CartDAO;
+import DAOPackage.ProductDAO;
 import JavaBeans.CartBean;
+import JavaBeans.ProductBean;
 
 /**
  * Servlet implementation class DoRemoveFromCart
@@ -37,6 +39,24 @@ public class DoRemoveFromCart extends HttpServlet {
 		HttpSession sess=request.getSession();
 		String usrId=(String) sess.getAttribute("user");
 		int prodId=Integer.parseInt(request.getParameter("prodId"));
+		int number=Integer.parseInt(request.getParameter("number"));
+		
+		ProductDAO pDao=new ProductDAO();
+		ProductBean pBean=null;
+		try {
+			pBean=pDao.doRetrieveProductByID(prodId);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		pBean.setAvailability(pBean.getAvailability()+number);
+		try {
+			pDao.doSaveOrUpdate(pBean);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		CartBean prod=new CartBean();
 		prod.setProductCode(prodId);

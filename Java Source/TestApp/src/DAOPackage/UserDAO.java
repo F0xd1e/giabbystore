@@ -14,7 +14,6 @@ public class UserDAO {
 	 * Nel caso si debba eliminare un utente in base al suo username, basta istanziare uno UserBean dandogli solo il valore username
 	 * */
 	
-	//salva UserBean nel database
 	public UserBean doRetrieveByUsername(String userName) throws SQLException {
 
 		UserBean uBean=new UserBean();
@@ -22,7 +21,6 @@ public class UserDAO {
 		connector.startConnection();
 		PreparedStatement state = null;
 		state = connector.getJdbcConnection()
-				//.prepareStatement("insert into Utente values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				.prepareStatement("select * from Utente WHERE username = ?");
 		
 		state.setString(1, userName);

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAOPackage.UserDAO;
+import JavaBeans.UserBean;
  
 /**
  * Servlet implementation class DoLogin
@@ -91,6 +92,18 @@ public class DoLogin extends HttpServlet {
         	
         }
         //success login case
+        
+        /*TAKING THE USER BEAN*/
+        UserDAO luDAO = new UserDAO();
+        UserBean loggedUser = null;
+        try {
+			loggedUser = luDAO.doRetrieveByUsername(result);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			System.err.println("PROBLEM WITH USERBEAN!");
+		}
+        
         HttpSession newsess = request.getSession();
        	boolean permithandler=false;
        	UserDAO checkinguser = new UserDAO();
@@ -109,6 +122,9 @@ public class DoLogin extends HttpServlet {
         	newsess.setAttribute("admin", null);
         	newsess.setAttribute("user", result);
 
+        }
+        if (loggedUser != null) {
+        	newsess.setAttribute("userBean", loggedUser);
         }
         response.addIntHeader("Success", 888); //Debug purposes
     	String dest = "index.jsp";

@@ -80,3 +80,15 @@
     background-color: #d1761d;
 	color: #222222;
 }
+#btn-addProduct{
+    border: solid 1px #383838;
+    border-radius: 4px;
+    background-color: #d1761d;
+    color: #222222;
+}
+#btn-addProduct:hover{
+    border: solid 1px #d1761d;
+    border-radius: 4px;
+    background-color: #383838;
+    color: white;
+}

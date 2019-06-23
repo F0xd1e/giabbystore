@@ -189,11 +189,7 @@ public class ProductDAO {
 			res.add(prod);
 			
 		}
-				
 		return res;
-		
-		
-		
 		
 	}
 	

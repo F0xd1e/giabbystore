@@ -75,7 +75,17 @@
     margin-left: 7%;
     width: 45%;
 }
-
+.ap-field{
+    margin-left: 12%;
+    width: 76%;
+}
+.ap-desc{
+    margin-left: 10%;
+    width: 80%;
+}
+#btn-addProduct{
+    width: 60%;
+}
 /*
     *
         START OF RESIZINGS
@@ -179,7 +189,10 @@
 	#div-quantity{
    		margin-left: 30%;
     	width: 40%;
-	}
+    }
+    #btn-addProduct{
+        width: 45%;
+    }
 }
 @media screen and (max-width: 480px){
 	#search-field{

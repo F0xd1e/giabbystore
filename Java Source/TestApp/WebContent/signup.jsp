@@ -12,18 +12,13 @@
 
     <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
     <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
+    <link rel="stylesheet" type="text/css" href="./files_css/error-things.css">
 
     <script src = "./files_js/js-signup.js"></script>
 
     <style>
         body{
             text-align: center;
-        }
-        .error{
-            border: solid red 2px;
-        }
-        .notDisplayed{
-            display: none;
         }
     </style>
 

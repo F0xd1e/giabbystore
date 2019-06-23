@@ -45,7 +45,7 @@ public class DoAddProduct extends HttpServlet {
 		price=Double.parseDouble(request.getParameter("price"));
 		
 		availability=Integer.parseInt(request.getParameter("availability"));
-		shipment=Integer.parseInt(request.getParameter("title"));
+		shipment=Integer.parseInt(request.getParameter("shipment"));
 		
 		ProductDAO pDao=new ProductDAO();
 		ProductBean pBean= new ProductBean();
@@ -67,7 +67,8 @@ public class DoAddProduct extends HttpServlet {
 		}
 		
 		request.setAttribute("success", "Object added with success!");
-		request.getRequestDispatcher("productHandler.jsp").forward(request, response);
+		request.getRequestDispatcher("productpanel.jsp").forward(request, response);
+		return;
 		
 	}
 

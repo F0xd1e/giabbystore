@@ -68,9 +68,9 @@
                     <span class = "span-category"> <!--LIKE HERE lol-->
                        <%=typology %>
                     </span>
-                    <span><br/>Price: </span>
+                    <span><br/>Price: $</span>
                     <span class = "span-price">
-                            <%=price %>
+                    	<%=price %>
                     </span>
                     <span><br/>Availability: </span>
                     <span class = "span-availability">
@@ -80,6 +80,7 @@
                     <span class = "span-shipment">
                             <%= shipment%>
                     </span>
+                    <span> days</span>
                 </div>
             </div>
             <!--PANEL FOR THE DESCRIPTION OF THE PRODUCT-->
@@ -95,6 +96,35 @@
             </div>
             
         </section>
+
+        <!--SECTION FOR THE BUTTON-->
+        <%!
+            String userSession = null;
+            String adminSession = null;
+        %>
+        <%
+            userSession = (String)session.getAttribute("user");
+            adminSession = (String)session.getAttribute("admin");
+            if ((userSession != null) || (adminSession != null)) {
+        %>
+                    
+            <section>
+                <div class="row">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- BUTTON ID: btn-cart -->
+                        <button id = "btn-cart" class = "button-buy" style = "margin-bottom:30px;">
+                            <p class = "button-buy-text"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize" style="display:inline-block; padding-right:8px;"></span>Add to cart</p>
+                        </button>
+                    </div>
+                </div>
+            </section>
+                
+        <%
+            }
+        %>
+
     </section>
     
 

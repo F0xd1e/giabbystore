@@ -33,3 +33,18 @@
     color: white;
     border-color: #d1761d;
 }
+.button-buy {
+	background-color: #383838;
+	color: white;
+	border: 2px solid #d1761d;
+	border-radius: 4px;
+}
+.button-buy:hover {
+	background-color: #d1761d;
+	color: rgb(0, 0, 0);
+	border-radius: 4px;
+}
+.button-buy-text {
+	padding: 8px 4px 8px 4px;
+	margin-bottom: 0px;
+}

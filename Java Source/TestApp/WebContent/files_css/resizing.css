@@ -57,6 +57,9 @@
 .section-details{
     width:60%;
 }
+.button-buy{
+    width:59%;
+}
 @media screen and (max-width: 1000px) and (min-width: 600px){
     #divLogin{
         margin-right:15%;
@@ -130,6 +133,10 @@
 	}
     .section-details{
         width:70%;
+    }
+    .button-buy{
+        margin-left:25%;
+        width:50%;
     }
 }
 @media screen and (max-width: 480px){

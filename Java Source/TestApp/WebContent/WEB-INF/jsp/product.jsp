@@ -100,23 +100,30 @@
         <!--SECTION FOR THE BUTTON-->
         <%!
             String userSession = null;
-            String adminSession = null;
         %>
         <%
             userSession = (String)session.getAttribute("user");
-            adminSession = (String)session.getAttribute("admin");
-            if ((userSession != null) || (adminSession != null)) {
+            if (userSession != null) {
         %>
                     
             <section>
                 <div class="row">
                     <div class="col-sm-6">
+                        
                     </div>
                     <div class="col-sm-6">
-                        <!-- BUTTON ID: btn-cart -->
-                        <button id = "btn-cart" class = "button-buy" style = "margin-bottom:30px;">
-                            <p class = "button-buy-text"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize" style="display:inline-block; padding-right:8px;"></span>Add to cart</p>
-                        </button>
+                    	<form action = "DoAddToCart" method = "POST">
+                    		<!-- BUTTON ID: btn-cart -->
+                        	<button id = "btn-cart" class = "button-buy" style = "margin-bottom:10px;">
+                            	<p class = "button-buy-text"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize" style="display:inline-block; padding-right:8px;"></span>Add to cart</p>
+	                        </button>
+    	                    <!--QUANTITY-->
+        	                <div id = "div-quantity" class = "input-group" style = "margin-bottom: 30px;">
+            	                <span id = "qt-span" class="input-group-addon">Quantity</span>
+                	            <input id ="product-quantity" type="number" class="form-control" name="number" value = "1">
+                    	        <input id = "product-serial" name = "prodId" style = "display: none;" value = "<%= bean.getProductCode() %>">
+                        	</div>
+                    	</form>
                     </div>
                 </div>
             </section>

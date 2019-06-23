@@ -33,6 +33,14 @@
     color: white;
     border-color: #d1761d;
 }
+
+.panel-other > .panel-footer {
+    background-image: none;
+    background-color: #d1761d;
+    color: #222222;
+    border-color: #d1761d;
+}
+
 .button-buy {
 	background-color: #383838;
 	color: white;
@@ -47,4 +55,28 @@
 .button-buy-text {
 	padding: 8px 4px 8px 4px;
 	margin-bottom: 0px;
+}
+#div-quantity > #qt-span{
+	border: solid 1px #d1761d;
+	border-radius: 4px;
+	background-color: #d1761d;
+	color: #222222;
+}
+#div-quantity > #product-quantity{
+	border: solid 1px #d1761d;
+	border-radius: 4px;
+	background-color: #383838;
+	color: white;
+}
+#button-remove{
+    border: solid 1px #383838;
+    border-radius: 4px;
+    background-color: white;
+	color: #383838;
+}
+#button-remove:hover{
+    border: solid 1px #383838;
+    border-radius: 4px;
+    background-color: #d1761d;
+	color: #222222;
 }

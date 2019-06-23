@@ -69,12 +69,44 @@
                         </div>
                     </div>
                 </section>
-                <button>
-
+                <!-- BUTTON ID: btn-orderNow -->
+                <button id = "btn-orderNow" class = "button-buy" style = "margin-top:-10px;">
+                    <p class = "button-buy-text">Order now</p>
                 </button>
                 <!--END OF PANEL WITH DETAILS-->
             </div>
             <div class="col-sm-8">
+
+                <!--ARTICLE CONTAINS A PRODUCT-->
+                <!--YOU HAVE TO COPY AND PASTE THE ARTICLES-->
+                <!--FOR EACH ARTICLE IS NECESSARY TO CREATE THE LINK WITH THE PRODUCT PAGE-->
+
+                <!-- START OF COPY AND PASTE -->
+
+                <article class = "center-block" style = "margin-bottom: 20px;">
+                    <div class="panel panel-default panel-other right-panel">
+                        <!-- CHANGE HERE BY ID: product-name -->
+                        <div id = "product-name" class="panel-heading"><strong>NINTENDO 3DS</strong></div>
+                        <!-- CHANGE HERE BY ID: product-img -->
+                        <div class="panel-body" style = "padding: 5px;">
+                            <img id = "product-img" class = "img-responsive" src = "./images/product_3ds.png" alt = "image to set">
+                        </div>
+                        <!-- CHANGE HERE THE FOOTER -->
+                        <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;">
+                            <!-- CHANGE HERE BY ID price-value -->
+                            <strong>Price: $<span id = "price-value">1000</span></strong>
+                            <!-- DIV FOR SPACING, IGNORE IT -->
+                            <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div>
+                            <!-- CHANGE HERE BY ID quantity-value -->
+                            <strong>Quantity: <span id = "quantity-value">1</span></strong>
+                            <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;">
+                                <button type="button" id = "button-remove" class="btn btn-default btn-xs">Remove from cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- END OF COPY AND PASTE -->
 
             </div>
         </div>

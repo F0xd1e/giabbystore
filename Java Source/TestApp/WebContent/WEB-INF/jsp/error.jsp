@@ -9,6 +9,7 @@
             body{
                 background-color: #222222;
                 text-align: center;
+                color:  #d1761d;
             }
             a{
                 text-decoration: none;

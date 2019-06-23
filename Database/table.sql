@@ -55,7 +55,8 @@ CREATE TABLE Carrello (
 	foreign key (prodotto) references Prodotto(codiceProdotto)
 		on update cascade
         on delete cascade,
-	primary key(utente, prodotto)
+	primary key(utente, prodotto),
+    quantita int
 );
 
 /*PRIMARY KEY OF ORDINE -> codiceOrdine //AUTO_INCREMENT*/
@@ -83,5 +84,6 @@ CREATE TABLE Riferimento (
 	foreign key (prodotto) references Prodotto(codiceProdotto)
 		on update cascade
         on delete cascade,
-	primary key(codice, prodotto)
+	primary key(codice, prodotto),
+    quantita int
 );

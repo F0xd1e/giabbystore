@@ -60,6 +60,10 @@
 .button-buy{
     width:59%;
 }
+#cart-details{
+	margin-left:17%;
+    width:83%;
+}
 @media screen and (max-width: 1000px) and (min-width: 600px){
     #divLogin{
         margin-right:15%;
@@ -138,6 +142,11 @@
         margin-left:25%;
         width:50%;
     }
+    #cart-details{
+    	margin-left: 20%;
+    	margin-right: 20%;
+    	width:60%;
+	}
 }
 @media screen and (max-width: 480px){
 	#search-field{

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giabby's Store - Cart</title>
-
+	
+	<%@ page import="JavaBeans.UserBean" %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -18,6 +19,13 @@
 </head>
 <body>
 
+	<%
+    UserBean usr=(UserBean)session.getAttribute("userBean");
+    if(usr==null){System.exit(1);};
+	String name=usr.getName();
+	String surname=usr.getSurname();
+	String addr=usr.getAddress();
+	%>
     <!--NAV WITH BUTTON TO RETURN TO INDEX-->
     <nav class="navbar navbar-inverse navbar-fixed-top" >
         <div class="container-fluid">
@@ -49,13 +57,13 @@
                         <div class="panel-body target-other-content">
                             <!--YOU MUST EDIT span-NAME-->
                             <span id = "span-name"> <!--LIKE HERE lol-->
-                                Name
+                                <%= name %>
                             </span>
                             <span id = "span-surname"> <!--LIKE HERE lol-->
-                                Surname
+                                <%= surname %>
                             </span>
                             <span id = "span-address"> <!--LIKE HERE lol-->
-                                <br/>Address
+                                <br/><%= addr %>
                             </span>
                             <span><br/>Total of the order: $</span>
                             <span id = "span-price"> <!--LIKE HERE lol-->

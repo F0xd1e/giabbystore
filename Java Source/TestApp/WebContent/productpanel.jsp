@@ -60,7 +60,7 @@
                 <div class="col-sm-12">
                     <div class = "form-group" style = "margin-bottom:25px;">
                         <label>Description</label>
-                        <textarea type="text" class="form-control ap-desc" rows="5" id="ap-description" name="description" required></textarea>
+                        <textarea class="form-control ap-desc" rows="5" id="ap-description" name="description" required></textarea>
                     </div>
                 </div>
             </div>

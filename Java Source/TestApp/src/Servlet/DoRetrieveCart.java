@@ -55,9 +55,9 @@ public class DoRetrieveCart extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("MADONNA T`roUA");
+			
 		}
-		
+		System.out.println("MADONNA T`roUA");
 		String res=null;
 		try {
 			res=cartToJSON(cart);
@@ -93,6 +93,9 @@ public class DoRetrieveCart extends HttpServlet {
 			obj.put("price", prod.getPrice());
 			obj.put("title", prod.getTitle());
 			obj.put("number", c.getQuantity());
+			obj.put("shipment", prod.getShipment());
+			obj.put("prodId", prod.getProductCode());
+			
 			arr.put(obj);
 		}
 		

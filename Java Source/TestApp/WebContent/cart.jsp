@@ -21,7 +21,6 @@
 
 	<%
     UserBean usr=(UserBean)session.getAttribute("userBean");
-    if(usr==null){System.exit(1);};
 	String name=usr.getName();
 	String surname=usr.getSurname();
 	String addr=usr.getAddress();
@@ -70,7 +69,7 @@
                             	100
                             </span>
                             <div style = "padding: 0px 0px 0px 0px; margin: 10px -16px -10px -16px; border: solid 1px #d1761d;"></div>
-                            <span><br/>The products will arrive on </span>
+                            <span><br/>The products will arrive in </span>
                             <span id = "span-date"> <!--LIKE HERE lol-->
                                 13/11/1998
                             </span>
@@ -94,19 +93,19 @@
                 <article class = "center-block" style = "margin-bottom: 20px;">
                    <div class="panel panel-default panel-other right-panel target">
                         <!- - CHANGE HERE BY ID: product-name - ->
-                        <div id = "product-name" class="panel-heading"><strong>NINTENDO 3DS</strong></div>
+                   AAAAA<div id = "product-name" class="panel-heading"><strong>NINTENDO 3DS</strong></div>
                         <!- - CHANGE HERE BY ID: product-img - ->
                         <div class="panel-body" style = "padding: 5px;">
-                            <img id = "product-img" class = "img-responsive" src = "./images/product_3ds.png" alt = "image to set">
+              AAAAAA        <img id = "product-img" class = "img-responsive" src = "./images/product_3ds.png" alt = "image to set">
                         </div>
                         <!- - CHANGE HERE THE FOOTER - ->
                         <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;">
                             <!- - CHANGE HERE BY ID price-value - ->
-                            <strong>Price: $<span id = "price-value">1000</span></strong>
+            AAAAAAAA        <strong>Price: $<span id = "price-value">1000</span></strong>
                             <!- - DIV FOR SPACING, IGNORE IT - ->
                             <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div>
                             <!- - CHANGE HERE BY ID quantity-value - ->
-                            <strong>Quantity: <span id = "quantity-value">1</span></strong>
+        AAAAAAAAAAAA        <strong>Quantity: <span id = "quantity-value">1</span></strong>
                             <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;">
                                <button type="button" id = "button-remove" class="btn btn-default btn-xs">Remove from cart</button>
                             </div>
@@ -127,16 +126,37 @@
         function generateCard(){
             return $('<article class = "center-block" style = "margin-bottom: 20px;"> <div class="panel panel-default panel-other right-panel target"> <!-- CHANGE HERE BY ID: product-name --> <div id = "product-name" class="panel-heading"><strong>NINTENDO 3DS</strong></div> <!-- CHANGE HERE BY ID: product-img --> <div class="panel-body" style = "padding: 5px;"> <img id = "product-img" class = "img-responsive" src = "./images/product_3ds.png" alt = "image to set"> </div> <!-- CHANGE HERE THE FOOTER --> <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;"> <!-- CHANGE HERE BY ID price-value --> <strong>Price: $<span id = "price-value">1000</span></strong> <!-- DIV FOR SPACING, IGNORE IT --> <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div> <!-- CHANGE HERE BY ID quantity-value --> <strong>Quantity: <span id = "quantity-value">1</span></strong> <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;"> <button type="button" id = "button-remove" class="btn btn-default btn-xs">Remove from cart</button> </div> </div> </div> </article>');
         }
+
+        function getQueryString(prod){
+            var qStr="DoRemoveFromCart?prodId="+prod.prodId+"&number="+prod.number;
+        }
         $(document).ready(()=>{
             $.get("DoRetrieveCart",(data,status)=>{
                 var cart=JSON.parse(data);
-                alert(data);
+                //alert(data);
+                var totPrice=cart.map(x=>x.price).reduce((a,b)=>a+b,0);
+                var latestShipment=cart.map(x=>x.shipment).reduce((a,b)=>(a>b)?a:b,0);
+                $("#span-price").html(totPrice);
+                $("#span-date").html(latestShipment +" day/s");
+                for(let prod of cart){
+                    $("#column").append(generateCard());
+                }
+                var index=0
+                $(".target").each(()=>{
+                    $(this).find('div[class=panel-heading]').children().eq(0).html(cart[index].title);
+                    $(this).find('div[class=panel-body]').children().eq(0).attr("src",cart[index].imgPath);
+                    $(this).find('div[class=panel-footer]').children().eq(0).children().eq(0).html(cart[index].price);
+                    $(this).find('div[class=panel-footer]').children().eq(2).children().eq(0).html(cart[index].quantity);
+                    $(this).find('div[class=panel-footer]').children().eq(3).children().eq(0).click(()=>{
+                        var query=getQueryString(data[index]);
+                        $.get(query,()=>{
+                            location.reload(false);
+                        })
+                    })
+                    index++;
+                })
             })
-            /*
-            for(let ind of [1,2,3]){
-                $("#column").append(generateCard());
-            }
-            */
+              
         })
     </script>
 </body>

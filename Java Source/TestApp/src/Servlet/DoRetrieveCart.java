@@ -57,7 +57,7 @@ public class DoRetrieveCart extends HttpServlet {
 			e.printStackTrace();
 			
 		}
-		System.out.println("MADONNA T`roUA");
+		
 		String res=null;
 		try {
 			res=cartToJSON(cart);
@@ -79,7 +79,7 @@ public class DoRetrieveCart extends HttpServlet {
 	}
 	
 	private String cartToJSON(ArrayList<CartBean> cart) throws SQLException {
-		System.out.println("MADONNA AAAAAAAAAAAAAAAAAAAAAAA");
+		
 		JSONArray arr=new JSONArray();
 		JSONObject obj=null;
 		for(CartBean c : cart) {

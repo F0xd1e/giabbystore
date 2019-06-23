@@ -44,8 +44,8 @@ public class CartDAO {
 			myState = connector.getJdbcConnection()
 					.prepareStatement("insert into Carrello values (?, ?, ?)");
 			myState.setString(1, cart.getUserCode());
-			myState.setInt(1, cart.getProductCode());
-			myState.setInt(1, cart.getQuantity());
+			myState.setInt(2, cart.getProductCode());
+			myState.setInt(3, cart.getQuantity());
 			myState.executeUpdate();
 		}
 		else {

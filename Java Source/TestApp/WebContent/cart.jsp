@@ -37,6 +37,7 @@
     <section class = "center-block" style = "width:100%">
         <div class="row">
             <div class="col-sm-4 center-block">
+                <!--TEMPLATE OF DETAILS - YOU MUST EDIT THAT!-->
                 <!--PANEL WITH DETAILS-->
                 <section id = "cart-details" class = "center-block">
                     <div class="panel panel-default panel-other">
@@ -47,27 +48,30 @@
                             EDITING THE CLASS target-other-content-->
                         <div class="panel-body target-other-content">
                             <!--YOU MUST EDIT span-NAME-->
-                            <span class = "span-name"> <!--LIKE HERE lol-->
+                            <span id = "span-name"> <!--LIKE HERE lol-->
                                 Name
                             </span>
-                            <span class = "span-surname">
+                            <span id = "span-surname"> <!--LIKE HERE lol-->
                                 Surname
                             </span>
-                            <span class = "span-address"> <!--LIKE HERE lol-->
+                            <span id = "span-address"> <!--LIKE HERE lol-->
                                 <br/>Address
                             </span>
                             <span><br/>Total of the order: $</span>
-                            <span class = "span-price">
+                            <span id = "span-price"> <!--LIKE HERE lol-->
                             	100
                             </span>
                             <div style = "padding: 0px 0px 0px 0px; margin: 10px -16px -10px -16px; border: solid 1px #d1761d;"></div>
                             <span><br/>The products will arrive on </span>
-                            <span class = "span-date">
+                            <span id = "span-date"> <!--LIKE HERE lol-->
                                 13/11/1998
                             </span>
                         </div>
                     </div>
                 </section>
+                <button>
+
+                </button>
                 <!--END OF PANEL WITH DETAILS-->
             </div>
             <div class="col-sm-8">

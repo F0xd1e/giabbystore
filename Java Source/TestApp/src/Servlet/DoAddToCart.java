@@ -65,6 +65,7 @@ public class DoAddToCart extends HttpServlet {
 		CartBean prod=new CartBean();
 		prod.setProductCode(prodId);
 		prod.setUserCode(usrId);
+		prod.setQuantity(number);
 		
 		CartDAO cart=new CartDAO();
 		try {

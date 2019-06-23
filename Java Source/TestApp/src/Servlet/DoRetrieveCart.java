@@ -90,6 +90,7 @@ public class DoRetrieveCart extends HttpServlet {
 			obj.put("imgPath", prod.getImgPath());
 			obj.put("price", prod.getPrice());
 			obj.put("title", prod.getTitle());
+			obj.put("number", c.getQuantity());
 			arr.put(obj);
 		}
 		

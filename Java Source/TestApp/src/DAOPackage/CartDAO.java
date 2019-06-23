@@ -18,10 +18,11 @@ public class CartDAO {
 		connector.startConnection();
 		PreparedStatement state = null;
 		state = connector.getJdbcConnection()
-				.prepareStatement("insert into Carrello values (?, ?)");
+				.prepareStatement("insert into Carrello values (?, ?, ?)");
 
 		state.setString(1, cart.getUserCode());
 		state.setInt(2, cart.getProductCode());
+		state.setInt(3, cart.getQuantity());
 		
 		state.executeUpdate();
 		connector.closeConnection();
@@ -55,9 +56,11 @@ public class CartDAO {
 			
 			String username = container.getString("utente");
 			int prodotto = container.getInt("prodotto");
+			int quantity = container.getInt("quantita");
 			CartBean cartToReturn = new CartBean();
 			cartToReturn.setUserCode(username);
 			cartToReturn.setProductCode(prodotto);
+			cartToReturn.setQuantity(quantity);
 			allBeans.add(cartToReturn);
 
 		}

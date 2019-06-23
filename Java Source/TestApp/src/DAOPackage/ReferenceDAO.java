@@ -18,9 +18,10 @@ public class ReferenceDAO {
 		connector.startConnection();
 		PreparedStatement state = null;
 		state = connector.getJdbcConnection()
-				.prepareStatement("insert into Riferimento values (?, ?)");
+				.prepareStatement("insert into Riferimento values (?, ?, ?)");
 		state.setInt(1,reference.getOrderCode());
 		state.setInt(2,reference.getProductCode());
+		state.setInt(3,reference.getQuantity());
 		state.executeUpdate();
 		connector.closeConnection();
 		
@@ -38,31 +39,6 @@ public class ReferenceDAO {
 		connector.closeConnection();
 	}
 	
-	public void doSaveOrUpdate(ReferenceBean reference) throws SQLException{
-		
-		DatabaseConnector connector = new DatabaseConnector();
-		connector.startConnection();
-		PreparedStatement myState = connector.getJdbcConnection()
-				.prepareStatement("delete from Riferimento where codice = ? AND prodotto = ?");
-		ResultSet all=myState.executeQuery();
-		PreparedStatement state = null;
-		if(all.next()==false) {
-			state = connector.getJdbcConnection()
-					.prepareStatement("insert into Riferimento values (?, ?)");
-			state.setInt(1,reference.getOrderCode());
-			state.setInt(2,reference.getProductCode());
-			state.executeUpdate();
-		}
-		else {
-			state=connector.getJdbcConnection()
-					.prepareStatement("update Prodotto set codice = ? AND prodotto = ?");
-			state.setInt(1,reference.getOrderCode());
-			state.setInt(2,reference.getProductCode());
-			state.executeUpdate();
-		}
-		connector.closeConnection();
-	}
-	
 	public ArrayList<ReferenceBean> doRetrieveAll() throws SQLException{
 		DatabaseConnector connector = new DatabaseConnector();
 		connector.startConnection();
@@ -73,13 +49,16 @@ public class ReferenceDAO {
 		while(container.next()==true) {
 			int orderCode;
 			int productCode;
+			int quantity;
 			
 			orderCode=container.getInt("codice");
 			productCode=container.getInt("product");
+			quantity=container.getInt("quantita");
 			
 			ReferenceBean ref=new ReferenceBean();
 			ref.setOrderCode(orderCode);
 			ref.setProductCode(productCode);
+			ref.setQuantity(quantity);
 			allBeans.add(ref);
 		}
 		

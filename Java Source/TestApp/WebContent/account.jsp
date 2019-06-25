@@ -13,20 +13,9 @@
 
         <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
         <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
-        <link rel="stylesheet" type="text/css" href="./files_css/error-things.css">
+        <link rel="stylesheet" type="text/css" href="./files_css/account.css">
 
         <%@ page import="JavaBeans.UserBean" %>
-
-		<style>
-			.labelCol{
-				text-align: right;
-				padding-right: 15px;
-			}
-			.dataCol{
-				text-align: left;
-				padding-left: 15px;
-			}
-		</style>
 
     </head>
     <body>

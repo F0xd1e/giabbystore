@@ -77,9 +77,11 @@
                     </div>
                 </section>
                 <!-- BUTTON ID: btn-orderNow -->
-                <button id = "btn-orderNow" class = "button-buy" style = "margin-top:-10px;">
-                    <p class = "button-buy-text">Order now</p>
-                </button>
+                <div id = "rem" style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">
+                    <button id = "btn-orderNow" class = "button-buy" style = "margin-top:-10px;">
+                        <p class = "button-buy-text">Order now</p>
+                    </button>
+                </div>
                 <!--END OF PANEL WITH DETAILS-->
             </div>
             <div id="column" class="col-sm-8">
@@ -163,14 +165,14 @@
                         })
                         index++;
                     })
-                    
+                    $("#btn-orderNow").removeClass("hide-btn");
                 }
                 else{
                     $("#span-price").html("");
                     $("#span-date").html("");
                     $("#ordTarg").html("<br>no order");
                     $("#dateTarg").html("<br>no item selected");
-                    //$("#btn-orderNow").attr("display","none");
+                    $("#rem").addClass("hideDisplay");
                 }
                 
             })

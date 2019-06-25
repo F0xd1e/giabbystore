@@ -95,3 +95,28 @@
 .hideDisplay{
     display: none;
 }
+
+.panel-other-reverted{
+    margin: 1px 1px 1px 1px;
+    border-color: #222222;
+    width: 100%;
+}
+
+.panel-other-reverted > .panel-body {
+    background-image: none;
+    background-color: #222222;
+    color: #d1761d;
+    border-color: #222222;
+    margin: -1px -1px -1px -1px;
+}
+
+.panel-imageToChange{
+    float: left;
+    height: 40px;
+    width: auto;
+    margin: 1px 8px 1px 1px;
+}
+.middleTxt{
+	padding: 0px 0px 0px 0px;
+	margin: 12px 0px 0px 0px;
+}

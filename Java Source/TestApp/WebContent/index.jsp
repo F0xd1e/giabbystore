@@ -70,7 +70,7 @@
                     <li class="dropdown changeColor">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user" style = "margin-right: 5px;"></span> Welcome, <%=userSession%><span class="caret" style = "margin-left:6px;"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Go to your orders</a></li>
+                            <li><a href="./orders.jsp">Go to your orders</a></li>
                             <li><a href="./account.jsp">Go to your account</a></li>
                         </ul>
                     </li>

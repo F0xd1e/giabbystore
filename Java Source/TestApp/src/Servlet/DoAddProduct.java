@@ -66,8 +66,8 @@ public class DoAddProduct extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("success", "Object added with success!");
-		request.getRequestDispatcher("productpanel.jsp").forward(request, response);
+		request.setAttribute("response", "Object added with success!");
+		request.getRequestDispatcher("/WEB-INF/jsp/productpanel.jsp").forward(request, response);
 		return;
 		
 	}

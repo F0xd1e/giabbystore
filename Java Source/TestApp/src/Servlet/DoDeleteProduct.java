@@ -48,7 +48,7 @@ public class DoDeleteProduct extends HttpServlet {
 		
 		if(prod==null) {
 			request.setAttribute("response","No such element in the database");
-			request.getRequestDispatcher("productHandler.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/jsp/productpanel.jsp").forward(request, response);
 			return;
 		}
 		
@@ -60,7 +60,7 @@ public class DoDeleteProduct extends HttpServlet {
 		}
 		
 		request.setAttribute("response","Element successfully deleted!");
-		request.getRequestDispatcher("productHandler.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/productpanel.jsp").forward(request, response);
 		
 	}
 

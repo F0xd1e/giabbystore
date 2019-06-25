@@ -52,7 +52,7 @@ public class ReferenceDAO {
 			int quantity;
 			
 			orderCode=container.getInt("codice");
-			productCode=container.getInt("product");
+			productCode=container.getInt("prodotto");
 			quantity=container.getInt("quantita");
 			
 			ReferenceBean ref=new ReferenceBean();
@@ -71,6 +71,39 @@ public class ReferenceDAO {
 		return allBeans;
 		
 		
+	}
+	
+	public ArrayList<ReferenceBean> doRetrieveByOrderCode(int order) throws SQLException{
+		DatabaseConnector connector = new DatabaseConnector();
+		connector.startConnection();
+		PreparedStatement stateAll = connector.getJdbcConnection()
+				.prepareStatement("SELECT * FROM Riferimento where codice = ?");
+		stateAll.setInt(1, order);
+		ResultSet container = stateAll.executeQuery();
+		ArrayList<ReferenceBean> allBeans = new ArrayList<ReferenceBean>();
+		while(container.next()==true) {
+			int orderCode;
+			int productCode;
+			int quantity;
+			
+			orderCode=container.getInt("codice");
+			productCode=container.getInt("prodotto");
+			quantity=container.getInt("quantita");
+			
+			ReferenceBean ref=new ReferenceBean();
+			ref.setOrderCode(orderCode);
+			ref.setProductCode(productCode);
+			ref.setQuantity(quantity);
+			allBeans.add(ref);
+		}
+		
+		if (allBeans.size()==0) {
+			connector.closeConnection();
+			return null;
+		}
+		
+		connector.closeConnection();
+		return allBeans;
 	}
 
 }

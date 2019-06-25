@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 
 import DAOPackage.CartDAO;
 import DAOPackage.OrderDAO;
-
+import DAOPackage.ReferenceDAO;
 import JavaBeans.CartBean;
 import JavaBeans.OrderBean;
-
+import JavaBeans.ReferenceBean;
 import JavaBeans.UserBean;
 
 /**
@@ -52,6 +52,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		UserBean usr=new UserBean();
 		usr.setUsername(userId);
 		
+		//retrieval of user cart
 		ArrayList<CartBean> cart=null;
 		CartDAO cartDao=new CartDAO();
 		try {
@@ -64,6 +65,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		
 		
 		
+		//creation of Order entity
 		
 		String paymentCode=generatePaymentCode();
 		Date plusDays=getShipmentDate(shipment);
@@ -77,7 +79,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		oBean.setTotalPrice(totPrice);
 		oBean.setUsername(userId);
 		
-		
+		//order is added
 		try {
 			cDao.doSave(oBean);
 		} catch (SQLException e1) {
@@ -86,7 +88,34 @@ public class DoBuyCartProducts extends HttpServlet {
 		}
 		
 		
+		//reference is created
+		
+		ReferenceDAO rDao=new ReferenceDAO();
+		ReferenceBean ref=new ReferenceBean();
+		
+		int orderCode=1;
+		try {
+			orderCode = cDao.doGetMaxCode();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//reference is added to db
 		for( CartBean c : cart) {
+			
+			ref.setOrderCode(orderCode);
+			ref.setProductCode(c.getProductCode());
+			ref.setQuantity(c.getQuantity());
+			
+			try {
+				rDao.doSave(ref);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			//cart is now sdeleted
 			try {
 				cartDao.doDelete(c);
 			} catch (SQLException e) {

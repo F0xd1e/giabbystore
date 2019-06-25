@@ -87,4 +87,21 @@ public class OrderDAO {
 		
 	}
 	
+	public int doGetMaxCode() throws SQLException {
+		DatabaseConnector connector = new DatabaseConnector();
+		connector.startConnection();
+		PreparedStatement stateAll = connector.getJdbcConnection()
+				.prepareStatement("SELECT Max(codiceOrdine) AS MaxCodice FROM ordine");
+		ResultSet container=stateAll.executeQuery();
+		if(container.next()==false) {
+			connector.closeConnection();
+			return 1;
+		}
+		else {
+			connector.closeConnection();
+			return container.getInt("codiceOrdine");
+		
+		}
+	}
+	
 }

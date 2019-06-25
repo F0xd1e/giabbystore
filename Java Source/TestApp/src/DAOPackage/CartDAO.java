@@ -42,7 +42,7 @@ public class CartDAO {
 		PreparedStatement myState = null;
 		if(container.next()==false) {
 			myState = connector.getJdbcConnection()
-					.prepareStatement("insert into Carrello values (?, ?, ?)");
+					.prepareStatement("insert into Carrello (utente, prodotto, quantita) values (?, ?, ?)");
 			myState.setString(1, cart.getUserCode());
 			myState.setInt(2, cart.getProductCode());
 			myState.setInt(3, cart.getQuantity());

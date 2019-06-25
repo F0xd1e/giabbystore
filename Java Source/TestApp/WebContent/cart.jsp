@@ -92,19 +92,19 @@
                 <!--
                 <article class = "center-block" style = "margin-bottom: 20px;">
                     <div class="panel panel-default panel-other right-panel target">
-                        <!- - CHANGE HERE BY class: product-name - ->
+                        
                         <div class="product-name panel-heading"><strong>NINTENDO 3DS</strong></div>
-                        <!- - CHANGE HERE BY class: product-img - ->
+                        
                         <div class="panel-body" style = "padding: 5px;">
                             <img class = "product-img img-responsive" src = "./images/product_3ds.png" alt = "image to set">
                         </div>
-                        <!- - CHANGE HERE THE FOOTER - ->
+                     
                         <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;">
-                            <!- - CHANGE HERE BY class price-value - ->
+                            
                             <strong>Price: $<span class = "price-value">1000</span></strong>
-                            <!- - DIV FOR SPACING, IGNORE IT - ->
+                            
                             <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div>
-                            <!- - CHANGE HERE BY class quantity-value - ->
+                            
                             <strong>Quantity: <span class = "quantity-value">1</span></strong>
                             <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;">
                                <button type="button" class="button-remove btn btn-default btn-xs">Remove from cart</button>
@@ -123,16 +123,18 @@
     </section>
     <script>
         function generateCard(){
-            return $('<article class = "center-block" style = "margin-bottom: 20px;"> <div class="panel panel-default panel-other right-panel target"> <!-- CHANGE HERE BY ID: product-name --> <div id = "product-name" class="panel-heading"><strong>NINTENDO 3DS</strong></div> <!-- CHANGE HERE BY ID: product-img --> <div class="panel-body" style = "padding: 5px;"> <img id = "product-img" class = "img-responsive" src = "./images/product_3ds.png" alt = "image to set"> </div> <!-- CHANGE HERE THE FOOTER --> <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;"> <!-- CHANGE HERE BY ID price-value --> <strong>Price: $<span id = "price-value">1000</span></strong> <!-- DIV FOR SPACING, IGNORE IT --> <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div> <!-- CHANGE HERE BY ID quantity-value --> <strong>Quantity: <span id = "quantity-value">1</span></strong> <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;"> <button type="button" id = "button-remove" class="btn btn-default btn-xs">Remove from cart</button> </div> </div> </div> </article>');
+            return $('<article class = "center-block" style = "margin-bottom: 20px;"> <div class="panel panel-default panel-other right-panel fatherofall"> <div class="product-name panel-heading"><strong>NINTENDO 3DS</strong></div> <div class="panel-body" style = "padding: 5px;"> <img class = "product-img img-responsive" src = "./images/product_3ds.png" alt = "image to set"> </div> <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;"> <strong>Price: $<span class = "price-value">1000</span></strong> <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div> <strong>Quantity: <span class = "quantity-value">1</span></strong> <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;"> <button type="button" class="button-remove btn btn-default btn-xs">Remove from cart</button> </div> </div> </div> </article>')
         }
 
         function getQueryString(prod){
             var qStr="DoRemoveFromCart?prodId="+prod.prodId+"&number="+prod.number;
+            return qStr;
         }
+        
         $(document).ready(()=>{
             $.get("DoRetrieveCart",(data,status)=>{
                 var cart=JSON.parse(data);
-                //alert(data);
+                
                 if(cart.length>0){
                     var totPrice=cart.map(x=>x.price).reduce((a,b)=>a+b,0);
                     var latestShipment=cart.map(x=>x.shipment).reduce((a,b)=>(a>b)?a:b,0);
@@ -141,20 +143,27 @@
                     for(let prod of cart){
                         $("#column").append(generateCard());
                     }
-                    var index=0
-                    $(".target").each(()=>{
-                        $(this).find('div[class=panel-heading]').children().eq(0).html(cart[index].title);
-                        $(this).find('div[class=panel-body]').children().eq(0).attr("src",cart[index].imgPath);
-                        $(this).find('div[class=panel-footer]').children().eq(0).children().eq(0).html(cart[index].price);
-                        $(this).find('div[class=panel-footer]').children().eq(2).children().eq(0).html(cart[index].quantity);
-                        $(this).find('div[class=panel-footer]').children().eq(3).children().eq(0).click(()=>{
-                            var query=getQueryString(data[index]);
+                    var index=0;
+                    
+                    
+                    $(".fatherofall").each(function(){
+                        var current=cart[index];
+                        //alert($(this).find('div[class=panel-footer]').children().eq(3).children().eq(0).is('button'));
+                        $(this).children().eq(0).children().eq(0).html(current.title);
+                        $(this).find('div[class=panel-body]').children().eq(0).attr("src",current.imgPath);
+                        $(this).find('div[class=panel-footer]').children().eq(0).children().eq(0).html(current.price);
+                        $(this).find('div[class=panel-footer]').children().eq(2).children().eq(0).html(current.number);
+                        $(this).find('div[class=panel-footer]').children().eq(3).children().eq(0).click(function(e){
+                            var query=getQueryString(current);
+                           
                             $.get(query,()=>{
                                 location.reload(false);
                             })
+                            
                         })
                         index++;
                     })
+                    
                 }
                 else{
                     $("#span-price").html("");

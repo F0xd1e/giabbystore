@@ -123,6 +123,8 @@ public class DoLogin extends HttpServlet {
         	newsess.setAttribute("user", result);
 
         }
+        
+ 
         if (loggedUser != null) {
         	newsess.setAttribute("userBean", loggedUser);
         }

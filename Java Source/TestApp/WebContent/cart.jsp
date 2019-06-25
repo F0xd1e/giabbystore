@@ -20,10 +20,10 @@
 <body>
 
 	<%
-    UserBean usr=(UserBean)session.getAttribute("userBean");
+    UserBean usr=(UserBean)request.getSession().getAttribute("userBean");
 	String name=usr.getName();
 	String surname=usr.getSurname();
-	String addr=usr.getAddress();
+    String addr=usr.getAddress();
 	%>
     <!--NAV WITH BUTTON TO RETURN TO INDEX-->
     <nav class="navbar navbar-inverse navbar-fixed-top" >

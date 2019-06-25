@@ -49,8 +49,8 @@ public class DoAddToCart extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		if(pBean.getAvailability()-number<0) {
-			response.sendRedirect("/WEB-INF/jsp/error.jsp");
+		if(pBean.getAvailability()-number<0 || number<=0) {
+			request.getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
 			return;
 		}
 		

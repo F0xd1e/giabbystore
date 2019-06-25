@@ -141,7 +141,7 @@
                     var totPrice=cart.map(x=>x.price*x.number).reduce((a,b)=>a+b,0);
                     var latestShipment=cart.map(x=>x.shipment).reduce((a,b)=>(a>b)?a:b,0);
                     $("#span-price").html(totPrice);
-                    $("#span-date").html(latestShipment +" day/s");
+                    $("#span-date").html("<span>"+latestShipment +"</span> day/s");
                     for(let prod of cart){
                         $("#column").append(generateCard());
                     }
@@ -176,7 +176,17 @@
                 }
                 
             })
-              
+            
+            $("#btn-orderNow").click(function(){
+                var price=$("#span-price").html();
+                var shipment=$("#span-date").children().eq(0).html();
+                
+                var url='DoBuyCartProducts?price='+price+'&shipment='+shipment;
+                $.get(url,function(){
+                    location.reload(false);
+                })
+                
+            })
         })
     </script>
 </body>

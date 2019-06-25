@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 
 import DAOPackage.CartDAO;
 import DAOPackage.OrderDAO;
-import DAOPackage.ProductDAO;
+
 import JavaBeans.CartBean;
 import JavaBeans.OrderBean;
-import JavaBeans.ProductBean;
+
 import JavaBeans.UserBean;
 
 /**
@@ -46,6 +46,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		HttpSession sess=request.getSession();
 		String userId=(String) sess.getAttribute("user");
 		double totPrice=Double.parseDouble(request.getParameter("price"));
+		int shipment=Integer.parseInt(request.getParameter("shipment"));
 		
 		
 		UserBean usr=new UserBean();
@@ -63,7 +64,7 @@ public class DoBuyCartProducts extends HttpServlet {
 		
 		
 		
-		int shipment=getLatestShipment(cart);
+		
 		String paymentCode=generatePaymentCode();
 		Date plusDays=getShipmentDate(shipment);
 		
@@ -98,6 +99,7 @@ public class DoBuyCartProducts extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	/*
 	private int getLatestShipment(ArrayList<CartBean> cart) {
 		ProductDAO pDao=new ProductDAO();
 		ProductBean pBean=null;
@@ -115,15 +117,13 @@ public class DoBuyCartProducts extends HttpServlet {
 		}
 		return max;
 	}
-	
+	*/
 	private String generatePaymentCode() {
-		char[] characters= {'a','b','c','d','e','f','g','h','i','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
-				,'A','B','C','D','E','F','G','H','I','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-				'0','1','2','3','4','5','6','7','8','9'};
+		char[] characters= {'a','b','c','d','e','f','g','h','i','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'};
 		char[] paymentCode=new char[16];
-		Random rng=new Random(characters.length);
+		Random rng=new Random();
 		for(int i=0;i<paymentCode.length;i++) {
-			paymentCode[i]=characters[rng.nextInt()];
+			paymentCode[i]=characters[rng.nextInt(characters.length)];
 		}
 		
 		return paymentCode.toString();

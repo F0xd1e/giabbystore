@@ -68,7 +68,7 @@ public class CartDAO {
 		DatabaseConnector connector = new DatabaseConnector();
 		connector.startConnection();
 		PreparedStatement deleteRecord = connector.getJdbcConnection()
-				.prepareStatement("delete from Prodotto where utente = ? AND prodotto = ?");
+				.prepareStatement("delete from Carrello where utente = ? AND prodotto = ?");
 		
 		deleteRecord.setString(1, cart.getUserCode());
 		deleteRecord.setInt(2, cart.getProductCode());

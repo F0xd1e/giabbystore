@@ -89,6 +89,11 @@
 #btn-removeProduct{
     margin-top:10px;
 }
+.adm-input{
+    width: 70%;
+    margin-bottom: 10px;
+    margin-left: 15%;
+}
 /*
     *
         START OF RESIZINGS
@@ -198,6 +203,9 @@
     }
     #btn-removeProduct{
         margin-top:0px;
+    }
+    #spacingSection{
+    	margin-bottom: 30px;
     }
 }
 @media screen and (max-width: 480px){

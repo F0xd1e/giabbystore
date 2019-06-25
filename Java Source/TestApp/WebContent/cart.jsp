@@ -89,22 +89,22 @@
                 <!--FOR EACH ARTICLE IS NECESSARY TO CREATE THE LINK WITH THE PRODUCT PAGE-->
 
                 <!-- START OF COPY AND PASTE -->
-                
+                <!--
                 <article class = "center-block" style = "margin-bottom: 20px;">
                     <div class="panel panel-default panel-other right-panel target">
-                        <!-- CHANGE HERE BY class: product-name -->
+                        <!- - CHANGE HERE BY class: product-name - ->
                         <div class="product-name panel-heading"><strong>NINTENDO 3DS</strong></div>
-                        <!-- CHANGE HERE BY class: product-img -->
+                        <!- - CHANGE HERE BY class: product-img - ->
                         <div class="panel-body" style = "padding: 5px;">
                             <img class = "product-img img-responsive" src = "./images/product_3ds.png" alt = "image to set">
                         </div>
-                        <!-- CHANGE HERE THE FOOTER -->
+                        <!- - CHANGE HERE THE FOOTER - ->
                         <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;">
-                            <!-- CHANGE HERE BY class price-value -->
+                            <!- - CHANGE HERE BY class price-value - ->
                             <strong>Price: $<span class = "price-value">1000</span></strong>
-                            <!-- DIV FOR SPACING, IGNORE IT -->
+                            <!- - DIV FOR SPACING, IGNORE IT - ->
                             <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div>
-                            <!-- CHANGE HERE BY class quantity-value -->
+                            <!- - CHANGE HERE BY class quantity-value - ->
                             <strong>Quantity: <span class = "quantity-value">1</span></strong>
                             <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;">
                                <button type="button" class="button-remove btn btn-default btn-xs">Remove from cart</button>
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 </article>
-
+                -->
                 <!-- END OF COPY AND PASTE -->
 
             </div>

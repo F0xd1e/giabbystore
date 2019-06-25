@@ -134,27 +134,30 @@
             $.get("DoRetrieveCart",(data,status)=>{
                 var cart=JSON.parse(data);
                 //alert(data);
-                var totPrice=cart.map(x=>x.price).reduce((a,b)=>a+b,0);
-                var latestShipment=cart.map(x=>x.shipment).reduce((a,b)=>(a>b)?a:b,0);
-                $("#span-price").html(totPrice);
-                $("#span-date").html(latestShipment +" day/s");
-                for(let prod of cart){
-                    $("#column").append(generateCard());
-                }
-                var index=0
-                $(".target").each(()=>{
-                    $(this).find('div[class=panel-heading]').children().eq(0).html(cart[index].title);
-                    $(this).find('div[class=panel-body]').children().eq(0).attr("src",cart[index].imgPath);
-                    $(this).find('div[class=panel-footer]').children().eq(0).children().eq(0).html(cart[index].price);
-                    $(this).find('div[class=panel-footer]').children().eq(2).children().eq(0).html(cart[index].quantity);
-                    $(this).find('div[class=panel-footer]').children().eq(3).children().eq(0).click(()=>{
-                        var query=getQueryString(data[index]);
-                        $.get(query,()=>{
-                            location.reload(false);
+                if(cart.length>0){
+                    var totPrice=cart.map(x=>x.price).reduce((a,b)=>a+b,0);
+                    var latestShipment=cart.map(x=>x.shipment).reduce((a,b)=>(a>b)?a:b,0);
+                    $("#span-price").html(totPrice);
+                    $("#span-date").html(latestShipment +" day/s");
+                    for(let prod of cart){
+                        $("#column").append(generateCard());
+                    }
+                    var index=0
+                    $(".target").each(()=>{
+                        $(this).find('div[class=panel-heading]').children().eq(0).html(cart[index].title);
+                        $(this).find('div[class=panel-body]').children().eq(0).attr("src",cart[index].imgPath);
+                        $(this).find('div[class=panel-footer]').children().eq(0).children().eq(0).html(cart[index].price);
+                        $(this).find('div[class=panel-footer]').children().eq(2).children().eq(0).html(cart[index].quantity);
+                        $(this).find('div[class=panel-footer]').children().eq(3).children().eq(0).click(()=>{
+                            var query=getQueryString(data[index]);
+                            $.get(query,()=>{
+                                location.reload(false);
+                            })
                         })
+                        index++;
                     })
-                    index++;
-                })
+                }
+                
             })
               
         })

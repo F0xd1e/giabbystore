@@ -59,11 +59,17 @@ public class DoRetrieveCart extends HttpServlet {
 		}
 		
 		String res=null;
-		try {
-			res=cartToJSON(cart);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		if(cart==null) {
+			res="[]";
+		}
+		else {
+			try {
+				res=cartToJSON(cart);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		response.getWriter().write(res);

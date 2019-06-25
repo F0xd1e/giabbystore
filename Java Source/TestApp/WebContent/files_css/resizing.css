@@ -86,6 +86,9 @@
 #btn-addProduct{
     width: 60%;
 }
+#btn-removeProduct{
+    margin-top:10px;
+}
 /*
     *
         START OF RESIZINGS
@@ -192,6 +195,9 @@
     }
     #btn-addProduct{
         width: 45%;
+    }
+    #btn-removeProduct{
+        margin-top:0px;
     }
 }
 @media screen and (max-width: 480px){

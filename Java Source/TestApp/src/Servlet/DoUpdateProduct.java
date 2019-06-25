@@ -45,8 +45,8 @@ public class DoUpdateProduct extends HttpServlet {
 		}
 		
 		if(prod==null) {
-			request.setAttribute("response", "No such element in the database.");
-			request.getRequestDispatcher("/WEB-INF/jsp/productpanel.jsp").forward(request, response);
+			request.setAttribute("response-update", "No such element in the database.");
+			request.getRequestDispatcher("productpanel.jsp").forward(request, response);
 			return;
 		}
 		
@@ -58,8 +58,8 @@ public class DoUpdateProduct extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("response", "Availability successfully updated.");
-		request.getRequestDispatcher("/WEB-INF/jsp/productpanel.jsp").forward(request, response);
+		request.setAttribute("response-update", "Availability successfully updated.");
+		request.getRequestDispatcher("productpanel.jsp").forward(request, response);
 		return;
 	}
 

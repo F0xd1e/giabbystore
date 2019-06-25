@@ -140,7 +140,7 @@
                 if(cart.length>0){
                     var totPrice=cart.map(x=>x.price*x.number).reduce((a,b)=>a+b,0);
                     var latestShipment=cart.map(x=>x.shipment).reduce((a,b)=>(a>b)?a:b,0);
-                    $("#span-price").html(totPrice);
+                    $("#span-price").html(totPrice.toFixed(2));
                     $("#span-date").html("<span>"+latestShipment +"</span> day/s");
                     for(let prod of cart){
                         $("#column").append(generateCard());

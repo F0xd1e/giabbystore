@@ -94,6 +94,9 @@
     margin-bottom: 10px;
     margin-left: 15%;
 }
+.panel-productTitle{
+	width: 65%;
+}
 /*
     *
         START OF RESIZINGS
@@ -207,6 +210,14 @@
     #spacingSection{
     	margin-bottom: 30px;
     }
+    .panel-productTitle{
+		width: 100%;
+		margin-bottom: 20px;
+		float: none;
+	}
+	.panel-myContainer{
+		float: none;
+	}
 }
 @media screen and (max-width: 480px){
 	#search-field{

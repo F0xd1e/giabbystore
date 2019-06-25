@@ -33,6 +33,9 @@
             </div>
         </div>
     </nav>
+
+    <!-- ADD A PRODUCT -->
+
     <header>
         <div class = "container" style = "width: 90%; padding: 5px; margin-top:50px;">
             <h2 style = "text-align: center;"><strong>ADD A NEW PRODUCT</strong></h2>
@@ -94,8 +97,8 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <div class = "form-group">
-                        <button id = "btn-addProduct" style = "margin-bottom:10px;">
+                    <div class = "form-group" style = "margin-bottom:0px;">
+                        <button id = "btn-addProduct" class = "br-style-btn" style = "margin-bottom:10px;">
                             <p style = "padding: 8px 15px 8px 15px; margin-bottom: 0px;">Add a new product</p>
 	                    </button>
                     </div>
@@ -106,14 +109,105 @@
         </form>
 
 		<%
-			if (request.getAttribute("success")!=null){
+			if (request.getAttribute("response-add")!=null){
 		%>
 			<p style = "text-align:center;">
-				<%= request.getAttribute("success") %>
+				<%= request.getAttribute("response-add") %>
 			</p>
 		<%
-			}
+                request.removeAttribute("response-add");
+            }
 		%>
+    </section>
+
+    <!-- EDIT A PRODUCT -->
+    
+    <header>
+        <div class = "container" style = "width: 90%; padding: 5px;">
+            <hr/>
+            <h2 style = "text-align: center;"><strong>EDIT THE AVAILABILITY</strong></h2>
+            <hr/>
+        </div>
+    </header>
+
+    <section>
+        <form id="form-edit" action = "DoUpdateProduct" method = "POST">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class = "form-group" style = "margin-bottom:25px;">
+                        <label>Product code</label>
+                        <input type="text" class="form-control ap-field" id="ep-code" name="productCode" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group" style = "margin-bottom:25px;">
+                        <label>Availability</label>
+                        <input type="number" class="form-control ap-field" id="ep-availability" name="availability" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <button id = "btn-editProduct" class = "br-style-btn" style = "margin-bottom:10px;">
+                        <p style = "padding: 8px 15px 8px 15px; margin-bottom: 0px;">Edit the availability</p>
+	                </button>
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+        </form>
+
+        <%
+			if (request.getAttribute("response-update")!=null){
+		%>
+			<p style = "text-align:center;">
+				<%= request.getAttribute("response-update") %>
+			</p>
+		<%
+                request.removeAttribute("response-update");
+            }
+        %>
+        
+    </section>
+
+    <!-- REMOVE A PRODUCT -->
+    
+    <header>
+        <div class = "container" style = "width: 90%; padding: 5px;">
+            <hr/>
+            <h2 style = "text-align: center;"><strong>REMOVE A PRODUCT</strong></h2>
+            <hr/>
+        </div>
+    </header>
+
+    <section>
+        <form id="form-delete" action = "DoDeleteProduct" method = "POST">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        <label>Product code</label>
+                        <input type="text" class="form-control ap-field" id="rp-code" name="productCode" style = "margin-bottom:25px;" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <button id = "btn-removeProduct" class = "br-style-btn" style = "margin-bottom:10px;">
+                        <p style = "padding: 8px 15px 8px 15px; margin-bottom: 0px;">Remove the product</p>
+	                </button>
+                </div>
+            </div>
+        </form>
+
+        <%
+			if (request.getAttribute("response-delete")!=null){
+		%>
+			<p style = "text-align:center;">
+				<%= request.getAttribute("response-delete") %>
+			</p>
+		<%
+                request.removeAttribute("response-delete");
+            }
+        %>
+
     </section>
 
 </body>

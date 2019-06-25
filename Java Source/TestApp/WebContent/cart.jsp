@@ -64,12 +64,12 @@
                             <span id = "span-address"> <!--LIKE HERE lol-->
                                 <br/><%= addr %>
                             </span>
-                            <span><br/>Total of the order: $</span>
+                            <span id="ordTarg"><br/>Total of the order: $</span>
                             <span id = "span-price"> <!--LIKE HERE lol-->
                             	100
                             </span>
                             <div style = "padding: 0px 0px 0px 0px; margin: 10px -16px -10px -16px; border: solid 1px #d1761d;"></div>
-                            <span><br/>The products will arrive in </span>
+                            <span id="dateTarg"><br/>The products will arrive in </span>
                             <span id = "span-date"> <!--LIKE HERE lol-->
                                 13/11/1998
                             </span>
@@ -155,6 +155,13 @@
                         })
                         index++;
                     })
+                }
+                else{
+                    $("#span-price").html("");
+                    $("#span-date").html("");
+                    $("#ordTarg").html("<br>no order");
+                    $("#dateTarg").html("<br>no item selected");
+                    //$("#btn-orderNow").attr("display","none");
                 }
                 
             })

@@ -138,7 +138,7 @@
                 var cart=JSON.parse(data);
                 
                 if(cart.length>0){
-                    var totPrice=cart.map(x=>x.price).reduce((a,b)=>a+b,0);
+                    var totPrice=cart.map(x=>x.price*x.number).reduce((a,b)=>a+b,0);
                     var latestShipment=cart.map(x=>x.shipment).reduce((a,b)=>(a>b)?a:b,0);
                     $("#span-price").html(totPrice);
                     $("#span-date").html(latestShipment +" day/s");

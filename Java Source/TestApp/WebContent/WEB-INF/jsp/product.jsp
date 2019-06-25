@@ -120,8 +120,8 @@
     	                    <!--QUANTITY-->
         	                <div id = "div-quantity" class = "input-group" style = "margin-bottom: 30px;">
             	                <span id = "qt-span" class="input-group-addon">Quantity</span>
-                	            <input id ="product-quantity" type="number" class="form-control" name="number" value = "1" min="0">
-                    	        <input id = "product-serial" name = "prodId" style = "display: none;" value = "<%= bean.getProductCode() %>">
+                	            <input id ="product-quantity" type="number" class="form-control" name="number" value = "1" min="1">
+                    	        <input id = "product-serial" type = "text" name = "prodId" style = "display: none;" value = "<%= bean.getProductCode() %>">
                         	</div>
                     	</form>
                     </div>

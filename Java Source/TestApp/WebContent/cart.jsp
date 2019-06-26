@@ -101,7 +101,7 @@
                             <img class = "product-img img-responsive" src = "./images/product_3ds.png" alt = "image to set">
                         </div>
                      
-                        <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;">
+                        <div class="panel-footer target-footer" style = "padding-left: 10px; padding-right: 8px;">
                             
                             <strong>Price: $<span class = "price-value">1000</span></strong>
                             
@@ -125,7 +125,7 @@
     </section>
     <script>
         function generateCard(){
-            return $('<article class = "center-block" style = "margin-bottom: 20px;"> <div class="panel panel-default panel-other right-panel fatherofall"> <div class="product-name panel-heading"><strong>NINTENDO 3DS</strong></div> <div class="panel-body" style = "padding: 5px;"> <img class = "product-img img-responsive" src = "./images/product_3ds.png" alt = "image to set"> </div> <div class="panel-footer" style = "padding-left: 10px; padding-right: 8px;"> <strong>Price: $<span class = "price-value">1000</span></strong> <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div> <strong>Quantity: <span class = "quantity-value">1</span></strong> <div style = "margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; float: right;"> <button type="button" class="button-remove btn btn-default btn-xs">Remove from cart</button> </div> </div> </div> </article>')
+            return $('<article class = "center-block" style = "margin-bottom: 20px;"> <div class="panel panel-default panel-other right-panel fatherofall"> <div class="product-name panel-heading"><strong>NINTENDO 3DS</strong></div> <div class="panel-body" style = "padding: 5px;"> <img class = "product-img img-responsive" src = "./images/product_3ds.png" alt = "image to set"> </div> <div class="panel-footer target-footer" style = "padding-left: 10px; padding-right: 8px;"> <strong>Price: $<span class = "price-value">1000</span></strong> <div style = "margin: 0px 12px 0px 0px; padding: 0px 0px 0px 0px; display: inline-block"></div> <strong>Quantity: <span class = "quantity-value">1</span></strong> <div class = "btn-cont"> <button type="button" class="button-remove btn btn-default btn-xs">Remove from cart</button> </div> </div> </div> </article>')
         }
 
         function getQueryString(prod){

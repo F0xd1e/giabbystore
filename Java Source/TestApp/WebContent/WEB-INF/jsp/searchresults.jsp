@@ -21,32 +21,28 @@
 <body>
 
 
- <nav class="navbar navbar-inverse navbar-fixed-top" >
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a style = "padding-left:10px;" class="navbar-brand" href="./index.jsp">Return to index</a>
-                </div>
-            </div>
-        </nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top" >
+        <div class="container-fluid">
+           <div class="navbar-header">
+               <a style = "padding-left:10px;" class="navbar-brand" href="./index.jsp">Return to index</a>
+           </div>
+        </div>
+    </nav>
 
-		<header>
-            <div class = "container" style = "width: 90%; padding: 5px; margin-top:50px;">
-                <h2 style = "text-align: center;"><strong>Search results: </strong></h2>
-                <hr/>
-            </div>
-        </header>
-        	<section>
+	<header>
+        <div class = "container" style = "width: 90%; padding: 5px; margin-top:50px;">
+            <h2 style = "text-align: center;"><strong>Search results: </strong></h2>
+            <hr/>
+        </div>
+    </header>
+
+    <section style = "width: 90%; margin-left: 5%;">
+        <c:if test="${empty searchRes}">
+			<h3>Nessun prodotto trovato.</h3>
+		</c:if>
         	
-        				<c:if test="${empty searchRes}">
-				<h3>Nessun prodotto trovato.</h3>
-			</c:if>
-        	
-		
-			<c:forEach items="${searchRes}" var="ret">
-			
-			
-			
-				 <div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
+		<c:forEach items="${searchRes}" var="ret">
+			<div class="col-sm-3" style = "padding-left:4px;padding-right:4px;">
                 <a href="DoRetrieveProductBean?productId=${ret.getProductCode()}">
                 <div class = "container-fluid item-container target">
                     <div class = "item-header">
@@ -61,13 +57,10 @@
                 </div>
                 </a>
             </div>
-			</c:forEach>
-
-        		
-        		
-        	</section>
-
-        
-
+        </c:forEach>
+    </section>
+    <%
+        session.removeAttribute("searchRes");
+    %>
 </body>
 </html>

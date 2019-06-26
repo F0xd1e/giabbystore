@@ -112,6 +112,5 @@
             <!-- END OF THE PRESET -->
 
         </section>
-<%@include file="./WEB-INF/jsp/footer.jsp"%>
     </body>
 </html>

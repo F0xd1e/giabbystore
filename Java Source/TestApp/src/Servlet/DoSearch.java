@@ -43,7 +43,7 @@ public class DoSearch extends HttpServlet {
 		ArrayList<ProductBean> ret = null;
 		
 		try {
-			ret=handler.retrieveProductByStringName(userinput);
+			ret= new ArrayList<ProductBean>(handler.retrieveProductByStringName(userinput));
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class DoSearch extends HttpServlet {
 		
 		
 		request.setAttribute("searchRes", ret);
-		request.getRequestDispatcher("searchresults.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/searchresults.jsp").forward(request, response);
 		
 	}
 	

@@ -203,9 +203,9 @@ public class ProductDAO {
 		conn.startConnection();
 		PreparedStatement stateAll = conn.getJdbcConnection().prepareStatement("SELECT * FROM prodotto WHERE titolo LIKE '"+input+"%' ");
 		ResultSet container = stateAll.executeQuery();
-		System.err.println(container);
 		
-		 if(container.next() != false) {
+		
+		 while(container.next()) {
 			
 			int productCode=container.getInt("codiceProdotto");
 			String title=container.getString("titolo"), description=container.getString("descrizione"), tipology=container.getString("tipologia"), imgPath=container.getString("imgPath");
@@ -222,6 +222,7 @@ public class ProductDAO {
 			prod.setShipment(shipment);
 			
 			res.add(prod);
+			
 			
 		}
 		

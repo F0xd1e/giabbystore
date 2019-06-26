@@ -7,6 +7,7 @@ $(document).ready(function(){
         for(let cat of catVec){
             var element=$('<li>');
             var link=$('<a>');
+            link.attr("href","DoRetrieveByCategory?category="+cat);
             link.html(cat);
             element.append(link);
             dropD.append(element);

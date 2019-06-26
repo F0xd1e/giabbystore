@@ -54,6 +54,12 @@ public class ProductBean {
 		this.shipment = shipment;
 	}
 	
+	@Override
+	public String toString() {
+		return "ProductBean [title=" + title + ", description=" + description + ", tipology=" + tipology + ", imgPath="
+				+ imgPath + ", price=" + price + ", productCode=" + productCode + ", availability=" + availability
+				+ ", shipment=" + shipment + "]";
+	}
 	/*ATTENZIONE: IMPOSTARE IL PRODUCT CODE POTREBBE CREARE PROBLEMI SICCOME È PRESENTE L'AUTO_INCREMENT*/
 	public void setProductCode(int productCode) {
 		this.productCode = productCode;

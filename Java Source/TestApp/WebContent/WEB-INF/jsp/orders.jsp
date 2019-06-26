@@ -1,3 +1,13 @@
+<%!
+	String userThing = null;
+%>
+<%
+	userThing = (String)session.getAttribute("user");
+	if (userThing == null) {
+		response.sendRedirect("index.jsp");
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +45,7 @@
         </header>
 
         <!-- START OF COPY -->
-        <section class = "center-block" style = "width: 80%; margin-bottom: 15px;">
+        <section class = "center-block totalBlock" margin-bottom: 15px;">
             <!-- ORDER PANEL -->
             <div class="panel panel-default panel-other" style = "margin: -1px -1px -1px -1px;">
                 

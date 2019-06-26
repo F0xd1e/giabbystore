@@ -20,6 +20,11 @@
     margin-top: 15px;
     margin-bottom: 20px;
 }
+.btn-cont{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	float: right;
+}
 .hide-resize{
     display: none;
 }
@@ -97,13 +102,11 @@
 .panel-left{
 	display: inline-block;
 	width: 80%;
-	border: solid 1px red;
 	float: left;
 }
 .panel-right{
 	display: inline-block;
 	width: 20%;
-	border: solid 1px yellow;
 	overflow: auto;
 }
 .middleTxt{
@@ -121,6 +124,9 @@
 	margin: 0px 0px 0px 0px;
 	width: 100%;
 	text-align: right;
+}
+.totalBlock{
+	width: 70%;
 }
 /*
     *
@@ -150,7 +156,10 @@
 }
 /*RESIZE DELL'INTERA PAGINA*/
 @media screen and (max-width: 769px){
-    #btnSubmit{
+	.totalBlock{
+		width: 80%;
+	}
+	#btnSubmit{
         margin-left:0%;
         margin-bottom:10px;
     }
@@ -253,6 +262,9 @@
 	.pr-c{
 		text-align: left;
 	}
+	.totalBlock{
+		width: 90%;
+	}
 }
 @media screen and (max-width: 480px){
 	#search-field{
@@ -292,4 +304,13 @@
     	margin-left: 8px;
     	margin-right: 0px;
     }
+}
+@media screen and (max-width: 415px){
+	.button-remove{
+		margin-top:2px;
+		margin-left: 30px;
+	}
+	.target-footer{
+		height: 60px;
+	}
 }

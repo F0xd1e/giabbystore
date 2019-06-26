@@ -1,3 +1,13 @@
+<%!
+	String adminThing = null;
+%>
+<%
+	adminThing = (String)session.getAttribute("admin");
+	if (adminThing == null) {
+		response.sendRedirect("index.jsp");
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html>
     <head>

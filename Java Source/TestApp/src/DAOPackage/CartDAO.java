@@ -114,7 +114,7 @@ public class CartDAO {
 		DatabaseConnector conn=new DatabaseConnector();
 		conn.startConnection();
 		PreparedStatement stateAll = conn.getJdbcConnection()
-				.prepareStatement("SELECT utente,prodotto FROM Carrello WHERE utente = ? AND prodotto= ?");
+				.prepareStatement("SELECT * FROM Carrello WHERE utente = ? AND prodotto= ?");
 		stateAll.setString(1, userId);
 		stateAll.setInt(2,productId);
 		ResultSet container = stateAll.executeQuery();

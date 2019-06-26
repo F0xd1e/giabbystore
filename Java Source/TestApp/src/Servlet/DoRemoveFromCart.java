@@ -70,7 +70,7 @@ public class DoRemoveFromCart extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
+		response.sendRedirect("cart.jsp");
 	}
 
 	/**

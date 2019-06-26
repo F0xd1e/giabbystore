@@ -44,7 +44,17 @@
 		</c:if>
 		
 		<%
+			Comparator<OrderPairing> cmp=(a,b)->{
+				int idA=a.getOrder().getOrderCode();
+				int idB=b.getOrder().getOrderCode();
+				if(idA>idB) return 1;
+				else if(idA<idB) return -1;
+				else return 0;
+				
+			};
+			
 			ArrayList<OrderPairing> pairs=(ArrayList<OrderPairing>)request.getAttribute("orders");
+			pairs.sort(cmp);
 			for( OrderPairing pair : pairs){
 				OrderBean order=pair.getOrder();
 				ArrayList<ProductInfo> products=pair.getProducts();
@@ -68,7 +78,7 @@
                     	for(ProductInfo productInfo : products){
                     	
                     %>
-                    <div class = "panel panel-default panel-other-reverted">
+                    <div class = "panel panel-default panel-other-reverted panel-prod-s">
                         <div class = "panel panel-body" style = "padding: 3px 3px 3px 3px;">
                         	<div class = "panel-left">
                         		<!--CHANGE THE IMAGE WITH THE CLASS panel-imageToChange-->

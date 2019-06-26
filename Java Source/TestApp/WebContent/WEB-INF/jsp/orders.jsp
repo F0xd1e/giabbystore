@@ -78,7 +78,7 @@
                     	for(ProductInfo productInfo : products){
                     	
                     %>
-                    <div class = "panel panel-default panel-other-reverted panel-prod-s">
+                    <div class = "panel panel-default panel-other-reverted ">
                         <div class = "panel panel-body" style = "padding: 3px 3px 3px 3px;">
                         	<div class = "panel-left">
                         		<!--CHANGE THE IMAGE WITH THE CLASS panel-imageToChange-->

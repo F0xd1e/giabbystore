@@ -43,7 +43,7 @@ public class DoSearch extends HttpServlet {
 		ArrayList<ProductBean> ret = null;
 		
 		try {
-			ret=handler.retrieveProductByStringName(userinput);
+			ret= new ArrayList<ProductBean>(handler.retrieveProductByStringName(userinput));
 		} catch (SQLException e) {
 			
 			e.printStackTrace();

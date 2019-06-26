@@ -50,7 +50,7 @@
 				ArrayList<ProductInfo> products=pair.getProducts();
 		%>
         <!-- START OF COPY   WHOLE CARD-->
-        <section class = "center-block totalBlock" margin-bottom: 15px;">
+        <section class = "center-block totalBlock">
             <!-- ORDER PANEL -->
             <div class="panel panel-default panel-other" style = "margin: -1px -1px -1px -1px;">
                 
@@ -112,7 +112,7 @@
                         <!-- LIKE HERE! -->
                         Order date: <span class = "footer-orderDate"><%=order.getOrderDate() %></span><br/>
                         Shipment date: <span class = "footer-shipmentDate"><%= order.getShipmentDate()%></span><br/>
-                        Total price: $<span class = "footer-totalPrice"><%=order.getShipmentPrice() %></span><br/>
+                        Total price: $<span class = "footer-totalPrice"><%=order.getTotalPrice() %></span><br/>
                         Payment code: <span class = "footer-paymentCode"><%=order.getPaymentCode() %></span><br/>
                     </p>
                 </div>

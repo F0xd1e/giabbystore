@@ -75,7 +75,7 @@
                             <li><a href="./account.jsp">Go to your account</a></li>
                         </ul>
                     </li>
-                    <li class = "changeColor"><a href="./cart.jsp"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize"></span> <span class = "hide-resize">Cart</span></a></li>
+                    <li class = "changeColor"><a href="DoRetrieveCart"><span class="glyphicon glyphicon-shopping-cart" class = "gl-resize"></span> <span class = "hide-resize">Cart</span></a></li>
                     <li class = "changeColor"><a href="" id="spanLogOut"><span class="glyphicon glyphicon-log-out" class = "gl-resize" style = "margin-right: 3px;"></span> <span class = "hide-resize-d">Logout</span></a></li>
 
                 <%

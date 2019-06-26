@@ -60,8 +60,8 @@
 			Comparator<OrderPairing> cmp=(a,b)->{
 				int idA=a.getOrder().getOrderCode();
 				int idB=b.getOrder().getOrderCode();
-				if(idA>idB) return 1;
-				else if(idA<idB) return -1;
+				if(idA>idB) return -1;
+				else if(idA<idB) return 1;
 				else return 0;
 				
 			};

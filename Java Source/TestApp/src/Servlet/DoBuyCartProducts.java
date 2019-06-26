@@ -123,6 +123,8 @@ public class DoBuyCartProducts extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		response.sendRedirect("cart.jsp");
 	}
 
 	/**

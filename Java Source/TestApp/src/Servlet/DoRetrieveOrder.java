@@ -52,7 +52,7 @@ public class DoRetrieveOrder extends HttpServlet {
 		}
 		
 		if(allOrders==null) {
-			request.setAttribute("response", "There is no order for this user.");
+			request.setAttribute("msg", "There is no order for this user.");
 			request.getRequestDispatcher("/WEB-INF/jsp/orders.jsp").forward(request, response);
 			return;
 		}

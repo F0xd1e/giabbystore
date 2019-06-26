@@ -43,6 +43,19 @@
 			<h3>No order found.</h3>
 		</c:if>
 		
+		<%!
+			String message = null;
+		%>
+		<%
+			message = (String)request.getAttribute("msg");
+			if (message != null){
+		%>
+			<h4 style = "text-align: center;">No order found.</h4>
+		<%
+			return;
+			}
+		%>
+		
 		<%
 			Comparator<OrderPairing> cmp=(a,b)->{
 				int idA=a.getOrder().getOrderCode();

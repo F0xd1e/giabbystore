@@ -99,7 +99,7 @@ public class OrderDAO {
 		}
 		else {
 			
-			int code=container.getInt("codiceOrdine");
+			int code=container.getInt("MaxCodice");
 			connector.closeConnection();
 			return code;
 		

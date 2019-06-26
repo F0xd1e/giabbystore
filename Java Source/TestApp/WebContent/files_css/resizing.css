@@ -97,13 +97,11 @@
 .panel-left{
 	display: inline-block;
 	width: 80%;
-	border: solid 1px red;
 	float: left;
 }
 .panel-right{
 	display: inline-block;
 	width: 20%;
-	border: solid 1px yellow;
 	overflow: auto;
 }
 .middleTxt{
@@ -121,6 +119,9 @@
 	margin: 0px 0px 0px 0px;
 	width: 100%;
 	text-align: right;
+}
+.totalBlock{
+	width: 70%;
 }
 /*
     *
@@ -150,7 +151,10 @@
 }
 /*RESIZE DELL'INTERA PAGINA*/
 @media screen and (max-width: 769px){
-    #btnSubmit{
+	.totalBlock{
+		width: 80%;
+	}
+	#btnSubmit{
         margin-left:0%;
         margin-bottom:10px;
     }
@@ -252,6 +256,9 @@
 	}
 	.pr-c{
 		text-align: left;
+	}
+	.totalBlock{
+		width: 90%;
 	}
 }
 @media screen and (max-width: 480px){

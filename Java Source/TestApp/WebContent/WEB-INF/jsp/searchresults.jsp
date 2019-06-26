@@ -1,8 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="JavaBeans.ProductBean" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +12,13 @@
 	<link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
 	<link rel="stylesheet" type="text/css" href="./files_css/searchres.css">
 	<link rel="stylesheet" type="text/css" href="./files_css/index-style.css">
+	
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ page import="JavaBeans.ProductBean" %>
+	<%@ page import="java.util.ArrayList" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 </head>
 <body>
 

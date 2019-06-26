@@ -29,28 +29,29 @@ public class DoRetrieveByCategory extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request, response);
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String category = request.getParameter("category");
 		ProductDAO catHandler = new ProductDAO();
 		ArrayList<ProductBean> ret= null;
 		try {
-			ret = catHandler.retrieveProductByFilter(category);
+			ret = new ArrayList<ProductBean>(catHandler.retrieveProductByFilter(category));
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 			
 		}
 		
-		String json= toJSONCategoryObjects(ret);
 		
-		request.setAttribute("catCollection", json);
-		request.getRequestDispatcher("categorypage.jsp").forward(request, response);
+		
+		request.setAttribute("searchRes", ret);
+		request.getRequestDispatcher("/WEB-INF/jsp/searchresults.jsp").forward(request, response);
+		
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	doGet(request, response);
 		
 	}
 	

@@ -166,11 +166,11 @@ public class ProductDAO {
 		ArrayList<ProductBean> res = new ArrayList<ProductBean>();
 		DatabaseConnector conn=new DatabaseConnector();
 		conn.startConnection();
-		PreparedStatement stateAll = conn.getJdbcConnection().prepareStatement("SELECT * FROM prodotto WHERE tipologia LIKE ?");
+		PreparedStatement stateAll = conn.getJdbcConnection().prepareStatement("SELECT * FROM Prodotto WHERE tipologia LIKE ?");
 		stateAll.setString(1, category);
 		ResultSet container = stateAll.executeQuery();
 		ProductBean prod = null;
-		if(container.next() != false) {
+		while(container.next()) {
 			
 			int productCode=container.getInt("codiceProdotto");
 			String title=container.getString("titolo"), description=container.getString("descrizione"), tipology=container.getString("tipologia"), imgPath=container.getString("imgPath");
@@ -201,7 +201,7 @@ public class ProductDAO {
 		ProductBean prod = null;
 		DatabaseConnector conn=new DatabaseConnector();
 		conn.startConnection();
-		PreparedStatement stateAll = conn.getJdbcConnection().prepareStatement("SELECT * FROM prodotto WHERE titolo LIKE '"+input+"%' ");
+		PreparedStatement stateAll = conn.getJdbcConnection().prepareStatement("SELECT * FROM Prodotto WHERE titolo LIKE '"+input+"%' ");
 		ResultSet container = stateAll.executeQuery();
 		
 		

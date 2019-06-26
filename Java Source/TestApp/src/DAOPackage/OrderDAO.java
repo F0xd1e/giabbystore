@@ -91,7 +91,7 @@ public class OrderDAO {
 		DatabaseConnector connector = new DatabaseConnector();
 		connector.startConnection();
 		PreparedStatement stateAll = connector.getJdbcConnection()
-				.prepareStatement("SELECT Max(codiceOrdine) AS MaxCodice FROM ordine");
+				.prepareStatement("SELECT Max(codiceOrdine) AS MaxCodice FROM Ordine");
 		ResultSet container=stateAll.executeQuery();
 		if(container.next()==false) {
 			connector.closeConnection();

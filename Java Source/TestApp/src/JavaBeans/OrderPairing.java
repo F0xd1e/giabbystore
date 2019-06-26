@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class OrderPairing {
 	private OrderBean order;
-	private ArrayList<ProductBean> products;
+	private ArrayList<ProductInfo> products;
 	
-	public OrderPairing(OrderBean order,ArrayList<ProductBean> products) {
+	public OrderPairing(OrderBean order,ArrayList<ProductInfo> products) {
 		this.order=order;
 		this.products=products;
 	}
@@ -15,7 +15,7 @@ public class OrderPairing {
 		return order;
 	}
 
-	public ArrayList<ProductBean> getProducts() {
+	public ArrayList<ProductInfo> getProducts() {
 		return products;
 	}
 	

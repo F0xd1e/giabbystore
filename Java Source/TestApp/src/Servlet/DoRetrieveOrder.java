@@ -16,6 +16,7 @@ import DAOPackage.ReferenceDAO;
 import JavaBeans.OrderBean;
 import JavaBeans.OrderPairing;
 import JavaBeans.ProductBean;
+import JavaBeans.ProductInfo;
 import JavaBeans.ReferenceBean;
 import JavaBeans.UserBean;
 
@@ -77,7 +78,7 @@ public class DoRetrieveOrder extends HttpServlet {
 	private ArrayList<OrderPairing> getOrderProductPairings(ArrayList<OrderBean> allOrders){
 		ArrayList<OrderPairing> pairings=new ArrayList<>();
 		for(OrderBean order : allOrders) {
-			ArrayList<ProductBean> products=getOrderProducts(order);
+			ArrayList<ProductInfo> products=getOrderProducts(order);
 			OrderPairing pair=new OrderPairing(order, products);
 			pairings.add(pair);
 		}
@@ -86,14 +87,16 @@ public class DoRetrieveOrder extends HttpServlet {
 		
 	}
 	
-	private ArrayList<ProductBean> getOrderProducts(OrderBean order){
+	private ArrayList<ProductInfo> getOrderProducts(OrderBean order){
 		
 		int orderCode=order.getOrderCode();
 		ReferenceDAO rDao=new ReferenceDAO();
+		int orderQuantity=0;
 		ArrayList<ReferenceBean> references=null;
 		ProductDAO pDao=new ProductDAO();
-		ProductBean product=null;
-		ArrayList<ProductBean> products=new ArrayList<ProductBean>();
+		ProductBean prod=null;
+		ProductInfo product=null;
+		ArrayList<ProductInfo> products=new ArrayList<>();
 		try {
 			references= rDao.doRetrieveByOrderCode(orderCode);
 		} catch (SQLException e) {
@@ -103,11 +106,13 @@ public class DoRetrieveOrder extends HttpServlet {
 		
 		for(ReferenceBean r:references) {
 			try {
-				product=pDao.doRetrieveProductByID(r.getProductCode());
+				prod=pDao.doRetrieveProductByID(r.getProductCode());
+				orderQuantity=r.getQuantity();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			product=new ProductInfo(prod, orderQuantity);
 			products.add(product);
 		}
 		return products;

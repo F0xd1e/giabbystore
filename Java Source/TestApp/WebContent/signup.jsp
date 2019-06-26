@@ -1,3 +1,15 @@
+<%!
+	String userThing = null;
+	String adminThing = null;
+%>
+<%
+	userThing = (String)session.getAttribute("user");
+	adminThing = (String)session.getAttribute("admin");
+	if (userThing != null || adminThing != null) {
+		response.sendRedirect("index.jsp");
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>

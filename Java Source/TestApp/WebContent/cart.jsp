@@ -1,3 +1,13 @@
+<%!
+	String userThing = null;
+%>
+<%
+	userThing = (String)session.getAttribute("user");
+	if (userThing == null) {
+		response.sendRedirect("index.jsp");
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>

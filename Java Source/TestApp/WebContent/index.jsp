@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
     <link rel="stylesheet" type="text/css" href="./files_css/index-style.css">
     <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
+    <link rel="stylesheet" type="text/css" href="./files_css/footer.css">
 
     <script src = "./files_js/js-index.js"></script>
     
@@ -299,6 +300,11 @@
             </div>
         </div>
     </div>
+
+	<!-- FOOTER OF THE PAGE -->
+	<footer class="container-fluid bg-footer text-center">
+    	<p class = "firstDesc" style = "margin-top:10px; margin-bottom:20px;">© 2019 Giabby's Team. Tutti i diritti riservati.</p>
+    </footer>
 
 </body>
 </html>

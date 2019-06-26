@@ -50,7 +50,7 @@
 				ArrayList<ProductInfo> products=pair.getProducts();
 		%>
         <!-- START OF COPY   WHOLE CARD-->
-        <section class = "center-block totalBlock">
+        <section class = "center-block totalBlock" >
             <!-- ORDER PANEL -->
             <div class="panel panel-default panel-other" style = "margin: -1px -1px -1px -1px;">
                 
@@ -72,7 +72,7 @@
                         <div class = "panel panel-body" style = "padding: 3px 3px 3px 3px;">
                         	<div class = "panel-left">
                         		<!--CHANGE THE IMAGE WITH THE CLASS panel-imageToChange-->
-                            	<img class = "panel-imageToChange img-rounded" src = "./images/product_3ds.png">
+                            	<img class = "panel-imageToChange img-rounded" src = "<%=productInfo.getProduct().getImgPath()%>">
                             	<!--CHANGE THE TITLE OF THE PRODUCT WITH THE CLASS panel-productTitle-->
                             	<div class = "panel-productTitle middleTxt">
                                 	<%= productInfo.getProduct().getTitle()%>

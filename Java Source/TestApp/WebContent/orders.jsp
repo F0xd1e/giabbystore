@@ -51,24 +51,29 @@
                     <!-- START OF COPY FOR THE SINGLE ORDER -->
                     <div class = "panel panel-default panel-other-reverted">
                         <div class = "panel panel-body" style = "padding: 3px 3px 3px 3px;">
-                            <!--CHANGE THE IMAGE WITH THE CLASS panel-imageToChange-->
-                            <img class = "panel-imageToChange img-rounded" src = "./images/product_3ds.png">
-                            <!--CHANGE THE TITLE OF THE PRODUCT WITH THE CLASS panel-productTitle-->
-                            <p class = "panel-productTitle middleTxt">
-                                TELEVISIONVERYGOOD
-                            </p>
-                            <p class = "panel-myContainer middleTxt" style = "float: right; margin-top: -20px; padding-right: 4px;">
-                            	Qt. <!-- EDIT HERE WITH THE CLASS panel-productQuantity -->
+                        	<div class = "panel-left">
+                        		<!--CHANGE THE IMAGE WITH THE CLASS panel-imageToChange-->
+                            	<img class = "panel-imageToChange img-rounded" src = "./images/product_3ds.png">
+                            	<!--CHANGE THE TITLE OF THE PRODUCT WITH THE CLASS panel-productTitle-->
+                            	<div class = "panel-productTitle middleTxt">
+                                	TELEVISIONVERYGOOD
+                            	</div>
+                        	</div>
+                        	<div class = "panel-right">
+                        		<div class = "qt-c">
+                        			Qt. <!-- EDIT HERE WITH THE CLASS panel-productQuantity -->
                             		<span class = "panel-productQuantity">
                             			10
                             		</span>
-                            	&nbsp &nbsp $
-                            		<!-- EDIT HERE WITH THE CLASS panel-productPrice -->
-                            		<span class = "panel-productPrice">
-                            			25
-                            		</span>
-                            	each
-                            </p>
+                            	</div>
+                            	<div class = "pr-c">
+                            		$ <!-- EDIT HERE WITH THE CLASS panel-productPrice -->
+                       	    			<span class = "panel-productPrice">
+                           					25
+                           				</span>
+                           			each
+                            	</div>
+                        	</div>
                         </div>
                     </div>
                     <!-- END OF COPY FOR THE SINGLE ORDER -->

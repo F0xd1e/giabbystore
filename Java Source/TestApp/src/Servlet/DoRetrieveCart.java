@@ -19,7 +19,6 @@ import DAOPackage.ProductDAO;
 
 import JavaBeans.CartBean;
 import JavaBeans.ProductBean;
-import JavaBeans.ProductInfo;
 import JavaBeans.UserBean;
 
 /**
@@ -59,19 +58,21 @@ public class DoRetrieveCart extends HttpServlet {
 			
 		}
 		
-		ArrayList<ProductInfo> res=null;
+		String res=null;
 		
-		
-		
-		try {
-			res=getCartList(cart);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(cart==null) {
+			res="[]";
+		}
+		else {
+			try {
+				res=cartToJSON(cart);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
-		request.getSession().setAttribute("cart", res);
-		response.sendRedirect("cart.jsp");
+		response.getWriter().write(res);
 		
 	}
 
@@ -83,20 +84,28 @@ public class DoRetrieveCart extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private ArrayList<ProductInfo> getCartList(ArrayList<CartBean> cart) throws SQLException {
+	private String cartToJSON(ArrayList<CartBean> cart) throws SQLException {
 		
-		ArrayList<ProductInfo> prods=new ArrayList<>();
+		JSONArray arr=new JSONArray();
+		JSONObject obj=null;
 		for(CartBean c : cart) {
 			
 			ProductDAO pDao=new ProductDAO();
 			ProductBean prod=null;
 			prod=pDao.doRetrieveProductByID(c.getProductCode());
-			ProductInfo pInfo=new ProductInfo(prod, c.getQuantity());
 			
-			prods.add(pInfo);
+			obj=new JSONObject();
+			obj.put("imgPath", prod.getImgPath());
+			obj.put("price", prod.getPrice());
+			obj.put("title", prod.getTitle());
+			obj.put("number", c.getQuantity());
+			obj.put("shipment", prod.getShipment());
+			obj.put("prodId", prod.getProductCode());
+			
+			arr.put(obj);
 		}
 		
-		return prods;
+		return arr.toString();
 	}
 	
 

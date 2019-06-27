@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import DBPackage.DatabaseConnector;
 import JavaBeans.CartBean;
-import JavaBeans.ProductBean;
 import JavaBeans.UserBean;
 
 public class CartDAO {

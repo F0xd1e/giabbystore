@@ -56,6 +56,7 @@ public class DoRetrieveByCategory extends HttpServlet {
 	}
 	
 	
+	@SuppressWarnings("unused")
 	private String toJSONCategoryObjects(ArrayList<ProductBean> ret) {
 		
 		

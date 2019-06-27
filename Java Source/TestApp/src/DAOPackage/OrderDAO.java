@@ -98,11 +98,9 @@ public class OrderDAO {
 			return 1;
 		}
 		else {
-			
 			int code=container.getInt("MaxCodice");
 			connector.closeConnection();
 			return code;
-		
 		}
 	}
 	

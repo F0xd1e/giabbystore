@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="./files_css/general-style.css">
     <link rel="stylesheet" type="text/css" href="./files_css/product-style.css">
     <link rel="stylesheet" type="text/css" href="./files_css/resizing.css">
+    <link rel="stylesheet" type="text/css" href="./files_css/extraResizing.css">
 
 </head>
 <body>
